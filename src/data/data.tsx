@@ -17,12 +17,7 @@ import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
+
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -162,78 +157,32 @@ export const portfolioItems: PortfolioItem[] = [
     description: 'A description of the project.',
     url: 'https://example.com',
     image: porfolioImage1,
-    slug: 'project-1',
   },
   {
     title: 'Project 2',
     description: 'Another cool project.',
     url: 'https://example.com',
     image: porfolioImage2,
-    slug: 'project-2',
   },
   {
     title: 'Project 3',
     description: 'A description of the project.',
     url: 'https://example.com',
     image: porfolioImage3,
-    slug: 'project-3',
   },
   {
     title: 'Project 4',
     description: 'Another cool project.',
     url: 'https://example.com',
     image: porfolioImage4,
-    slug: 'project-4',
   },
   {
     title: 'Project 5',
     description: 'A description of the project.',
     url: 'https://example.com',
     image: porfolioImage5,
-    slug: 'project-5',
   },
-  {
-    title: 'Project 6',
-    description: 'Another cool project.',
-    url: 'https://example.com',
-    image: porfolioImage6,
-    slug: 'project-6',
-  },
-  {
-    title: 'Project 7',
-    description: 'A description of the project.',
-    url: 'https://example.com',
-    image: porfolioImage7,
-    slug: 'project-7',
-  },
-  {
-    title: 'Project 8',
-    description: 'Another cool project.',
-    url: 'https://example.com',
-    image: porfolioImage8,
-    slug: 'project-8',
-  },
-  {
-    title: 'Project 9',
-    description: 'A description of the project.',
-    url: 'https://example.com',
-    image: porfolioImage9,
-    slug: 'project-9',
-  },
-  {
-    title: 'Project 10',
-    description: 'Another cool project.',
-    url: 'https://example.com',
-    image: porfolioImage10,
-    slug: 'project-10',
-  },
-  {
-    title: 'Project 11',
-    description: 'A description of the project.',
-    url: 'https://example.com',
-    image: porfolioImage11,
-    slug: 'project-11',
-  },
+
 ];
 
 /**

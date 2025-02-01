@@ -84,7 +84,6 @@ export interface PortfolioItem {
   description: string;
   url: string;
   image: string | StaticImageData;
-  slug: string; // ✅ Added slug for dynamic routing
 }
 
 /**
