@@ -28,11 +28,14 @@ export interface Hero {
 }
 
 interface HeroActionItem {
-  href: string;
+  href?: string;
   text: string;
   primary?: boolean;
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  download?: boolean;
+  onClick?: () => void;
 }
+
 
 /**
  * About section
@@ -81,6 +84,7 @@ export interface PortfolioItem {
   description: string;
   url: string;
   image: string | StaticImageData;
+  slug: string; // ✅ Added slug for dynamic routing
 }
 
 /**
@@ -91,7 +95,9 @@ export interface TimelineItem {
   location: string;
   title: string;
   content: JSX.Element;
+  imageSrc?: string;
 }
+
 
 /**
  * Testimonial section

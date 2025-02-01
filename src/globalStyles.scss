@@ -49,3 +49,9 @@ th {
 th {
   font-weight: 600;
 }
+
+@layer components {
+  .company-logo {
+    @apply w-24 h-24 object-contain md:mr-6 mb-4 md:mb-0;
+  }
+}

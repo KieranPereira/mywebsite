@@ -2,18 +2,16 @@ import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
   BuildingOffice2Icon,
-  CalendarIcon,
+  // CalendarIcon,
   FlagIcon,
   MapIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
-import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
+
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
@@ -40,12 +38,15 @@ import {
   TimelineItem,
 } from './dataDef';
 
+
+
+
 /**
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Kieran Pereira - Portfolio',
+  description: "Portfolio website of Kieran Pereira, an engineer specializing in robotics and AI.",
 };
 
 /**
@@ -64,32 +65,39 @@ export const SectionId = {
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
+const handleResumeDownload = () => {
+  const link = document.createElement('a');
+  link.href = '/assets/KieranPereira_Resume.pdf';
+  link.setAttribute('download', 'Kieran_Pereira_Resume.pdf');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+
 /**
  * Hero section
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `Hi, I'm Kieran!`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        I'm a <strong className="text-stone-100">Mechanical Engineer</strong> specializing in <strong className="text-stone-100">robotics and AI</strong>, currently pursuing my MEng at <strong className="text-stone-100">UC Berkeley</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        My work focuses on autonomous robotic systems, machine learning, and control algorithms for real-world applications.
       </p>
     </>
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: '/assets/KieranPereira_Resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
+      onClick: handleResumeDownload,
     },
     {
       href: `#${SectionId.Contact}`,
@@ -104,16 +112,13 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `I'm a robotics and AI-focused mechanical engineer with experience in autonomous systems, control design, and software development. I enjoy applying my knowledge to real-world challenges in automation and AI-powered robotics.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Location', text: 'Berkeley, CA', Icon: MapIcon},
+    {label: 'Education', text: 'UC Berkeley (MEng) & UCL (BEng)', Icon: AcademicCapIcon},
+    {label: 'Nationality', text: 'British / Australian', Icon: FlagIcon},
+    {label: 'Interests', text: 'Robotics, AI, Autonomous Systems , Guitar', Icon: SparklesIcon},
+    {label: 'Employment', text: 'Lockheed Martin, Airbus, HSBC', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -122,71 +127,28 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Spoken languages',
+    name: 'Programming Languages',
     skills: [
-      {
-        name: 'English',
-        level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
+      { name: 'C++', level: 10 },
+      { name: 'Python', level: 9 },
+      { name: 'MATLAB', level: 8 },
+      { name: 'Flutter', level: 6 },
     ],
   },
   {
-    name: 'Frontend development',
+    name: 'AI & Machine Learning',
     skills: [
-      {
-        name: 'React',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
+      { name: 'TensorFlow', level: 8 },
+      { name: 'OpenCV', level: 7 },
+      { name: 'PyTorch', level: 7 },
     ],
   },
   {
-    name: 'Backend development',
+    name: 'Robotics & Embedded Systems',
     skills: [
-      {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
-      },
-    ],
-  },
-  {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
-        level: 9,
-      },
-      {
-        name: 'Flutter',
-        level: 4,
-      },
-      {
-        name: 'Swift',
-        level: 3,
-      },
+      { name: 'ROS2', level: 9 },
+      { name: 'Simulink', level: 8 },
+      { name: 'ESP32', level: 8 },
     ],
   },
 ];
@@ -196,70 +158,81 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 1',
+    description: 'A description of the project.',
+    url: 'https://example.com',
     image: porfolioImage1,
+    slug: 'project-1',
   },
   {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 2',
+    description: 'Another cool project.',
+    url: 'https://example.com',
     image: porfolioImage2,
+    slug: 'project-2',
   },
   {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 3',
+    description: 'A description of the project.',
+    url: 'https://example.com',
     image: porfolioImage3,
+    slug: 'project-3',
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 4',
+    description: 'Another cool project.',
+    url: 'https://example.com',
     image: porfolioImage4,
+    slug: 'project-4',
   },
   {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 5',
+    description: 'A description of the project.',
+    url: 'https://example.com',
     image: porfolioImage5,
+    slug: 'project-5',
   },
   {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 6',
+    description: 'Another cool project.',
+    url: 'https://example.com',
     image: porfolioImage6,
+    slug: 'project-6',
   },
   {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 7',
+    description: 'A description of the project.',
+    url: 'https://example.com',
     image: porfolioImage7,
+    slug: 'project-7',
   },
   {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 8',
+    description: 'Another cool project.',
+    url: 'https://example.com',
     image: porfolioImage8,
+    slug: 'project-8',
   },
   {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 9',
+    description: 'A description of the project.',
+    url: 'https://example.com',
     image: porfolioImage9,
+    slug: 'project-9',
   },
   {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 10',
+    description: 'Another cool project.',
+    url: 'https://example.com',
     image: porfolioImage10,
+    slug: 'project-10',
   },
   {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Project 11',
+    description: 'A description of the project.',
+    url: 'https://example.com',
     image: porfolioImage11,
+    slug: 'project-11',
   },
 ];
 
@@ -268,40 +241,73 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
+    date: 'August 2024 - May 2025',
+    location: 'University of California, Berkeley',
+    imageSrc:  "/experience/Berkeley.png",
+    title: 'MEng Mechanical Engineering (Robotics and Autonomous Systems)',
     content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: '2020 - 2024',
+    location: 'University College London (UCL)',
+    imageSrc:  "/experience/UCL.png",
+    title: 'BEng Mechanical Engineering with Intelligent Systems',
+    content: <p>Capstone: Designed a neural network-powered car dashboard system that outperformed industry benchmarks.</p>,
   },
 ];
 
+
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: '2023 - 2024',
+    location: 'Lockheed Martin',
+    title: 'Software & Systems Engineer',
+    imageSrc:  "/experience/Lockheed Martin.png",
     content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
-      </p>
+      <ul>
+        <li>Developed real-time combat simulation software for complex networked environments.</li>
+        <li>Secured £100,000 in funding for AI-based quality control automation.</li>
+        <li>Designed simulation software to handle over 500+ entities with real-time accuracy.</li>
+      </ul>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: '2024',
+    location: 'HSBC',
+    title: 'Global Digital Strategy Analyst',
+    imageSrc:  "/experience/HSBC.png",
     content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
-      </p>
+      <ul>
+        <li>Conducted statistical analysis identifying $300k in savings.</li>
+        <li>Collaborated with international teams across seven countries for digital transformation projects.</li>
+        <li>Led customer-facing discussions to streamline digital processes, reducing time-to-market by 11%.</li>
+      </ul>
+    ),
+  },
+  {
+    date: '2022 - 2022',
+    location: 'University College London',
+    title: 'Machine Learning Researcher',
+    imageSrc:  "/experience/UCL.png",
+    content: (
+      <ul>
+        <li>Developed an AI-based classification system for healthcare applications.</li>
+        <li>Achieved 90% classification accuracy for skin condition detection using computer vision.</li>
+        <li>Worked closely with NHS clinicians to implement AI in real-world medical research.</li>
+      </ul>
+    ),
+  },
+  {
+    date: '2019',
+    location: 'Airbus',
+    title: 'Summer Work Experience',
+    imageSrc: "/experience/Airbus.png",
+    content: (
+      <ul>
+        <li>Analyzed performance of new wing technology using data analytics and mathematical modeling.</li>
+        <li>Led a team that placed 1st in an innovation competition among 15 teams.</li>
+        <li>Presented findings on aerodynamic optimizations to senior engineers.</li>
+      </ul>
     ),
   },
 ];
@@ -336,28 +342,12 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  description: 'Feel free to reach out for collaboration, job opportunities, or tech discussions.',
   items: [
-    {
-      type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
-    },
-    {
-      type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
-    },
-    {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
-    },
-    {
-      type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
-    },
+    { type: ContactType.LinkedIn, text: 'linkedin.com/in/kieranpereira1001', href: 'https://www.linkedin.com/in/kieranpereira1001' },
+    { type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com' },
+    { type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'kieran_p@berkeley.edu' },
+    
   ],
 };
 
@@ -365,9 +355,6 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  { label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira' },
+  { label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/' },
 ];
