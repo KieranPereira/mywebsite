@@ -1,27 +1,26 @@
-import React from 'react';
 import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from 'next';
-import Image from 'next/image';
+import Image, {StaticImageData} from 'next/image'; // ✅ Import StaticImageData
+import React from 'react';
 import Page from '../../components/Layout/Page';
 import {portfolioItems} from '../../data/data';
 
-// 1) Define the shape of your project data (optional, but recommended)
-type ProjectType = {
+// Define the shape of a PortfolioItem
+type PortfolioItem = {
   slug: string;
   title: string;
   description: string;
-  image: string;
+  image: string | StaticImageData; // ✅ Ensures compatibility with Next.js Image component
   url?: string;
 };
 
-// 2) Define props for your component
+// Define Props
 type PortfolioProps = {
-  project: ProjectType;
+  project: PortfolioItem;
 };
 
-// 3) The component wrapped with React.memo
+// ✅ The PortfolioDetail component wrapped with React.memo
 const PortfolioDetail = React.memo(
   ({project}: InferGetStaticPropsType<typeof getStaticProps>) => {
-    // If we somehow have no project (edge cases), you can handle it:
     if (!project) {
       return (
         <Page title="Project Not Found" description="This project does not exist">
@@ -36,10 +35,6 @@ const PortfolioDetail = React.memo(
           <h1 className="text-3xl font-bold text-white mb-6">{project.title}</h1>
 
           <div className="relative w-full max-w-4xl rounded-lg overflow-hidden shadow-lg">
-            {/* 
-              If you have the width/height in the data, pass them here 
-              so Next can optimize the image. Otherwise, you can use layout="responsive". 
-            */}
             <Image
               alt={project.title}
               className="w-full h-auto"
@@ -69,41 +64,39 @@ const PortfolioDetail = React.memo(
 
 export default PortfolioDetail;
 
-/**
- * 4) getStaticPaths: Build-time generation of pages for each slug
- */
+// ✅ Ensure unique slugs in getStaticPaths
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Create an array of { params: { slug: ... } } from your portfolio data
-  const paths = portfolioItems.map((item) => ({
-    params: {slug: item.slug},
+  // Extract all slugs from portfolioItems
+  const allSlugs = portfolioItems.map((item) => item.slug);
+
+  // Remove duplicates using Set
+  const uniqueSlugs = [...new Set(allSlugs)];
+
+  // Map them into { params: { slug } } format
+  const paths = uniqueSlugs.map((slug) => ({
+    params: {slug},
   }));
 
   return {
-    paths,         // e.g. [{ params: { slug: 'capstone' } }, { params: { slug: 'my-other-project' } }]
-    fallback: false // or 'blocking' if you want fallback pages
+    paths,
+    fallback: false, // Ensures 404 for unknown slugs
   };
 };
 
-/**
- * 5) getStaticProps: Provide 'project' as a prop, based on the slug
- */
+// ✅ Properly typed getStaticProps
 export const getStaticProps: GetStaticProps<PortfolioProps> = async ({params}) => {
-  // If slug is missing, show a 404
   if (!params?.slug) {
-    return {notFound: true};
+    return {notFound: true}; // Correctly handle missing slugs
   }
 
-  // Find the matching project
   const slug = params.slug as string;
   const project = portfolioItems.find((item) => item.slug === slug);
 
-  // If project is not found, show a 404
   if (!project) {
-    return {notFound: true};
+    return {notFound: true}; // Ensure TypeScript accepts this
   }
 
-  // Pass project data to the component
   return {
-    props: {project},
+    props: {project}, // Correctly typed
   };
 };
