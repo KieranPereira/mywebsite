@@ -1,12 +1,12 @@
+import Link from 'next/link';
 import {ArrowTopRightOnSquareIcon} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import Image from 'next/image';
-import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
+import {FC, memo} from 'react';
 
-import {isMobile} from '../../config';
+// import {isMobile} from '../../config';
 import {portfolioItems, SectionId} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
@@ -16,13 +16,19 @@ const Portfolio: FC = memo(() => {
         <h2 className="self-center text-xl font-bold text-white">Check out some of my work</h2>
         {/* Grid layout for portfolio */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {portfolioItems.map((item, index) => {
-            const {title, image} = item;
+          {portfolioItems.map((item) => {
+            const {title, image, slug} = item;
+
+            // Redirect Project 1 (Capstone) to custom page
+            const pageUrl = slug === 'project1' ? `/portfolio/capstone` : `/portfolio/${slug}`;
+
             return (
-              <div className="relative overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl" key={`${title}-${index}`}>
-                <Image alt={title} className="h-full w-full object-cover" placeholder="blur" src={image} />
-                <ItemOverlay item={item} />
-              </div>
+              <Link href={pageUrl} key={slug}>
+                <div className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
+                  <Image alt={title} className="h-full w-full object-cover" placeholder="blur" src={image} />
+                  <ItemOverlay item={item} />
+                </div>
+              </Link>
             );
           })}
         </div>
@@ -34,46 +40,12 @@ const Portfolio: FC = memo(() => {
 Portfolio.displayName = 'Portfolio';
 export default Portfolio;
 
-const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, description}}) => {
-  const [mobile, setMobile] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    if (isMobile) {
-      setMobile(true);
-    }
-  }, []);
-  useDetectOutsideClick(linkRef, () => setShowOverlay(false));
-
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLElement>) => {
-      if (mobile && !showOverlay) {
-        event.preventDefault();
-        setShowOverlay(!showOverlay);
-      }
-    },
-    [mobile, showOverlay],
-  );
-
+const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {title, description}}) => {
   return (
-    <a
-      className={classNames(
-        'absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300',
-        {'opacity-0 hover:opacity-80': !mobile},
-        showOverlay ? 'opacity-80' : 'opacity-0',
-      )}
-      href={url}
-      onClick={handleItemClick}
-      ref={linkRef}
-      target="_blank">
-      <div className="relative h-full w-full p-4">
-        <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
-          <h2 className="text-center font-bold text-white opacity-100">{title}</h2>
-          <p className="text-xs text-white opacity-100 sm:text-sm">{description}</p>
-        </div>
-        <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2" />
-      </div>
-    </a>
+    <div className="absolute inset-0 flex flex-col justify-center bg-gray-900 bg-opacity-80 opacity-0 transition-all duration-300 hover:opacity-100 p-4">
+      <h2 className="text-center font-bold text-white">{title}</h2>
+      <p className="text-xs text-white sm:text-sm">{description}</p>
+      <ArrowTopRightOnSquareIcon className="absolute bottom-2 right-2 h-4 w-4 shrink-0 text-white" />
+    </div>
   );
 });

@@ -10,13 +10,13 @@ import {
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import heroImage from '../images/header-background.webp';
+import heroImage from '../images/personal-front.jpg';
 
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
+import porfolioImage1 from '../images/capstone-swarm.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
+// import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
+// import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
+// import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
 
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
@@ -56,9 +56,16 @@ export const SectionId = {
   Skills: 'skills',
   Stats: 'stats',
   Testimonials: 'testimonials',
+  Capstone: 'capstone', // ✅ Ensure Capstone is added
+  Problem: 'problem',
+  Methodology: 'methodology',
+  Challenges: 'challenges',
+  Progress: 'progress',
+  Future: 'future',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
+
 
 const handleResumeDownload = () => {
   const link = document.createElement('a');
@@ -75,7 +82,7 @@ const handleResumeDownload = () => {
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `Hi, I'm Kieran!`,
+  name: `Hi, I'm Kieran`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -153,37 +160,21 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project 1',
-    description: 'A description of the project.',
-    url: 'https://example.com',
+    title: 'Capstone Project',
+    description: 'Controlling 1000+ ocean sensors to optimize global shipping routes.',
+    url: 'https://github.com/kieranpereira/capstone-project', // Optional external link
     image: porfolioImage1,
+    slug: 'capstone', // ✅ Ensure this matches the route /portfolio/capstone
   },
   {
     title: 'Project 2',
     description: 'Another cool project.',
     url: 'https://example.com',
     image: porfolioImage2,
+    slug: 'project-2',
   },
-  {
-    title: 'Project 3',
-    description: 'A description of the project.',
-    url: 'https://example.com',
-    image: porfolioImage3,
-  },
-  {
-    title: 'Project 4',
-    description: 'Another cool project.',
-    url: 'https://example.com',
-    image: porfolioImage4,
-  },
-  {
-    title: 'Project 5',
-    description: 'A description of the project.',
-    url: 'https://example.com',
-    image: porfolioImage5,
-  },
-
 ];
+
 
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
