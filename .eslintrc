@@ -8,7 +8,14 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "simple-import-sort", "import", "react", "react-memo", "react-hooks"],
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "import",
+    "react",
+    "react-memo",
+    "react-hooks"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -19,12 +26,19 @@
   "ignorePatterns": ["*/public", "*/node_modules/*", "*/.next/*", "*/dist/*"],
   "rules": {
     "react/display-name": "off",
-    // The next two rules should be errors. But for now we"ll leave them as warnings since this will take a while
-    "react-memo/require-usememo": "error",
-    "react-memo/require-memo": "error",
+
+    // Disable the react-memo rules
+    "react-memo/require-usememo": "off",
+    "react-memo/require-memo": "off",
+
+    // React Hooks
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+
+    // TS
     "@typescript-eslint/explicit-function-return-type": "off",
+
+    // Member ordering
     "@typescript-eslint/member-ordering": [
       "warn",
       {
@@ -32,23 +46,43 @@
         "typeLiterals": ["signature", "method", "constructor", "field"]
       }
     ],
+
+    // Import & sorting rules
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
     "import/order": "off",
+    "simple-import-sort/exports": "off",     // disabled
+    "simple-import-sort/imports": "off",     // disabled
+    "sort-imports": "off",
+
+    // Misc
     "no-irregular-whitespace": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", {"argsIgnorePattern": "^_"}],
-    "object-curly-spacing": ["error", "never"],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+
+    // Disable object-curly-spacing
+    // previously ["error", "never"]
+    "object-curly-spacing": "off",
+
+    // Remove curly brace presence rule if desired
     "react/jsx-curly-brace-presence": [2, "never"],
+
+    // React / JSX
     "react/jsx-no-duplicate-props": "error",
-    "react/jsx-sort-props": "error",
+    "react/jsx-sort-props": "off", // disabled alphabetical prop sorting
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
-    "simple-import-sort/exports": "error",
-    "simple-import-sort/imports": "error",
-    "sort-imports": "off",
+
+    // Accessibility
     "jsx-a11y/no-onchange": "off",
     "jsx-a11y/no-autofocus": "off",
+
+    // Next.js
     "@next/next/no-img-element": "off"
   },
   "settings": {

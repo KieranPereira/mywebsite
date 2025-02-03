@@ -22,8 +22,8 @@ const VIDEO = {
 const CapstonePage = () => {
   return (
     <Page
-      title="Capstone Project"
       description="A detailed look at my autonomous sailboat control project"
+      title="Capstone Project"
     >
       <div className="flex flex-col md:flex-row">
 
@@ -44,44 +44,44 @@ const CapstonePage = () => {
         >
           <nav className="space-y-4">
             <a
-              href="#capstone"
               className="block text-md font-semibold text-white hover:text-gray-300 transition-colors"
+              href="#capstone"
             >
               Capstone Overview
             </a>
             <a
-              href="#problem"
               className="block text-md font-semibold text-white hover:text-gray-300 transition-colors"
+              href="#problem"
             >
               Problem Statement
             </a>
             <a
-              href="#methodology"
               className="block text-md font-semibold text-white hover:text-gray-300 transition-colors"
+              href="#methodology"
             >
               Methodology &amp; Key Challenges
             </a>
             <a
-              href="#sailing-control"
               className="block text-md font-semibold text-white hover:text-gray-300 transition-colors"
+              href="#sailing-control"
             >
               Control Algorithm Design
             </a>
             <a
-              href="#progress"
               className="block text-md font-semibold text-white hover:text-gray-300 transition-colors"
+              href="#progress"
             >
               Current Progress
             </a>
             <a
-              href="#additional-insights"
               className="block text-md font-semibold text-white hover:text-gray-300 transition-colors"
+              href="#additional-insights"
             >
               Additional Insights
             </a>
             <a
-              href="#future"
               className="block text-md font-semibold text-white hover:text-gray-300 transition-colors"
+              href="#future"
             >
               Future Goals
             </a>
@@ -93,9 +93,9 @@ const CapstonePage = () => {
         <main className="w-full md:w-3/5 md:ml-[20%] md:mr-[20%]">
           {/* Project Introduction with Sticky Title Section */}
           <Section
+            className="bg-white text-gray-900"
             sectionId="capstone"
             sectionTitle=""
-            className="bg-white text-gray-900"
           >
             <div className="flex flex-col md:flex-row min-h-screen">
               {/* Left column: Sticky Title & Subtitle */}
@@ -115,12 +115,12 @@ const CapstonePage = () => {
               {/* Right column: Image */}
               <div className="md:w-1/2 relative h-screen">
                 <Image
-                  src={IMAGES.hero}
                   alt="Autonomous Sailboat at Sea"
+                  className="absolute inset-0 mx-auto"
                   fill
                   priority
-                  style={{ objectFit: 'cover' }}
-                  className="absolute inset-0 mx-auto"
+                  src={IMAGES.hero}
+                  style={{objectFit: 'cover'}}
                 />
               </div>
             </div>
@@ -128,9 +128,9 @@ const CapstonePage = () => {
 
           {/* Section: Skills & Tools */}
           <Section
+            className="bg-gray-50 text-gray-900"
             sectionId="skills"
             sectionTitle="Skills & Tools"
-            className="bg-gray-50 text-gray-900"
           >
             <div className="max-w-4xl mx-auto p-6">
               <h2 className="text-2xl font-semibold mb-4">Core Expertise</h2>
@@ -164,9 +164,9 @@ const CapstonePage = () => {
 
           {/* Problem Statement */}
           <Section
+            className="bg-white text-gray-900"
             sectionId="problem"
             sectionTitle="Problem Statement"
-            className="bg-white text-gray-900"
           >
             <div className="max-w-4xl mx-auto p-6">
               <h2 className="text-2xl font-semibold mb-4">The Challenge</h2>
@@ -188,11 +188,11 @@ const CapstonePage = () => {
                 data collection and smart routing.
               </p>
               <Image
-                src={IMAGES.problemStatement}
                 alt="Sailboat Problem Context"
                 className="rounded-lg shadow-lg mt-4 mx-auto"
-                width={600}
                 height={400}
+                src={IMAGES.problemStatement}
+                width={600}
               />
             </div>
           </Section>
@@ -202,9 +202,9 @@ const CapstonePage = () => {
 
           {/* Methodology & Key Challenges (Combined) */}
           <Section
+            className="bg-gray-50 text-gray-900"
             sectionId="methodology"
             sectionTitle="Methodology & Key Challenges"
-            className="bg-gray-50 text-gray-900"
           >
             <div className="max-w-5xl mx-auto p-6 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
               {/* Left: Text Content */}
@@ -252,11 +252,11 @@ const CapstonePage = () => {
               {/* Right: Image */}
               <div className="md:w-1/2 flex justify-center">
                 <Image
-                  src={IMAGES.methodology}
                   alt="Methodology Diagram"
                   className="rounded-lg shadow-lg"
-                  width={500}
                   height={350}
+                  src={IMAGES.methodology}
+                  width={500}
                 />
               </div>
             </div>
@@ -267,16 +267,16 @@ const CapstonePage = () => {
 
           {/* Control Algorithm Design */}
           <Section
+            className="bg-white text-gray-900"
             sectionId="sailing-control"
             sectionTitle="Control Algorithm Design"
-            className="bg-white text-gray-900"
           >
             <Image
-              src={IMAGES.sailControlDiagram}
               alt="Sail Control Diagram"
               className="mt-4 mx-auto"
-              width={600}
               height={400}
+              src={IMAGES.sailControlDiagram}
+              width={600}
             />
             <div className="max-w-4xl mx-auto p-6">
               <h2 className="text-2xl font-semibold mb-4">
@@ -342,9 +342,9 @@ const CapstonePage = () => {
 
           {/* Current Progress */}
           <Section
+            className="bg-white text-gray-900"
             sectionId="progress"
             sectionTitle="Current Progress"
-            className="bg-white text-gray-900"
           >
             <div className="max-w-4xl mx-auto p-6">
               <h2 className="text-2xl font-semibold mb-4">Latest Developments</h2>
@@ -356,11 +356,11 @@ const CapstonePage = () => {
                 models and dynamic route optimization.
               </p>
               <Image
-                src={IMAGES.currentProgress}
                 alt="Current Progress"
                 className="rounded-lg shadow-lg mt-4 mx-auto"
-                width={600}
                 height={400}
+                src={IMAGES.currentProgress}
+                width={600}
               />
             </div>
           </Section>
@@ -370,9 +370,9 @@ const CapstonePage = () => {
 
           {/* Additional Insights (Improved Soft Skills Emphasis) */}
           <Section
+            className="bg-gray-50 text-gray-900"
             sectionId="additional-insights"
             sectionTitle="Additional Insights"
-            className="bg-gray-50 text-gray-900"
           >
             <div className="max-w-5xl mx-auto p-6 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-8">
               {/* Left: Text Content */}
@@ -418,12 +418,12 @@ const CapstonePage = () => {
               {/* Right: Image */}
               <div className="flex-shrink-0">
                 <Image
-                  src={IMAGES.teamCollab}
                   alt="Autonomous Sailboat at Sea"
-                  priority
-                  width={400}
-                  height={375}
                   className="rounded-md shadow-md"
+                  height={375}
+                  priority
+                  src={IMAGES.teamCollab}
+                  width={400}
                 />
               </div>
             </div>
@@ -434,9 +434,9 @@ const CapstonePage = () => {
 
           {/* Future Goals */}
           <Section
+            className="bg-white text-gray-900"
             sectionId="future"
             sectionTitle="Future Goals"
-            className="bg-white text-gray-900"
           >
             <div className="max-w-4xl mx-auto p-6">
               <h2 className="text-2xl font-semibold mb-4">Where It’s Heading</h2>
@@ -463,9 +463,9 @@ const CapstonePage = () => {
 
           {/* Simple CTA Section: GitHub & LinkedIn */}
           <Section
+            className="bg-gray-100 text-gray-900"
             sectionId="cta"
             sectionTitle=""
-            className="bg-gray-100 text-gray-900"
           >
             <div className="max-w-4xl mx-auto p-6 text-center">
               <h2 className="text-2xl font-semibold mb-4">Interested in More Details?</h2>
@@ -476,20 +476,20 @@ const CapstonePage = () => {
               <div className="space-x-4">
                 {/* GitHub Button */}
                 <a
-                  href="https://github.com/dustinteng/TAFLAB_boatpi_roshumble/tree/version2"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                  href="https://github.com/dustinteng/TAFLAB_boatpi_roshumble/tree/version2"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   View Code on GitHub
                 </a>
 
                 {/* LinkedIn Button */}
                 <a
-                  href="https://www.linkedin.com/in/kieranpereira1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 transition-colors"
+                  href="https://www.linkedin.com/in/kieranpereira1/"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   Connect on LinkedIn
                 </a>
@@ -500,12 +500,12 @@ const CapstonePage = () => {
           {/* Full-width video panel at the bottom */}
           <div className="relative w-full h-64 md:h-96">
             <video
-              src={VIDEO.capstone}
-              className="absolute inset-0 w-full h-full object-cover"
               autoPlay
+              className="absolute inset-0 w-full h-full object-cover"
               loop
               muted
               playsInline
+              src={VIDEO.capstone}
             />
           </div>
         </main>

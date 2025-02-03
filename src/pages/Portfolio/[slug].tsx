@@ -1,13 +1,13 @@
-import React from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
+import React from 'react';
 
 import Page from '../../components/Layout/Page';
-import { portfolioItems } from '../../data/data';
+import {portfolioItems} from '../../data/data';
 
 const PortfolioDetail = React.memo(() => {  // ✅ Wrapped component with React.memo()
   const router = useRouter();
-  const { slug } = router.query;
+  const {slug} = router.query;
 
   const project = portfolioItems.find((item) => item.slug === slug);
 
