@@ -1,14 +1,14 @@
-import { NextPage } from 'next';
+import {NextPage} from 'next';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { memo, PropsWithChildren } from 'react';
+import {useRouter} from 'next/router';
+import {memo, PropsWithChildren} from 'react';
 
-import { HomepageMeta } from '../../data/dataDef';
-import Header from '../Sections/Header'; // ✅ Import Header
+import {HomepageMeta} from '../../data/dataDef';
 import Footer from '../Sections/Footer'; // ✅ Import Footer
+import Header from '../Sections/Header'; // ✅ Import Header
 
-const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({ children, title, description }) => {
-  const { asPath: pathname } = useRouter();
+const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, description}) => {
+  const {asPath: pathname} = useRouter();
 
   return (
     <>

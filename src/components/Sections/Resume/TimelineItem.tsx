@@ -1,14 +1,15 @@
-import { FC, memo } from 'react';
-import { TimelineItem } from '../../../data/dataDef';
+import {FC, memo} from 'react';
 
-const TimelineItemComponent: FC<{ item: TimelineItem }> = memo(({ item }) => {
-  const { title, date, location, content, imageSrc } = item;
+import {TimelineItem} from '../../../data/dataDef';
+
+const TimelineItemComponent: FC<{ item: TimelineItem }> = memo(({item}) => {
+  const {title, date, location, content, imageSrc} = item;
 
   return (
     <div className="flex flex-col md:flex-row items-center pb-8 text-center last:pb-0 md:text-left">
       {/* Left-aligned Larger Image */}
       {imageSrc && (
-        <img src={imageSrc} alt={`${title} logo`} className="company-logo w-30 h-30 object-contain md:mr-6 mb-4 md:mb-0" />
+        <img alt={`${title} logo`} className="company-logo w-30 h-30 object-contain md:mr-6 mb-4 md:mb-0" src={imageSrc} />
       )}
 
       {/* Right-aligned Text */}

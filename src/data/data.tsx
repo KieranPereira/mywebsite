@@ -10,14 +10,12 @@ import {
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import heroImage from '../images/personal-front.jpg';
-
 import porfolioImage1 from '../images/capstone-swarm.jpg';
+import heroImage from '../images/personal-front.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 // import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 // import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 // import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -131,26 +129,26 @@ export const skills: SkillGroup[] = [
   {
     name: 'Programming Languages',
     skills: [
-      { name: 'C++', level: 10 },
-      { name: 'Python', level: 9 },
-      { name: 'MATLAB', level: 8 },
-      { name: 'Flutter', level: 6 },
+      {name: 'C++', level: 10},
+      {name: 'Python', level: 9},
+      {name: 'MATLAB', level: 8},
+      {name: 'Flutter', level: 6},
     ],
   },
   {
     name: 'AI & Machine Learning',
     skills: [
-      { name: 'TensorFlow', level: 8 },
-      { name: 'OpenCV', level: 7 },
-      { name: 'PyTorch', level: 7 },
+      {name: 'TensorFlow', level: 8},
+      {name: 'OpenCV', level: 7},
+      {name: 'PyTorch', level: 7},
     ],
   },
   {
     name: 'Robotics & Embedded Systems',
     skills: [
-      { name: 'ROS2', level: 9 },
-      { name: 'Simulink', level: 8 },
-      { name: 'ESP32', level: 8 },
+      {name: 'ROS2', level: 9},
+      {name: 'Simulink', level: 8},
+      {name: 'ESP32', level: 8},
     ],
   },
 ];
@@ -284,9 +282,9 @@ export const contact: ContactSection = {
   headerText: 'Get in touch.',
   description: 'Feel free to reach out for collaboration, job opportunities, or tech discussions.',
   items: [
-    { type: ContactType.LinkedIn, text: 'linkedin.com/in/kieranpereira1001', href: 'https://www.linkedin.com/in/kieranpereira1001' },
-    { type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com' },
-    { type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'kieran_p@berkeley.edu' },
+    {type: ContactType.LinkedIn, text: 'linkedin.com/in/kieranpereira1001', href: 'https://www.linkedin.com/in/kieranpereira1001'},
+    {type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com'},
+    {type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'kieran_p@berkeley.edu'},
     
   ],
 };
@@ -295,6 +293,6 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  { label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira' },
-  { label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/' },
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/'},
 ];
