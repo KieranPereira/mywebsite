@@ -1,15 +1,15 @@
-import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from 'next';
-import Image, {StaticImageData} from 'next/image'; // ✅ Import StaticImageData
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import Image, { StaticImageData } from 'next/image'; // Import StaticImageData
 import React from 'react';
 import Page from '../../components/Layout/Page';
-import {portfolioItems} from '../../data/data';
+import { portfolioItems } from '../../data/data';
 
 // Define the shape of a PortfolioItem
 type PortfolioItem = {
   slug: string;
   title: string;
   description: string;
-  image: string | StaticImageData; // ✅ Ensures compatibility with Next.js Image component
+  image: string | StaticImageData; // Allows both string URLs and StaticImageData
   url?: string;
 };
 
@@ -18,9 +18,9 @@ type PortfolioProps = {
   project: PortfolioItem;
 };
 
-// ✅ The PortfolioDetail component wrapped with React.memo
+// The PortfolioDetail component wrapped with React.memo
 const PortfolioDetail = React.memo(
-  ({project}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  ({ project }: InferGetStaticPropsType<typeof getStaticProps>) => {
     if (!project) {
       return (
         <Page title="Project Not Found" description="This project does not exist">
@@ -39,7 +39,7 @@ const PortfolioDetail = React.memo(
               alt={project.title}
               className="w-full h-auto"
               src={project.image}
-              width={1200} 
+              width={1200}
               height={800}
             />
           </div>
@@ -64,39 +64,41 @@ const PortfolioDetail = React.memo(
 
 export default PortfolioDetail;
 
-// ✅ Ensure unique slugs in getStaticPaths
+// Ensure unique slugs by normalizing them to lowercase
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Extract all slugs from portfolioItems
-  const allSlugs = portfolioItems.map((item) => item.slug);
-
-  // Remove duplicates using Set
+  // Normalize all slugs to lowercase
+  const allSlugs = portfolioItems.map((item) => item.slug.toLowerCase());
+  // Remove duplicates using a Set
   const uniqueSlugs = [...new Set(allSlugs)];
-
-  // Map them into { params: { slug } } format
+  // Map into { params: { slug } } format
   const paths = uniqueSlugs.map((slug) => ({
-    params: {slug},
+    params: { slug },
   }));
 
   return {
     paths,
-    fallback: 'blocking', // Ensures 404 for unknown slugs
+    fallback: 'blocking', // Allows on-demand generation for unknown slugs
   };
 };
 
-// ✅ Properly typed getStaticProps
-export const getStaticProps: GetStaticProps<PortfolioProps> = async ({params}) => {
+// Properly typed getStaticProps that also normalizes the slug
+export const getStaticProps: GetStaticProps<PortfolioProps> = async ({ params }) => {
   if (!params?.slug) {
-    return {notFound: true}; // Correctly handle missing slugs
+    return { notFound: true };
   }
 
-  const slug = params.slug as string;
-  const project = portfolioItems.find((item) => item.slug === slug);
+  // Normalize the slug from the URL to lowercase
+  const slug = (params.slug as string).toLowerCase();
+  // Find the project by comparing lowercased slugs
+  const project = portfolioItems.find(
+    (item) => item.slug.toLowerCase() === slug
+  );
 
   if (!project) {
-    return {notFound: true}; // Ensure TypeScript accepts this
+    return { notFound: true };
   }
 
   return {
-    props: {project}, // Correctly typed
+    props: { project },
   };
 };
