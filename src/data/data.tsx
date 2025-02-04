@@ -31,9 +31,6 @@ import {
   TimelineItem,
 } from './dataDef';
 
-
-
-
 /**
  * Page meta data
  */
@@ -64,7 +61,6 @@ export const SectionId = {
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
-
 const handleResumeDownload = () => {
   const link = document.createElement('a');
   link.href = '/assets/KieranPereira_Resume.pdf';
@@ -73,7 +69,6 @@ const handleResumeDownload = () => {
   link.click();
   document.body.removeChild(link);
 };
-
 
 /**
  * Hero section
@@ -114,11 +109,11 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `I'm a robotics and AI-focused mechanical engineer with experience in autonomous systems, control design, and software development. I enjoy applying my knowledge to real-world challenges in automation and AI-powered robotics.`,
   aboutItems: [
-    {label: 'Location', text: 'Berkeley, CA', Icon: MapIcon},
-    {label: 'Education', text: 'UC Berkeley (MEng) & UCL (BEng)', Icon: AcademicCapIcon},
-    {label: 'Nationality', text: 'British / Australian', Icon: FlagIcon},
-    {label: 'Interests', text: 'Robotics, AI, Autonomous Systems , Guitar', Icon: SparklesIcon},
-    {label: 'Employment', text: 'Lockheed Martin, Airbus, HSBC', Icon: BuildingOffice2Icon},
+    { label: 'Location', text: 'Berkeley, CA', Icon: MapIcon },
+    { label: 'Education', text: 'UC Berkeley (MEng) & UCL (BEng)', Icon: AcademicCapIcon },
+    { label: 'Nationality', text: 'British / Australian', Icon: FlagIcon },
+    { label: 'Interests', text: 'Robotics, AI, Autonomous Systems , Guitar', Icon: SparklesIcon },
+    { label: 'Employment', text: 'Lockheed Martin, Airbus, HSBC', Icon: BuildingOffice2Icon },
   ],
 };
 
@@ -129,26 +124,26 @@ export const skills: SkillGroup[] = [
   {
     name: 'Programming Languages',
     skills: [
-      {name: 'C++', level: 10},
-      {name: 'Python', level: 9},
-      {name: 'MATLAB', level: 8},
-      {name: 'Flutter', level: 6},
+      { name: 'C++', level: 10 },
+      { name: 'Python', level: 9 },
+      { name: 'MATLAB', level: 8 },
+      { name: 'Flutter', level: 6 },
     ],
   },
   {
     name: 'AI & Machine Learning',
     skills: [
-      {name: 'TensorFlow', level: 8},
-      {name: 'OpenCV', level: 7},
-      {name: 'PyTorch', level: 7},
+      { name: 'TensorFlow', level: 8 },
+      { name: 'OpenCV', level: 7 },
+      { name: 'PyTorch', level: 7 },
     ],
   },
   {
     name: 'Robotics & Embedded Systems',
     skills: [
-      {name: 'ROS2', level: 9},
-      {name: 'Simulink', level: 8},
-      {name: 'ESP32', level: 8},
+      { name: 'ROS2', level: 9 },
+      { name: 'Simulink', level: 8 },
+      { name: 'ESP32', level: 8 },
     ],
   },
 ];
@@ -160,19 +155,18 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Capstone Project',
     description: 'Controlling 1000+ ocean sensors to optimize global shipping routes.',
-    url: 'https://github.com/kieranpereira/capstone-project', // Optional external link
+    // Points to the static page for Capstone Project
+    url: '/portfolio/capstone',
     image: porfolioImage1,
-    slug: 'capstone', // ✅ Ensure this matches the route /portfolio/capstone
   },
   {
     title: 'Project 2',
     description: 'Another cool project.',
-    url: 'https://example.com',
+    // Points to the static page for Project 2
+    url: '/portfolio/project-2',
     image: porfolioImage2,
-    slug: 'project-2',
   },
 ];
-
 
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
@@ -181,26 +175,25 @@ export const education: TimelineItem[] = [
   {
     date: 'August 2024 - May 2025',
     location: 'University of California, Berkeley',
-    imageSrc:  "/experience/Berkeley.png",
+    imageSrc: "/experience/Berkeley.png",
     title: 'MEng Mechanical Engineering (Robotics and Autonomous Systems)',
     content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
   },
   {
     date: '2020 - 2024',
     location: 'University College London (UCL)',
-    imageSrc:  "/experience/UCL.png",
+    imageSrc: "/experience/UCL.png",
     title: 'BEng Mechanical Engineering with Intelligent Systems',
     content: <p>Capstone: Designed a neural network-powered car dashboard system that outperformed industry benchmarks.</p>,
   },
 ];
-
 
 export const experience: TimelineItem[] = [
   {
     date: '2023 - 2024',
     location: 'Lockheed Martin',
     title: 'Software & Systems Engineer',
-    imageSrc:  "/experience/Lockheed Martin.png",
+    imageSrc: "/experience/Lockheed Martin.png",
     content: (
       <ul>
         <li>Developed real-time combat simulation software for complex networked environments.</li>
@@ -213,7 +206,7 @@ export const experience: TimelineItem[] = [
     date: '2024',
     location: 'HSBC',
     title: 'Global Digital Strategy Analyst',
-    imageSrc:  "/experience/HSBC.png",
+    imageSrc: "/experience/HSBC.png",
     content: (
       <ul>
         <li>Conducted statistical analysis identifying $300k in savings.</li>
@@ -226,7 +219,7 @@ export const experience: TimelineItem[] = [
     date: '2022 - 2022',
     location: 'University College London',
     title: 'Machine Learning Researcher',
-    imageSrc:  "/experience/UCL.png",
+    imageSrc: "/experience/UCL.png",
     content: (
       <ul>
         <li>Developed an AI-based classification system for healthcare applications.</li>
@@ -277,15 +270,13 @@ export const testimonial: TestimonialSection = {
 /**
  * Contact section
  */
-
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
   description: 'Feel free to reach out for collaboration, job opportunities, or tech discussions.',
   items: [
-    {type: ContactType.LinkedIn, text: 'linkedin.com/in/kieranpereira1001', href: 'https://www.linkedin.com/in/kieranpereira1001'},
-    {type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com'},
-    {type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'kieran_p@berkeley.edu'},
-    
+    { type: ContactType.LinkedIn, text: 'linkedin.com/in/kieranpereira1001', href: 'https://www.linkedin.com/in/kieranpereira1001' },
+    { type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com' },
+    { type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'kieran_p@berkeley.edu' },
   ],
 };
 
@@ -293,6 +284,6 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/'},
+  { label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira' },
+  { label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/' },
 ];

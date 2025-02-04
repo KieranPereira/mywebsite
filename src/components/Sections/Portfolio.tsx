@@ -17,12 +17,12 @@ const Portfolio: FC = memo(() => {
         {/* Grid layout for portfolio */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {portfolioItems.map((item) => {
-            const { title, image, slug } = item;
-            // No custom redirection: simply use the item's slug
-            const pageUrl = `/portfolio/${slug}`;
+            const { title, image, url } = item;
+            // Use the provided static URL directly
+            const pageUrl = url;
 
             return (
-              <Link href={pageUrl} key={slug}>
+              <Link href={pageUrl} key={pageUrl}>
                 <div className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
                   <Image
                     alt={title}
