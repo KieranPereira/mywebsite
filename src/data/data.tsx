@@ -155,7 +155,6 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Capstone Project',
     description: 'Controlling 1000+ ocean sensors to optimize global shipping routes.',
-    // Points to the static page for Capstone Project
     url: '/portfolio/capstone',
     image: porfolioImage1,
   },

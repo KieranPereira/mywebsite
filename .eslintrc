@@ -52,8 +52,8 @@
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
     "import/order": "off",
-    "simple-import-sort/exports": "off",     // disabled
-    "simple-import-sort/imports": "off",     // disabled
+    "simple-import-sort/exports": "warn",     // disabled
+    "simple-import-sort/imports": "warn",     // disabled
     "sort-imports": "off",
 
     // Misc
@@ -74,7 +74,7 @@
 
     // React / JSX
     "react/jsx-no-duplicate-props": "error",
-    "react/jsx-sort-props": "off", // disabled alphabetical prop sorting
+    "react/jsx-sort-props": "warn", // disabled alphabetical prop sorting
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
 
