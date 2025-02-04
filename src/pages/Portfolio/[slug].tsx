@@ -9,7 +9,7 @@ type PortfolioItem = {
   slug: string;
   title: string;
   description: string;
-  image: string | StaticImageData; // Allows both string URLs and StaticImageData
+  image: string | StaticImageData; // Supports string URLs or StaticImageData
   url?: string;
 };
 
@@ -33,7 +33,6 @@ const PortfolioDetail = React.memo(
       <Page title={project.title} description={project.description}>
         <div className="min-h-screen bg-neutral-900 flex flex-col items-center p-6">
           <h1 className="text-3xl font-bold text-white mb-6">{project.title}</h1>
-
           <div className="relative w-full max-w-4xl rounded-lg overflow-hidden shadow-lg">
             <Image
               alt={project.title}
@@ -43,9 +42,7 @@ const PortfolioDetail = React.memo(
               height={800}
             />
           </div>
-
           <p className="mt-4 text-lg text-gray-300">{project.description}</p>
-
           {project.url && (
             <a
               className="mt-4 text-blue-400 underline"
@@ -66,26 +63,25 @@ export default PortfolioDetail;
 
 // Updated getStaticPaths: Filter out duplicate slugs
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Filter portfolioItems to ensure each normalized slug is unique
-  const uniquePortfolioItems = portfolioItems.filter(
-    (project, index, self) =>
-      index === self.findIndex(
-        (item) => item.slug.toLowerCase() === project.slug.toLowerCase()
-      )
+  // Filter portfolioItems so that each normalized slug appears only once.
+  const uniquePortfolioItems = portfolioItems.filter((project, index, self) =>
+    index === self.findIndex(
+      (item) => item.slug.toLowerCase() === project.slug.toLowerCase()
+    )
   );
 
-  // Map the unique items to paths, normalizing slugs to lowercase
+  // Map the unique items to paths, ensuring the slug is in lowercase.
   const paths = uniquePortfolioItems.map((project) => ({
     params: { slug: project.slug.toLowerCase() },
   }));
 
   return {
     paths,
-    fallback: 'blocking', // Allows pages to be generated on demand if not pre-rendered
+    fallback: 'blocking', // Allows on-demand generation for pages not pre-rendered
   };
 };
 
-// Properly typed getStaticProps that normalizes the slug
+// getStaticProps: Look up a project using the normalized slug
 export const getStaticProps: GetStaticProps<PortfolioProps> = async ({ params }) => {
   if (!params?.slug) {
     return { notFound: true };
@@ -93,6 +89,7 @@ export const getStaticProps: GetStaticProps<PortfolioProps> = async ({ params })
 
   // Normalize the slug from the URL to lowercase
   const slug = (params.slug as string).toLowerCase();
+
   // Find the project by comparing lowercased slugs
   const project = portfolioItems.find(
     (item) => item.slug.toLowerCase() === slug
