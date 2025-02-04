@@ -64,24 +64,28 @@ const PortfolioDetail = React.memo(
 
 export default PortfolioDetail;
 
-// Ensure unique slugs by normalizing them to lowercase
+// Updated getStaticPaths: Filter out duplicate slugs
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Normalize all slugs to lowercase
-  const allSlugs = portfolioItems.map((item) => item.slug.toLowerCase());
-  // Remove duplicates using a Set
-  const uniqueSlugs = [...new Set(allSlugs)];
-  // Map into { params: { slug } } format
-  const paths = uniqueSlugs.map((slug) => ({
-    params: { slug },
+  // Filter portfolioItems to ensure each normalized slug is unique
+  const uniquePortfolioItems = portfolioItems.filter(
+    (project, index, self) =>
+      index === self.findIndex(
+        (item) => item.slug.toLowerCase() === project.slug.toLowerCase()
+      )
+  );
+
+  // Map the unique items to paths, normalizing slugs to lowercase
+  const paths = uniquePortfolioItems.map((project) => ({
+    params: { slug: project.slug.toLowerCase() },
   }));
 
   return {
     paths,
-    fallback: 'blocking', // Allows on-demand generation for unknown slugs
+    fallback: 'blocking', // Allows pages to be generated on demand if not pre-rendered
   };
 };
 
-// Properly typed getStaticProps that also normalizes the slug
+// Properly typed getStaticProps that normalizes the slug
 export const getStaticProps: GetStaticProps<PortfolioProps> = async ({ params }) => {
   if (!params?.slug) {
     return { notFound: true };
