@@ -79,7 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false, // Ensures 404 for unknown slugs
+    fallback: 'blocking', // Ensures 404 for unknown slugs
   };
 };
 
