@@ -145,6 +145,15 @@ export const skills: SkillGroup[] = [
       { name: 'ESP32', level: 8 },
     ],
   },
+  {
+    name: 'Design & Manufacturing',
+    skills: [
+      { name: 'SolidWorks/CAD/Fusion 360', level: 9 },
+      { name: 'PCB Design', level: 8 },
+      { name: 'DfMA Processes', level: 7 },
+      { name: 'Microcontroller Design', level: 8 },
+    ],
+  },  
 ];
 
 /**
@@ -158,10 +167,9 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage1,
   },
   {
-    title: 'Project 2',
-    description: 'Another cool project.',
-    // Points to the static page for Project 2
-    url: '/portfolio/project-2',
+    title: 'Berkeley Robotics Lab: Quadrupedal Running Robot',
+    description: 'Designed an efficient running quadruped that outruns Boston Dynamic\'s Spot',
+    url: '/portfolio/bladerunner',
     image: porfolioImage2,
   },
 ];
@@ -171,18 +179,28 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'August 2024 - May 2025',
+    date: 'August 2024 – Present',
     location: 'University of California, Berkeley',
     imageSrc: "/experience/Berkeley.png",
     title: 'MEng Mechanical Engineering (Robotics and Autonomous Systems)',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    content: (
+      <ul>
+        <li><strong>Relevant Coursework:</strong> Dynamics & Control of Autonomous Systems, Design of Microprocessor Systems, Robotic Locomotion</li>
+        <li><strong>Capstone Project:</strong> Developed control systems for 100+ robotic ocean sensors. Conducted field testing with 18 units, validated mesh networks, and created automated calibration scripts using Python/MATLAB.</li>
+        <li>Designed go-to-market strategies by validating customer requirements for iterative releases.</li>
+      </ul>
+    ),
   },
   {
-    date: '2020 - 2024',
+    date: 'September 2020 – 2024',
     location: 'University College London (UCL)',
     imageSrc: "/experience/UCL.png",
     title: 'BEng Mechanical Engineering with Intelligent Systems',
-    content: <p>Capstone: Designed a neural network-powered car dashboard system that outperformed industry benchmarks.</p>,
+    content: (
+      <ul>
+        <li><strong>Capstone Project (4.0 GPA):</strong> Built a neural network-powered car dashboard system for traffic sign recognition. Trained on 100,000+ images and outperformed Meta’s benchmark model.</li>
+      </ul>
+    ),
   },
 ];
 
