@@ -155,7 +155,14 @@ const ObsidianPage = () => {
                 Our solution uses smart sensors to capture every detail of your movement. The system processes this data in real time and gently nudges you to adjust your form-making your workouts not only safer but also more productive.
               </p>
               <div className="mt-6">
-              <video src={VIDEOS.exploded} className="w-full rounded shadow" loop />
+              <video
+                src={VIDEOS.exploded}
+                className="w-full rounded shadow"
+                loop
+                autoPlay
+                muted
+                />
+
 
               </div>
               </div>
