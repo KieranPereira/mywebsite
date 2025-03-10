@@ -10,7 +10,7 @@ import {
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import porfolioImage1 from '../images/capstone-swarm.jpg';
+// import porfolioImage1 from '../images/capstone-swarm.jpg';
 import heroImage from '../images/personal-front.jpg';
 // import portfolioVideo2 from '../videos/portfolio/rl-montage.mp4';
 import OPGImage from '../images/portfolio/OPG.jpg';
@@ -165,7 +165,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Berkeley TAFLAB',
     description: 'Coordinating 1000+ ocean sensors to reduce global shipping fuel consumption by 30%.',
     url: '/portfolio/capstone',
-    image: porfolioImage1,
+    video: '/capstone/frontvideo.mp4',  // Correct URL
   },
   {
     title: 'Berkeley Robotics Lab: Quadrupedal Running Robot',
