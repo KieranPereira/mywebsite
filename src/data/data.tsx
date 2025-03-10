@@ -273,6 +273,7 @@ export const experience: TimelineItem[] = [
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
   description: 'Feel free to reach out for collaboration, job opportunities, or tech discussions.',
+  
   items: [
     { type: ContactType.LinkedIn, text: 'linkedin.com/in/kieranpereira1001', href: 'https://www.linkedin.com/in/kieranpereira1001' },
     { type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com' },
