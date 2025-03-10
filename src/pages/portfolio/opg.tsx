@@ -83,6 +83,22 @@ const ObsidianPage = () => {
   </div>
 </Section>
 
+          {/* Section: Skills & Tools (Text Only) */}
+          <Section className="bg-gray-50 text-gray-900" sectionId="skills" sectionTitle="Skills &amp; Tools">
+            <div className="max-w-4xl mx-auto p-6">
+              <h2 className="text-2xl font-semibold mb-4">Core Expertise</h2>
+              <p className="leading-relaxed mb-4">
+                As CTO of the company, I've enjoyed learning a lot of new skills to bring this project to life. Heres a few of them:
+              </p>
+              <ul className="list-disc list-inside space-y-2">
+      <li><strong>Programming:</strong> C++ and Python for embedded systems, real-time data processing, and algorithm development</li>
+      <li><strong>Hardware &amp; PCB Design:</strong> Expertise in PCB layout, IoT integration, and I2C communication protocols</li>
+      <li><strong>Embedded Systems &amp; AI:</strong> Implementing intelligent, real-time feedback using AI techniques on resource-constrained devices</li>
+      <li><strong>Simulation &amp; Testing:</strong> LABVIEW for real-time software testing and control system simulation</li>
+      <li><strong>Version Control:</strong> Git for efficient, collaborative code management</li>    </ul>
+            </div>
+          </Section>
+
 
           {/* Our Team Section */}
           <Section className="bg-gray-50 text-gray-900" sectionId="team" sectionTitle="Our Team">
