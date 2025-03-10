@@ -12,7 +12,7 @@ import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import porfolioImage1 from '../images/capstone-swarm.jpg';
 import heroImage from '../images/personal-front.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
+// import portfolioVideo2 from '../videos/portfolio/rl-montage.mp4';
 import OPGImage from '../images/portfolio/OPG.jpg';
 // import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 // import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
@@ -171,8 +171,9 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Berkeley Robotics Lab: Quadrupedal Running Robot',
     description: 'Designed an efficient running quadruped that\'s 23% faster than Boston Dynamic\'s Spot',
     url: '/portfolio/bladerunner',
-    image: porfolioImage2,
+    video: '/bladerunner/rl-montage.mp4',  // Correct URL
   },
+  
   {
     title: 'Obsidian Performance Gear: ',
     description: 'Building a $1.2m+ company that trains top athletes using motion tracking sensors and AI',

@@ -17,19 +17,28 @@ const Portfolio: FC = memo(() => {
         {/* Flex layout for portfolio items with variable widths */}
         <div className="flex flex-wrap gap-6 justify-center">
           {portfolioItems.map((item) => {
-            const { title, image, url } = item;
-            // Use the provided static URL directly
+            const { title, image, video, url } = item;
             const pageUrl = url;
-
             return (
               <Link href={pageUrl} key={pageUrl}>
                 <div className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl h-64">
-                  <Image
-                    alt={title}
-                    className="h-full w-auto object-contain"
-                    placeholder="blur"
-                    src={image}
-                  />
+                  {video ? (
+                    <video
+                      src={video}
+                      className="h-full w-auto object-contain"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : image ? (
+                    <Image
+                      alt={title}
+                      className="h-full w-auto object-contain"
+                      placeholder="blur"
+                      src={image}
+                    />
+                  ) : null}
                   <ItemOverlay item={item} />
                 </div>
               </Link>
