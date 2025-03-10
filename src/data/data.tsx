@@ -13,6 +13,7 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import porfolioImage1 from '../images/capstone-swarm.jpg';
 import heroImage from '../images/personal-front.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
+import OPGImage from '../images/portfolio/OPG.jpg';
 // import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 // import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 // import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
@@ -161,16 +162,22 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Capstone Project',
-    description: 'Controlling 1000+ ocean sensors to optimize global shipping routes.',
+    title: 'Berkeley TAFLAB',
+    description: 'Coordinating 1000+ ocean sensors to reduce global shipping fuel consumption by 30%.',
     url: '/portfolio/capstone',
     image: porfolioImage1,
   },
   {
     title: 'Berkeley Robotics Lab: Quadrupedal Running Robot',
-    description: 'Designed an efficient running quadruped that outruns Boston Dynamic\'s Spot',
+    description: 'Designed an efficient running quadruped that\'s 23% faster than Boston Dynamic\'s Spot',
     url: '/portfolio/bladerunner',
     image: porfolioImage2,
+  },
+  {
+    title: 'Obsidian Performance Gear: ',
+    description: 'Building a $1.2m+ company that trains top athletes using motion tracking sensors and AI',
+    url: '/portfolio/opg',
+    image: OPGImage,
   },
 ];
 

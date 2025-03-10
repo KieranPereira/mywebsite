@@ -14,8 +14,8 @@ const Portfolio: FC = memo(() => {
         <h2 className="self-center text-xl font-bold text-white">
           Check out some of my work
         </h2>
-        {/* Grid layout for portfolio */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Flex layout for portfolio items with variable widths */}
+        <div className="flex flex-wrap gap-6 justify-center">
           {portfolioItems.map((item) => {
             const { title, image, url } = item;
             // Use the provided static URL directly
@@ -23,10 +23,10 @@ const Portfolio: FC = memo(() => {
 
             return (
               <Link href={pageUrl} key={pageUrl}>
-                <div className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
+                <div className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl h-64">
                   <Image
                     alt={title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-auto object-contain"
                     placeholder="blur"
                     src={image}
                   />
@@ -44,12 +44,14 @@ const Portfolio: FC = memo(() => {
 Portfolio.displayName = 'Portfolio';
 export default Portfolio;
 
-const ItemOverlay: FC<{ item: PortfolioItem }> = memo(({ item: { title, description } }) => {
-  return (
-    <div className="absolute inset-0 flex flex-col justify-center bg-gray-900 bg-opacity-80 opacity-0 transition-all duration-300 hover:opacity-100 p-4">
-      <h2 className="text-center font-bold text-white">{title}</h2>
-      <p className="text-xs text-white sm:text-sm">{description}</p>
-      <ArrowTopRightOnSquareIcon className="absolute bottom-2 right-2 h-4 w-4 shrink-0 text-white" />
-    </div>
-  );
-});
+const ItemOverlay: FC<{ item: PortfolioItem }> = memo(
+  ({ item: { title, description } }) => {
+    return (
+      <div className="absolute inset-0 flex flex-col justify-center bg-gray-900 bg-opacity-80 opacity-0 transition-all duration-300 hover:opacity-100 p-4">
+        <h2 className="text-center font-bold text-white">{title}</h2>
+        <p className="text-xs text-white sm:text-sm">{description}</p>
+        <ArrowTopRightOnSquareIcon className="absolute bottom-2 right-2 h-4 w-4 shrink-0 text-white" />
+      </div>
+    );
+  }
+);
