@@ -180,6 +180,12 @@ export const portfolioItems: PortfolioItem[] = [
     url: '/portfolio/opg',
     image: OPGImage,
   },
+  {
+    title: 'My UCL Capstone:',
+    description: 'Building an traffic sign object detection and narration platform for inexperienced and elderly drivers',
+    url: '/portfolio/UCLCapstone',
+    video: '/UCLCapstone/trafficsign.mp4'
+  },
 ];
 
 /**
