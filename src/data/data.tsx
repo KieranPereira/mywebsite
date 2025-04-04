@@ -186,6 +186,13 @@ export const portfolioItems: PortfolioItem[] = [
     url: '/portfolio/UCLCapstone',
     video: '/UCLCapstone/trafficsign.mp4'
   },
+
+  {
+    title: 'UCL\'s Unmanned Aerial Systems Team:',
+    description: 'Building the guidance system for an autonomous helicopter for the IMechE UAV Challenge',
+    url: 'https://uclr-uas.notion.site/Project-DRAGONFLY-b92b4bb6e1b941aa9e0137fc74e913ca',
+    video: '/UAS/Heli GIF.mp4'
+  },
 ];
 
 /**

@@ -274,154 +274,151 @@ const UCLCapstonePage = () => {
             </div>
           </Section>
 
-{/* Results and Discussion Section */}
-<Section className="bg-white text-gray-900" sectionId="results" sectionTitle="4.0 Results and Discussion">
-  <div className="p-6 space-y-8">
-    <div>
-      <h3 className="text-xl font-semibold mb-2">4.1 Baseline Results</h3>
-      <p className="text-gray-700 leading-relaxed">
-        Baseline training produced an mAP of 23.2% and an F1 score of 0.32. The loss functions indicated that the model was prone to overfitting and that further preprocessing was required.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold mb-2">4.2 Class Reduction Outcomes</h3>
-      <p className="text-gray-700 leading-relaxed">
-        After class reduction, the training mAP improved to 34.07% and the F1 score reached 0.412. The process also resulted in a significant reduction in training time.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold mb-2">4.3 Impact of Image Cropping</h3>
-      <p className="text-gray-700 leading-relaxed">
-        The hybrid cropping algorithm yielded marked improvements with a training mAP of 76.1% and an F1 score of 0.75. Loss values dropped to within state-of-the-art thresholds.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold mb-2">4.4 Background Elimination Results</h3>
-      <p className="text-gray-700 leading-relaxed">
-        Although background elimination improved the loss metrics, it negatively affected the mAP by removing some essential sign details.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold mb-2">4.5 Hyperparameter Optimisation Results</h3>
-      <p className="text-gray-700 leading-relaxed">
-        The genetic algorithm reduced variations in hyperparameters, with the Anchor Threshold showing the greatest impact. The mAP was improved to 83.43% through this iterative process.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold mb-2">4.6 Final Training</h3>
-      <p className="text-gray-700 leading-relaxed">
-        Retraining the model from scratch using the optimised hyperparameters resulted in a final mAP of 84.4% and an F1 score of 0.81. Loss values for bounding box, object and class predictions were all within acceptable limits.
-      </p>
-    </div>
-    {/* Final training results image */}
-    <div className="my-4 w-2/3 mx-auto">
-      <Image
-        src="/UCLCapstone/finaltrainingresults.png"
-        alt="Final Training Results: Graphs of mAP and F1 scores across epochs"
-        layout="responsive"
-        width={600}
-        height={400}
-        className="rounded-lg shadow-md"
-      />
-      <p className="text-center text-sm text-gray-600 mt-2">
-        Figure 14: Final Training Results – Graphs of mAP and F1 scores across epochs.
-      </p>
-    </div>
-  </div>
-</Section>
-
-
-{/* Model Testing Section */}
-<Section className="bg-gray-50 text-gray-900" sectionId="model-testing" sectionTitle="5.0 Model Testing">
-  <div className="p-6 space-y-8">
-    <div>
-      <h3 className="text-xl font-semibold mb-2">5.1 Robustness Testing</h3>
-      <p className="text-gray-700 leading-relaxed">
-        The model was tested for robustness under varying conditions.
-      </p>
-      <div className="space-y-8">
-        <div>
-          <h4 className="text-lg font-semibold">5.1.1 Obstruction Test</h4>
-          <p className="text-gray-700 leading-relaxed">
-            The model correctly identified traffic signs with up to 50% obstruction.
-          </p>
-          <div className="my-4 w-2/3 mx-auto">
-            <Image
-              src="/UCLCapstone/obstructions.png"
-              alt="Obstruction Test: Traffic sign detection with 50% obstruction"
-              layout="responsive"
-              width={500}
-              height={333}
-              className="rounded-lg shadow-md"
-            />
-            <p className="text-center text-sm text-gray-600 mt-2">
-              Figure 10: Obstruction Test – Traffic sign detection under 50% obstruction.
-            </p>
+        {/* Results and Discussion Section */}
+        <Section className="bg-white text-gray-900" sectionId="results" sectionTitle="4.0 Results and Discussion">
+          <div className="p-6 space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">4.1 Baseline Results</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Baseline training produced an mAP of 23.2% and an F1 score of 0.32. The loss functions indicated that the model was prone to overfitting and that further preprocessing was required.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">4.2 Class Reduction Outcomes</h3>
+              <p className="text-gray-700 leading-relaxed">
+                After class reduction, the training mAP improved to 34.07% and the F1 score reached 0.412. The process also resulted in a significant reduction in training time.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">4.3 Impact of Image Cropping</h3>
+              <p className="text-gray-700 leading-relaxed">
+                The hybrid cropping algorithm yielded marked improvements with a training mAP of 76.1% and an F1 score of 0.75. Loss values dropped to within state-of-the-art thresholds.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">4.4 Background Elimination Results</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Although background elimination improved the loss metrics, it negatively affected the mAP by removing some essential sign details.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">4.5 Hyperparameter Optimisation Results</h3>
+              <p className="text-gray-700 leading-relaxed">
+                The genetic algorithm reduced variations in hyperparameters, with the Anchor Threshold showing the greatest impact. The mAP was improved to 83.43% through this iterative process.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">4.6 Final Training</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Retraining the model from scratch using the optimised hyperparameters resulted in a final mAP of 84.4% and an F1 score of 0.81. Loss values for bounding box, object and class predictions were all within acceptable limits.
+              </p>
+            </div>
+            {/* Final training results image */}
+            <div className="my-4 w-2/3 mx-auto">
+              <Image
+                src="/UCLCapstone/finaltrainingresults.png"
+                alt="Final Training Results: Graphs of mAP and F1 scores across epochs"
+                layout="responsive"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-md"
+              />
+              <p className="text-center text-sm text-gray-600 mt-2">
+                Figure 14: Final Training Results – Graphs of mAP and F1 scores across epochs.
+              </p>
+            </div>
           </div>
-        </div>
-        <div>
-          <h4 className="text-lg font-semibold">5.1.2 Brightness Test</h4>
-          <p className="text-gray-700 leading-relaxed">
-            Reduced brightness levels (up to 90% reduction) helped decrease background noise and improved detection accuracy.
-          </p>
-          <div className="my-4 w-2/3 mx-auto">
-            <Image
-              src="/UCLCapstone/brightness.png"
-              alt="Brightness Test: Traffic sign detection under reduced brightness"
-              layout="responsive"
-              width={500}
-              height={333}
-              className="rounded-lg shadow-md"
-            />
-            <p className="text-center text-sm text-gray-600 mt-2">
-              Figure 11: Brightness Test – Detection performance under 90% brightness reduction.
-            </p>
-          </div>
-        </div>
-        <div>
-          <h4 className="text-lg font-semibold">5.1.3 Weather Test</h4>
-          <p className="text-gray-700 leading-relaxed">
-            The model demonstrated resilience in fog, rain and snowy conditions, although confidence levels varied.
-          </p>
-          <div className="my-4 w-2/3 mx-auto">
-            <Image
-              src="/UCLCapstone/rain.png"
-              alt="Weather Test: Traffic sign detection in adverse weather conditions"
-              layout="responsive"
-              width={500}
-              height={333}
-              className="rounded-lg shadow-md"
-            />
-            <p className="text-center text-sm text-gray-600 mt-2">
-              Figure 12: Weather Test – Detection performance under rainy conditions.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold mb-2">5.2 Large Dataset Testing</h3>
-      <p className="text-gray-700 leading-relaxed">
-        A large, partially annotated dataset was used to further verify model performance, with results visualised through a binary confusion matrix.
-      </p>
-      <div className="my-4 w-2/3 mx-auto">
-        <Image
-          src="/UCLCapstone/binarymatrix.png"
-          alt="Binary Confusion Matrix after sample dataset testing"
-          layout="responsive"
-          width={500}
-          height={333}
-          className="rounded-lg shadow-md"
-        />
-        <p className="text-center text-sm text-gray-600 mt-2">
-          Figure 13: Binary Confusion Matrix after sample dataset testing.
-        </p>
-      </div>
-    </div>
-  </div>
-</Section>
+        </Section>
 
-
+        {/* Model Testing Section */}
+        <Section className="bg-gray-50 text-gray-900" sectionId="model-testing" sectionTitle="5.0 Model Testing">
+          <div className="p-6 space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">5.1 Robustness Testing</h3>
+              <p className="text-gray-700 leading-relaxed">
+                The model was tested for robustness under varying conditions.
+              </p>
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-lg font-semibold">5.1.1 Obstruction Test</h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    The model correctly identified traffic signs with up to 50% obstruction.
+                  </p>
+                  <div className="my-4 w-2/3 mx-auto">
+                    <Image
+                      src="/UCLCapstone/obstructions.png"
+                      alt="Obstruction Test: Traffic sign detection with 50% obstruction"
+                      layout="responsive"
+                      width={500}
+                      height={333}
+                      className="rounded-lg shadow-md"
+                    />
+                    <p className="text-center text-sm text-gray-600 mt-2">
+                      Figure 10: Obstruction Test – Traffic sign detection under 50% obstruction.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">5.1.2 Brightness Test</h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    Reduced brightness levels (up to 90% reduction) helped decrease background noise and improved detection accuracy.
+                  </p>
+                  <div className="my-4 w-2/3 mx-auto">
+                    <Image
+                      src="/UCLCapstone/brightness.png"
+                      alt="Brightness Test: Traffic sign detection under reduced brightness"
+                      layout="responsive"
+                      width={500}
+                      height={333}
+                      className="rounded-lg shadow-md"
+                    />
+                    <p className="text-center text-sm text-gray-600 mt-2">
+                      Figure 11: Brightness Test – Detection performance under 90% brightness reduction.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">5.1.3 Weather Test</h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    The model demonstrated resilience in fog, rain and snowy conditions, although confidence levels varied.
+                  </p>
+                  <div className="my-4 w-2/3 mx-auto">
+                    <Image
+                      src="/UCLCapstone/rain.png"
+                      alt="Weather Test: Traffic sign detection in adverse weather conditions"
+                      layout="responsive"
+                      width={500}
+                      height={333}
+                      className="rounded-lg shadow-md"
+                    />
+                    <p className="text-center text-sm text-gray-600 mt-2">
+                      Figure 12: Weather Test – Detection performance under rainy conditions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">5.2 Large Dataset Testing</h3>
+              <p className="text-gray-700 leading-relaxed">
+                A large, partially annotated dataset was used to further verify model performance, with results visualised through a binary confusion matrix.
+              </p>
+              <div className="my-4 w-2/3 mx-auto">
+                <Image
+                  src="/UCLCapstone/binarymatrix.png"
+                  alt="Binary Confusion Matrix after sample dataset testing"
+                  layout="responsive"
+                  width={500}
+                  height={333}
+                  className="rounded-lg shadow-md"
+                />
+                <p className="text-center text-sm text-gray-600 mt-2">
+                  Figure 13: Binary Confusion Matrix after sample dataset testing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Section>
 
           {/* Deployment Section */}
           <Section className="bg-white text-gray-900" sectionId="deployment" sectionTitle="6.0 Deployment of Prototype">
@@ -436,40 +433,40 @@ const UCLCapstonePage = () => {
             </div>
           </Section>
 
-          {/* Conclusion Section with Enhanced Visuals */}
-          <Section className="bg-gray-50 text-gray-900" sectionId="conclusion" sectionTitle="7.0 Conclusion">
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="p-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg shadow-lg text-white text-center">
-                  <h2 className="text-4xl font-bold">84.4%</h2>
-                  <p className="mt-2 text-lg">Mean Average Precision</p>
-                </div>
-                <div className="p-6 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg shadow-lg text-white text-center">
-                  <h2 className="text-4xl font-bold">0.81</h2>
-                  <p className="mt-2 text-lg">F1 Score</p>
-                </div>
+        {/* Conclusion Section with Enhanced Visuals */}
+        <Section className="bg-gray-50 text-gray-900" sectionId="conclusion" sectionTitle="7.0 Conclusion">
+          <div className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="p-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg shadow-lg text-white text-center">
+                <h2 className="text-4xl font-bold">84.4%</h2>
+                <p className="mt-2 text-lg">Mean Average Precision</p>
               </div>
-              <p className="text-gray-700 leading-relaxed">
-                This project successfully developed a traffic sign narration system that enhances driver safety by delivering a state-of-the-art detection model. Through rigorous dataset modification, advanced image processing and hyperparameter tuning, the final model achieved a Mean Average Precision of 84.4% and an F1 score of 0.81. Robust testing and efficient prototype deployment demonstrate the system's strong potential to significantly improve driver awareness and contribute to safer roads.
-              </p>
+              <div className="p-6 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg shadow-lg text-white text-center">
+                <h2 className="text-4xl font-bold">0.81</h2>
+                <p className="mt-2 text-lg">F1 Score</p>
+              </div>
             </div>
-          </Section>
+            <p className="text-gray-700 leading-relaxed">
+              This project successfully developed a traffic sign narration system that enhances driver safety by delivering a state-of-the-art detection model. Through rigorous dataset modification, advanced image processing and hyperparameter tuning, the final model achieved a Mean Average Precision of 84.4% and an F1 score of 0.81. Robust testing and efficient prototype deployment demonstrate the system's strong potential to significantly improve driver awareness and contribute to safer roads.
+            </p>
+          </div>
+        </Section>
 
-          {/* Full Research Report*/}
-          <Section className="bg-white text-gray-900" sectionId="full-report" sectionTitle="Full Research Report">
-            <div className="p-6">
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Want a more detailed look? Here is my full research report:
-              </p>
-              <div className="border-2 border-gray-300 rounded" style={{ height: "600px", overflow: "auto" }}>
-                <iframe
-                  src="/UCLCapstone/finalreport.pdf"  // Ensure the PDF is in the correct public folder
-                  title="Full Research Report"
-                  className="w-full h-full"
-                />
-              </div>
+        {/* Full Research Report*/}
+        <Section className="bg-white text-gray-900" sectionId="full-report" sectionTitle="Full Research Report">
+          <div className="p-6">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Want a more detailed look? Here is my full research report:
+            </p>
+            <div className="border-2 border-gray-300 rounded" style={{ height: "600px", overflow: "auto" }}>
+              <iframe
+                src="/UCLCapstone/finalreport.pdf"  // Ensure the PDF is in the correct public folder
+                title="Full Research Report"
+                className="w-full h-full"
+              />
             </div>
-          </Section>
+          </div>
+        </Section>
         </main>
       </div>
     </Page>
