@@ -1,84 +1,95 @@
-# React JS Resume Website Template
+# Kieran Pereira — Portfolio
 
-![ReactJS Resume Website Template](resume-screenshot.jpg?raw=true 'ReactJS Resume Website Template')
+A fast, data-driven portfolio built with **Next.js 14 (Pages Router) + TypeScript + TailwindCSS**.
 
-<div align="center">
+The whole point of this setup: **all content lives in plain data files** so you can add or
+edit a project or job without touching any layout or logic. If you can copy an object and
+change some text, you can update the site.
 
-<img alt="GitHub release (latest by date including pre-releases" src="https://img.shields.io/github/v/release/tbakerx/react-resume-template?include_prereleases">
+---
 
-<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/tbakerx/react-resume-template?style=flat">
+## How to add or edit a PROJECT
 
-<img alt="GitHub Repo forks" src="https://img.shields.io/github/forks/tbakerx/react-resume-template?style=flat&color=success">
+All projects live in **`src/data/projects.tsx`** in the `projects` array. The order of the
+array is the order they appear on the homepage (most impressive first).
 
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/tbakerx/react-resume-template?style=flat&color=yellow">
+To add one, copy an existing object and change the fields:
 
-<img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/tbakerx/react-resume-template/react?style=flat">
+| Field        | Required | What it is                                                                 |
+| ------------ | -------- | -------------------------------------------------------------------------- |
+| `slug`       | ✅       | URL-safe id. `"taflab"` → page at `/portfolio/taflab`.                      |
+| `title`      | ✅       | Project name shown on the card and page.                                   |
+| `caption`    | ✅       | One punchy hook line.                                                       |
+| `heroStat`   | ✅       | The big bold number: `{value: "23% faster", label: "than ..."}`.           |
+| `media`      | ✅       | `{type: 'video' \| 'image', src: '/path', poster: '/path'}` (see below).   |
+| `tldr`       | optional | 1–2 sentence plain-English summary.                                        |
+| `highlights` | optional | 3–4 short bullet outcomes shown on the project page.                       |
+| `techTags`   | optional | List of tech, e.g. `['ROS2', 'C++']`.                                      |
+| `links`      | optional | Buttons: `{type, label, href}`. `type` is `github`/`demo`/`deck`/`external`.|
+| `deepDive`   | optional | Collapsible long-form sections (the only field that uses rich content).    |
+| `external`   | optional | If set to a URL, the card links straight out — **no detail page**.          |
+| `featured`   | optional | Marks the project as featured.                                             |
 
-<img alt="Github Repo Sponsors" src="https://img.shields.io/github/sponsors/tbakerx?style=flat&color=blueviolet">
+> The `deepDive` field is the only one that takes rich JSX (paragraphs, lists, images). If
+> you just want the basics, you can leave it out and the project still gets a clean page.
 
-## React based template for software developer-focused resume websites
+A new project automatically shows up on the homepage grid **and** gets its own page at
+`/portfolio/<slug>` — no other code changes needed.
 
-</div>
+## How to add or edit a JOB or EDUCATION entry
 
-### View a [live demo here.](https://reactresume.com)
+These live in **`src/data/data.tsx`**:
 
-#### If this template has helped you and you'd like to support my work, feel free to [♥️ Sponsor](https://github.com/sponsors/tbakerx) the project
+- Work history → the `experience` array.
+- Education → the `education` array.
 
-### 🎉 Version 2 is here! New features:
-1. Completely rebuilt with React and full typescript support
-2. Built on the [Next.js](https://nextjs.org/) framework for easy server side rendering/static generation, image optimization, api routes, and deployment
-3. Styled entirely with [TailwindCss](https://tailwindcss.com/)
-4. Re-organized data population file for customizing site.
-5. Significant improvement/modernization of all site sections
- 
-**Looking for the old version? You can find it [here.](https://github.com/tbakerx/react-resume-template/releases/tag/v1.0.0)**
+Each entry has:
 
-## Description
+- `title`, `location`, `date` — the basics.
+- `caption` — a one-line hook (shown in orange).
+- `tldr` — a one-sentence summary (work entries).
+- `content` — the full bullet list, collapsed by default behind a "View details" toggle.
 
-This is a React based personal resume website template. Built with typescript on the Next.js framework, styled with Tailwind css, and populated with data from a single file, you can easily create, customize and host your own personal website in minutes. Even better, the site is fully mobile-optimized and server-side rendered to ensure fast loading and a clean UI on any device. Read on to learn how to make it your own.
+## How to edit SKILLS, CONTACT, and the HERO
 
-## Make it Your Own!
+Also in **`src/data/data.tsx`**:
 
-### 1. Make sure you have what you need
+- `skills` — grouped tags. Add a skill by adding `{name: 'Thing'}` to a group.
+- `contact` — the contact links (email / LinkedIn / GitHub). No form, just links.
+- `heroData` — your name, the one-line positioning, and the resume/contact buttons.
 
-To build this website, you will need to have the latest stable versions of Node and Yarn downloaded and installed on your machine. If you don't already have them, you can get Node [here,](https://nodejs.org/en/download/) and Yarn [here.](https://yarnpkg.com/getting-started/install)
+## How to swap media
 
-### 2. Fork and download this repo (and star if you like!)
+All media files live in **`/public`** (e.g. `/public/capstone/frontvideo.mp4`). Drop a file
+in there and point a project's `media.src` (and `poster`) at the path **relative to
+`/public`** — e.g. a file at `public/capstone/frontvideo.mp4` is referenced as
+`/capstone/frontvideo.mp4`.
 
-Next, find the `Fork` button in the top right of this page. This will allow you to make your own copy, for more info on forking repo's see [here.](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) After this, download to your development machine using the green `Code` button at the top of the repo page.
+Tips for keeping the site fast:
 
-### 3. Install dependencies and run
+- Use H.264 `.mp4` for video and give every video a `poster` image.
+- Keep videos reasonably small (the homepage cards autoplay them, muted, only when in view).
+- Images are served through `next/image`, so they're optimized automatically.
 
-Once you have your own copy of this repo forked and downloaded, open the folder in your favorite terminal and run `yarn install` to install dependencies. Following this, run `yarn dev` to run the project. In your terminal you should be given the url of the running instance (usually http://localhost:3000 unless you have something else running).
+---
 
-### 4. Customize the data to make it your own
+## Run locally
 
-All of the data for the site is driven via a file at `/src/data/data.tsx`. This is where you'll find the existing content, and updating the values here will be reflected on the site. If you have the site running as described above, you should see these changes reflected on save. The data types for all of these items are given in the same folder in the `dataDef.ts` file. Example images can be found at `src/images/` and are imported in the data file. To change, simply update these images using the same name and location, or add new images and update the imports. 
+```bash
+yarn install
+yarn dev          # http://localhost:3000
+```
 
-### 5. Hook up contact form
-Due to the variety of options available for contact form providers, I've hooked up the contact form only so far as handling inputs and state. Form submission and the actual sending of the email is open to your own implementation. My personal recommendation for email provider is [Sendgrid.](https://sendgrid.com/)
+Other useful scripts:
 
-### 6. Make any other changes you like
+```bash
+yarn compile      # TypeScript type-check
+yarn lint         # Prettier + ESLint (must pass with zero warnings)
+yarn build        # Production build
+yarn sitemap      # Regenerate sitemap (next-sitemap)
+```
 
-Of course, all of the code is there and nothing is hidden from you so if you would like to make any other styling/data changes, feel free!
+## Deploy
 
-### 7. Deploy to Vercel and enjoy your new Resume Website
-
-Deploying your new site to Vercel is simple, and can be done by following their guide [here.](https://vercel.com/guides/deploying-nextjs-with-vercel) When you're all done and the build succeeds, you should be given a url for your live site, go there and you'll see your new personal resume website! Congratulations!
-
-## Project Created & Maintained By
-
-### Tim Baker
-
-<a href="https://twitter.com/timbakerx"><img src="https://github.com/aritraroy/social-icons/blob/master/twitter-icon.png?raw=true" width="60"></a><a href="https://instagram.com/tbakerx"><img src="https://github.com/aritraroy/social-icons/blob/master/instagram-icon.png?raw=true" width="60"></a>
-
-[![GitHub followers](https://img.shields.io/github/followers/tbakerx.svg?style=social&label=Follow)](https://github.com/tbakerx/)
-
-## Stargazers
-
-[![Stargazers repo roster for @tbakerx/react-resume-template](https://reporoster.com/stars/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/react-resume-template/stargazers)
-
-## Forkers
-
-[![Forkers repo roster for @tbakerx/react-resume-template](https://reporoster.com/forks/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/react-resume-template/network/members)
-
+The site deploys to **Vercel** with zero config — push to your connected Git repo and Vercel
+runs `yarn build`. No environment variables are required (contact is links-only).
