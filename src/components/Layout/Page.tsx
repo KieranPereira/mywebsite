@@ -17,7 +17,6 @@ const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, 
         <meta content={description} name="description" />
         <link href={`https://reactresume.com${pathname}`} key="canonical" rel="canonical" />
       </Head>
-
       <Header /> {/* ✅ Ensure Header is included */}
       <main className="min-h-screen">{children}</main> {/* ✅ Main content */}
       <Footer /> {/* ✅ Ensure Footer is included */}
