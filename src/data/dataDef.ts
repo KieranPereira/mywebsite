@@ -21,7 +21,7 @@ export interface HomepageMeta {
  * Hero section
  */
 export interface Hero {
-  imageSrc: string;
+  imageSrc: string | StaticImageData;
   name: string;
   description: JSX.Element;
   actions: HeroActionItem[];
@@ -36,39 +36,13 @@ interface HeroActionItem {
   onClick?: () => void;
 }
 
-
-/**
- * About section
- */
-export interface About {
-  profileImageSrc?: string;
-  description: string;
-  aboutItems: AboutItem[];
-}
-
-export interface AboutItem {
-  label: string;
-  text: string;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-}
-
-/**
- * Stat section
- */
-export interface Stat {
-  title: string;
-  value: number;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-}
-
 /**
  * Skills section
+ *
+ * Skills are rendered as grouped tags/chips (no numeric levels).
  */
-
 export interface Skill {
   name: string;
-  level: number;
-  max?: number;
 }
 
 export interface SkillGroup {
@@ -77,16 +51,51 @@ export interface SkillGroup {
 }
 
 /**
- * Portfolio section
+ * Projects section
+ *
+ * The whole project system is data-driven. To add a project, append a typed
+ * `Project` object to `src/data/projects.tsx` — no JSX/layout work required
+ * (the optional `deepDive` is the only field that accepts rich JSX content).
  */
-export interface PortfolioItem {
-  title: string;
-  description: string;
-  url: string;
-  image?: string | StaticImageData;
-  video?: string;
+
+// A single quantified headline shown large at the top of a project.
+export interface HeroStat {
+  value: string; // e.g. "23% faster", "$1.2M+", "100k+ images"
+  label: string; // e.g. "than Boston Dynamics' Spot"
 }
 
+export interface ProjectLink {
+  type: 'github' | 'demo' | 'deck' | 'external';
+  label: string; // e.g. "View code", "Watch demo", "Pitch deck"
+  href: string;
+}
+
+// Optional collapsible deep-dive section (migrated from the old long pages).
+export interface DeepDiveSection {
+  heading: string;
+  body: JSX.Element; // rich content allowed here (lists, paragraphs, images)
+}
+
+export interface ProjectMedia {
+  type: 'video' | 'image';
+  src: string | StaticImageData;
+  poster?: string | StaticImageData;
+}
+
+export interface Project {
+  slug: string; // e.g. "taflab" -> /portfolio/taflab
+  title: string;
+  caption: string; // ONE punchy hook line (the "attract them in" line)
+  heroStat: HeroStat; // the big bold number
+  media: ProjectMedia;
+  tldr?: string; // 1–2 sentence plain-English summary
+  highlights?: string[]; // 3–4 skimmable bullet outcomes
+  techTags?: string[]; // e.g. ["ROS2", "C++", "Kalman Filter"]
+  links?: ProjectLink[];
+  deepDive?: DeepDiveSection[]; // optional; rendered collapsed by default
+  external?: string; // if set, the card links straight out (no detail page)
+  featured?: boolean;
+}
 
 /**
  * Resume section
@@ -95,23 +104,10 @@ export interface TimelineItem {
   date: string;
   location: string;
   title: string;
-  content: JSX.Element;
+  content: JSX.Element; // existing detailed bullets (now collapsible)
   imageSrc?: string;
-}
-
-
-/**
- * Testimonial section
- */
-export interface TestimonialSection {
-  imageSrc?: string | StaticImageData;
-  testimonials: Testimonial[];
-}
-
-export interface Testimonial {
-  image?: string;
-  name: string;
-  text: string;
+  caption?: string; // NEW: one-line hook
+  tldr?: string; // NEW: 1-sentence summary shown before details
 }
 
 /**
@@ -125,13 +121,8 @@ export interface ContactSection {
 
 export const ContactType = {
   Email: 'Email',
-  Phone: 'Phone',
-  Location: 'Location',
   Github: 'Github',
   LinkedIn: 'LinkedIn',
-  Facebook: 'Facebook',
-  Twitter: 'Twitter',
-  Instagram: 'Instagram',
 } as const;
 
 export type ContactType = (typeof ContactType)[keyof typeof ContactType];

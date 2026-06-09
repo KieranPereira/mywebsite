@@ -6,6 +6,15 @@ module.exports = {
     extend: {
       colors: {
         yellow: '#efc603',
+        // Unified accent palette (orange) used across buttons, tags and stats.
+        accent: {
+          DEFAULT: '#f97316', // orange-500
+          50: '#fff7ed',
+          100: '#ffedd5',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+        },
       },
       keyframes: {
         typing: {

@@ -1,42 +1,16 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  // CalendarIcon,
-  FlagIcon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-// import porfolioImage1 from '../images/capstone-swarm.jpg';
 import heroImage from '../images/personal-front.jpg';
-// import portfolioVideo2 from '../videos/portfolio/rl-montage.mp4';
-import OPGImage from '../images/portfolio/OPG.jpg';
-// import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-// import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-// import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import profilepic from '../images/profilepic.jpg';
-
-import {
-  About,
-  ContactSection,
-  ContactType,
-  Hero,
-  HomepageMeta,
-  PortfolioItem,
-  SkillGroup,
-  Social,
-  TimelineItem,
-} from './dataDef';
+import {ContactSection, ContactType, Hero, HomepageMeta, SkillGroup, Social, TimelineItem} from './dataDef';
 
 /**
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
   title: 'Kieran Pereira - Portfolio',
-  description: "Portfolio website of Kieran Pereira, an engineer specializing in robotics and AI.",
+  description: 'Portfolio website of Kieran Pereira, an engineer specializing in robotics and AI.',
 };
 
 /**
@@ -44,31 +18,13 @@ export const homePageMeta: HomepageMeta = {
  */
 export const SectionId = {
   Hero: 'hero',
-  About: 'about',
-  Contact: 'contact',
-  Portfolio: 'portfolio',
-  Resume: 'resume',
+  Projects: 'projects',
+  Experience: 'experience',
   Skills: 'skills',
-  Stats: 'stats',
-  Testimonials: 'testimonials',
-  Capstone: 'capstone', // ✅ Ensure Capstone is added
-  Problem: 'problem',
-  Methodology: 'methodology',
-  Challenges: 'challenges',
-  Progress: 'progress',
-  Future: 'future',
+  Contact: 'contact',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
-
-const handleResumeDownload = () => {
-  const link = document.createElement('a');
-  link.href = '/assets/KieranPereira_Resume.pdf';
-  link.setAttribute('download', 'Kieran_Pereira_Resume.pdf');
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
 
 /**
  * Hero section
@@ -77,14 +33,10 @@ export const heroData: Hero = {
   imageSrc: heroImage,
   name: `Hi, I'm Kieran`,
   description: (
-    <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a <strong className="text-stone-100">Mechanical Engineer</strong> specializing in <strong className="text-stone-100">robotics and AI</strong>, currently pursuing my MEng at <strong className="text-stone-100">UC Berkeley</strong>.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        My work focuses on autonomous robotic systems, machine learning, and control algorithms for real-world applications.
-      </p>
-    </>
+    <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      Robotics &amp; AI engineer — <strong className="text-stone-100">autonomous systems, controls, embedded</strong>.
+      MEng at UC Berkeley, BEng at UCL.
+    </p>
   ),
   actions: [
     {
@@ -92,7 +44,7 @@ export const heroData: Hero = {
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
-      onClick: handleResumeDownload,
+      download: true,
     },
     {
       href: `#${SectionId.Contact}`,
@@ -103,111 +55,50 @@ export const heroData: Hero = {
 };
 
 /**
- * About section
- */
-export const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: `I'm a robotics and AI-focused mechanical engineer with experience in autonomous systems, control design, and software development. I enjoy applying my knowledge to real-world challenges in automation and AI-powered robotics.`,
-  aboutItems: [
-    { label: 'Location', text: 'Berkeley, CA', Icon: MapIcon },
-    { label: 'Education', text: 'UC Berkeley (MEng) & UCL (BEng)', Icon: AcademicCapIcon },
-    { label: 'Nationality', text: 'British / Australian', Icon: FlagIcon },
-    { label: 'Interests', text: 'Robotics, AI, Autonomous Systems , Guitar', Icon: SparklesIcon },
-    { label: 'Employment', text: 'Lockheed Martin, Airbus, HSBC', Icon: BuildingOffice2Icon },
-  ],
-};
-
-/**
  * Skills section
+ *
+ * Grouped tags/chips by category — no numeric levels. To add a skill, just add
+ * its name to the relevant group (or add a new group).
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Programming Languages',
-    skills: [
-      { name: 'C++', level: 10 },
-      { name: 'Python', level: 9 },
-      { name: 'MATLAB', level: 8 },
-      { name: 'Flutter', level: 6 },
-    ],
+    name: 'Languages',
+    skills: [{name: 'C++'}, {name: 'Python'}, {name: 'MATLAB'}, {name: 'Flutter'}],
   },
   {
-    name: 'AI & Machine Learning',
-    skills: [
-      { name: 'TensorFlow', level: 8 },
-      { name: 'OpenCV', level: 7 },
-      { name: 'PyTorch', level: 7 },
-    ],
+    name: 'Robotics & Embedded',
+    skills: [{name: 'ROS2'}, {name: 'Simulink'}, {name: 'ESP32'}, {name: 'Microcontroller Design'}, {name: 'I2C'}],
   },
   {
-    name: 'Robotics & Embedded Systems',
-    skills: [
-      { name: 'ROS2', level: 9 },
-      { name: 'Simulink', level: 8 },
-      { name: 'ESP32', level: 8 },
-    ],
+    name: 'AI/ML',
+    skills: [{name: 'TensorFlow'}, {name: 'PyTorch'}, {name: 'OpenCV'}, {name: 'Embedded AI'}],
   },
   {
     name: 'Design & Manufacturing',
-    skills: [
-      { name: 'SolidWorks/CAD/Fusion 360', level: 9 },
-      { name: 'PCB Design', level: 8 },
-      { name: 'DfMA Processes', level: 7 },
-      { name: 'Microcontroller Design', level: 8 },
-    ],
-  },  
-];
-
-/**
- * Portfolio section
- */
-export const portfolioItems: PortfolioItem[] = [
-  {
-    title: 'Berkeley TAFLAB',
-    description: 'Coordinating 1000+ ocean sensors to reduce global shipping fuel consumption by 30%.',
-    url: '/portfolio/capstone',
-    video: '/capstone/frontvideo.mp4',  // Correct URL
-  },
-  {
-    title: 'Berkeley Robotics Lab: Quadrupedal Running Robot',
-    description: 'Designed an efficient running quadruped that\'s 23% faster than Boston Dynamic\'s Spot',
-    url: '/portfolio/bladerunner',
-    video: '/bladerunner/rl-montage.mp4',  // Correct URL
-  },
-  
-  {
-    title: 'Obsidian Performance Gear: ',
-    description: 'Building a $1.2m+ company that trains top athletes using motion tracking sensors and AI',
-    url: '/portfolio/opg',
-    image: OPGImage,
-  },
-  {
-    title: 'My UCL Capstone:',
-    description: 'Building an traffic sign object detection and narration platform for inexperienced and elderly drivers',
-    url: '/portfolio/UCLCapstone',
-    video: '/UCLCapstone/trafficsign.mp4'
-  },
-
-  {
-    title: 'UCL\'s Unmanned Aerial Systems Team:',
-    description: 'Building the guidance system for an autonomous helicopter for the IMechE UAV Challenge',
-    url: 'https://uclr-uas.notion.site/Project-DRAGONFLY-b92b4bb6e1b941aa9e0137fc74e913ca',
-    video: '/UAS/Heli.mp4'
+    skills: [{name: 'SolidWorks / Fusion 360'}, {name: 'PCB Design'}, {name: 'DfMA Processes'}, {name: 'CAD'}],
   },
 ];
 
 /**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Resume — Education
  */
 export const education: TimelineItem[] = [
   {
     date: 'August 2024 – Present',
     location: 'University of California, Berkeley',
-    imageSrc: "/experience/Berkeley.png",
+    imageSrc: '/experience/Berkeley.png',
     title: 'MEng Mechanical Engineering (Robotics and Autonomous Systems)',
+    caption: 'Robotics & autonomous systems, with a swarm-robotics capstone.',
     content: (
       <ul>
-        <li><strong>Relevant Coursework:</strong> Dynamics & Control of Autonomous Systems, Design of Microprocessor Systems, Robotic Locomotion</li>
-        <li><strong>Capstone Project:</strong> Developed control systems for 100+ robotic ocean sensors. Conducted field testing with 18 units, validated mesh networks, and created automated calibration scripts using Python/MATLAB.</li>
+        <li>
+          <strong>Relevant Coursework:</strong> Dynamics &amp; Control of Autonomous Systems, Design of Microprocessor
+          Systems, Robotic Locomotion
+        </li>
+        <li>
+          <strong>Capstone Project:</strong> Developed control systems for 100+ robotic ocean sensors. Conducted field
+          testing with 18 units, validated mesh networks, and created automated calibration scripts using Python/MATLAB.
+        </li>
         <li>Designed go-to-market strategies by validating customer requirements for iterative releases.</li>
       </ul>
     ),
@@ -215,22 +106,31 @@ export const education: TimelineItem[] = [
   {
     date: 'September 2020 – 2024',
     location: 'University College London (UCL)',
-    imageSrc: "/experience/UCL.png",
+    imageSrc: '/experience/UCL.png',
     title: 'BEng Mechanical Engineering with Intelligent Systems',
+    caption: 'First-class engineering degree with a 4.0 GPA capstone.',
     content: (
       <ul>
-        <li><strong>Capstone Project (4.0 GPA):</strong> Built a neural network-powered car dashboard system for traffic sign recognition. Trained on 100,000+ images and outperformed Meta’s benchmark model.</li>
+        <li>
+          <strong>Capstone Project (4.0 GPA):</strong> Built a neural network-powered car dashboard system for traffic
+          sign recognition. Trained on 100,000+ images and outperformed Meta&apos;s benchmark model.
+        </li>
       </ul>
     ),
   },
 ];
 
+/**
+ * Resume — Work experience
+ */
 export const experience: TimelineItem[] = [
   {
     date: '2023 - 2024',
     location: 'Lockheed Martin',
     title: 'Software & Systems Engineer',
-    imageSrc: "/experience/Lockheed Martin.png",
+    imageSrc: '/experience/Lockheed Martin.png',
+    caption: 'Real-time combat simulation at scale.',
+    tldr: 'Built networked simulation handling 500+ entities and secured £100k for AI-based quality-control automation.',
     content: (
       <ul>
         <li>Developed real-time combat simulation software for complex networked environments.</li>
@@ -243,7 +143,9 @@ export const experience: TimelineItem[] = [
     date: '2024',
     location: 'HSBC',
     title: 'Global Digital Strategy Analyst',
-    imageSrc: "/experience/HSBC.png",
+    imageSrc: '/experience/HSBC.png',
+    caption: 'Digital transformation across 7 countries.',
+    tldr: 'Identified $300k in savings and cut time-to-market by 11%.',
     content: (
       <ul>
         <li>Conducted statistical analysis identifying $300k in savings.</li>
@@ -256,7 +158,9 @@ export const experience: TimelineItem[] = [
     date: '2022 - 2022',
     location: 'University College London',
     title: 'Machine Learning Researcher',
-    imageSrc: "/experience/UCL.png",
+    imageSrc: '/experience/UCL.png',
+    caption: 'Computer vision for healthcare.',
+    tldr: '90% accuracy skin-condition detection, deployed with NHS clinicians.',
     content: (
       <ul>
         <li>Developed an AI-based classification system for healthcare applications.</li>
@@ -269,7 +173,9 @@ export const experience: TimelineItem[] = [
     date: '2019',
     location: 'Airbus',
     title: 'Summer Work Experience',
-    imageSrc: "/experience/Airbus.png",
+    imageSrc: '/experience/Airbus.png',
+    caption: 'Wing-aerodynamics R&D.',
+    tldr: 'Modeled new wing tech and led the 1st-place team in an innovation competition.',
     content: (
       <ul>
         <li>Analyzed performance of new wing technology using data analytics and mathematical modeling.</li>
@@ -281,16 +187,20 @@ export const experience: TimelineItem[] = [
 ];
 
 /**
- * Contact section
+ * Contact section — links only (no form).
  */
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
   description: 'Feel free to reach out for collaboration, job opportunities, or tech discussions.',
-  
   items: [
-    { type: ContactType.LinkedIn, text: 'linkedin.com/in/kieranpereira1001', href: 'https://www.linkedin.com/in/kieranpereira1001' },
-    { type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com' },
-    { type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'kieran_p@berkeley.edu' },
+    {
+      type: ContactType.LinkedIn,
+      text: 'linkedin.com/in/kieranpereira1001',
+      href: 'https://www.linkedin.com/in/kieranpereira1001',
+    },
+    {type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com'},
+    {type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'mailto:kieran_p@berkeley.edu'},
+    {type: ContactType.Github, text: 'github.com/kieranpereira', href: 'https://github.com/kieranpereira'},
   ],
 };
 
@@ -298,6 +208,6 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  { label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira' },
-  { label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/' },
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/'},
 ];
