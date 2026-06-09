@@ -28,12 +28,13 @@ const Hero: FC = memo(() => {
               <Socials />
             </div>
             <div className="flex w-full justify-center gap-x-4">
-              {actions.map(({href, text, primary, Icon}) => (
+              {actions.map(({href, text, primary, Icon, download}) => (
                 <a
                   className={classNames(
                     'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base',
-                    primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
+                    primary ? 'border-accent-500 ring-accent-500' : 'border-white ring-white',
                   )}
+                  download={download}
                   href={href}
                   key={text}>
                   {text}
@@ -46,7 +47,7 @@ const Hero: FC = memo(() => {
         <div className="absolute inset-x-0 bottom-6 flex justify-center">
           <a
             className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
-            href={`/#${SectionId.About}`}>
+            href={`/#${SectionId.Projects}`}>
             <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
           </a>
         </div>
