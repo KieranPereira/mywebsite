@@ -19,7 +19,7 @@ const ProjectPage: NextPage<ProjectPageProps> = memo(({slug}) => {
   if (!project) return null;
 
   return (
-    <Page description={project.caption} title={`${project.title} — Kieran Pereira`}>
+    <Page description={project.caption} title={`${project.title} | Kieran Pereira`}>
       <div className="mx-auto max-w-4xl px-6 py-10 lg:px-8">
         <Link
           className="mb-8 inline-flex items-center gap-x-2 text-sm font-medium text-deck-muted transition-colors hover:text-deck-accent"

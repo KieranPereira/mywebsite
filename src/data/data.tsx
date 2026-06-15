@@ -1,10 +1,16 @@
 import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
+import {ReactNode} from 'react';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import heroImage from '../images/personal-front.jpg';
 import profilepic from '../images/profilepic.jpg';
 import {ContactSection, ContactType, DeckData, Hero, HomepageMeta, SkillGroup, Social, TimelineItem} from './dataDef';
+
+/** Emphasis for key metrics/phrases inside experience summaries. */
+const Key = ({children}: {children: ReactNode}) => (
+  <strong className="font-semibold text-deck-text">{children}</strong>
+);
 
 /**
  * Page meta data
@@ -185,7 +191,12 @@ export const experience: TimelineItem[] = [
     title: 'Software & Systems Engineer',
     imageSrc: '/experience/Lockheed Martin.png',
     caption: 'Real-time combat simulation at scale.',
-    tldr: 'Built networked simulation handling 500+ entities and secured £100k for AI-based quality-control automation.',
+    tldr: (
+      <>
+        Built networked simulation handling <Key>500+ entities</Key> and secured <Key>£100k</Key> for AI-based
+        quality-control automation.
+      </>
+    ),
     content: (
       <ul>
         <li>Developed real-time combat simulation software for complex networked environments.</li>
@@ -200,7 +211,11 @@ export const experience: TimelineItem[] = [
     title: 'Global Digital Strategy Analyst',
     imageSrc: '/experience/HSBC.png',
     caption: 'The business side of engineering: digital strategy across 7 countries.',
-    tldr: 'Identified $300k in savings and cut time-to-market by 11%.',
+    tldr: (
+      <>
+        Identified <Key>$300k in savings</Key> and cut <Key>time-to-market by 11%</Key>.
+      </>
+    ),
     content: (
       <ul>
         <li>Conducted statistical analysis identifying $300k in savings.</li>
@@ -215,7 +230,11 @@ export const experience: TimelineItem[] = [
     title: 'Machine Learning Researcher',
     imageSrc: '/experience/UCL.png',
     caption: 'Computer vision for healthcare.',
-    tldr: '90% accuracy skin-condition detection, deployed with NHS clinicians.',
+    tldr: (
+      <>
+        <Key>90% accuracy</Key> skin-condition detection, deployed with <Key>NHS clinicians</Key>.
+      </>
+    ),
     content: (
       <ul>
         <li>Developed an AI-based classification system for healthcare applications.</li>
@@ -230,7 +249,11 @@ export const experience: TimelineItem[] = [
     title: 'Engineering Intern, Wing Aerodynamics',
     imageSrc: '/experience/Airbus.png',
     caption: 'First taste of aerospace engineering.',
-    tldr: 'Modeled new wing tech and led the 1st-place team in an innovation competition.',
+    tldr: (
+      <>
+        Modeled new wing tech and led the <Key>1st-place team</Key> in an innovation competition.
+      </>
+    ),
     content: (
       <ul>
         <li>Analyzed performance of new wing technology using data analytics and mathematical modeling.</li>

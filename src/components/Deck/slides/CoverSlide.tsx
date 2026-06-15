@@ -132,7 +132,7 @@ const CoverSlide: FC<CoverSlideProps> = memo(
                 enter('animate-cover-rise'),
               )}
               style={{animationDelay: '0.5s'}}>
-              I build robots end to end — mechanical design, embedded hardware, control software, and the AI on top.
+              I build robots end to end: mechanical design, embedded hardware, control software, and the AI on top.
             </p>
             {showDownloadPdf && (
               <div

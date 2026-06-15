@@ -130,7 +130,7 @@ export interface TimelineItem {
   content: JSX.Element; // existing detailed bullets (now collapsible)
   imageSrc?: string;
   caption?: string; // NEW: one-line hook
-  tldr?: string; // NEW: 1-sentence summary shown before details
+  tldr?: string | JSX.Element; // NEW: 1-sentence summary shown before details (JSX allows bolded key phrases)
 }
 
 /**

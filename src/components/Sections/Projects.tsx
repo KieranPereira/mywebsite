@@ -14,7 +14,7 @@ const Projects: FC = memo(() => (
     <div className="flex flex-col gap-y-10">
       <SectionHeading
         light
-        subtitle="Robotics, AI and embedded systems — click any project for the one-screen brief."
+        subtitle="Robotics, AI and embedded systems. Click any project for the one-screen brief."
         title="Selected work"
       />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

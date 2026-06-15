@@ -28,7 +28,7 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'taflab',
-    title: 'Berkeley TAFLAB — Autonomous Ocean-Sensor Swarm',
+    title: 'Berkeley TAFLAB: Autonomous Ocean-Sensor Swarm',
     caption: 'Ships burn $45B a year fighting waves nobody measures. We built a sensor swarm that measures them.',
     tldr: 'Built the guidance, navigation, and mesh-networking stack for a swarm of self-powered ocean sensors that map wave conditions for fuel-saving ship routing.',
     heroStat: {value: '~30%', label: 'of shipping fuel saved through wave-aware routing'},
@@ -196,7 +196,7 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'bladerunner',
-    title: 'Berkeley Robotics Lab — Quadrupedal Running Robot',
+    title: 'Berkeley Robotics Lab: Quadrupedal Running Robot',
     caption: "An efficient running quadruped that outpaces Boston Dynamics' Spot.",
     tldr: "Designed and trained a running quadruped in simulation, combining genetic algorithms with reinforcement learning to beat Spot's top speed.",
     heroStat: {value: '23% faster', label: "than Boston Dynamics' Spot"},
@@ -495,7 +495,7 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'ucl-capstone',
-    title: 'UCL Capstone — Traffic-Sign Detection & Narration',
+    title: 'UCL Capstone: Traffic-Sign Detection & Narration',
     caption: 'New and elderly drivers miss road signs. This dashboard reads them aloud in real time.',
     tldr: "Trained a YOLOv5 pipeline on 100k+ images to recognize and narrate road signs in real time, outperforming Meta's benchmark model.",
     heroStat: {value: '100k+', label: "training images, outperforming Meta's benchmark model"},
@@ -635,7 +635,7 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'uas',
-    title: 'UCL UAS — Project Dragonfly',
+    title: 'UCL UAS: Project Dragonfly',
     caption: 'Guidance system for an autonomous helicopter (IMechE UAS Challenge).',
     heroStat: {value: 'Autonomous', label: 'helicopter guidance, built for the IMechE UAS Challenge'},
     media: {type: 'video', src: '/UAS/Heli.mp4', label: 'Flight test'},
