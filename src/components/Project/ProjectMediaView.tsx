@@ -42,11 +42,22 @@ const ProjectMediaView: FC<ProjectMediaViewProps> = memo(({media, alt, priority 
     return () => observer.disconnect();
   }, []);
 
+  if (media.type === 'document') {
+    const docSrc = typeof media.src === 'string' ? media.src : media.src.src;
+    return (
+      <iframe
+        className="h-full min-h-[480px] w-full rounded-lg border border-deck-border"
+        src={`${docSrc}#toolbar=0`}
+        title={media.label ?? alt}
+      />
+    );
+  }
+
   if (media.type === 'image') {
     return (
       <Image
         alt={alt}
-        className={className}
+        className={className ?? 'max-h-full max-w-full object-contain'}
         height={720}
         loading={priority ? undefined : 'lazy'}
         priority={priority}
@@ -62,7 +73,7 @@ const ProjectMediaView: FC<ProjectMediaViewProps> = memo(({media, alt, priority 
   return (
     <video
       aria-label={alt}
-      className={className}
+      className={className ?? 'max-h-full max-w-full object-contain'}
       loop
       muted
       playsInline

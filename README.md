@@ -1,95 +1,80 @@
-# Kieran Pereira — Portfolio
+# Kieran Pereira — Portfolio (Slide Deck)
 
-A fast, data-driven portfolio built with **Next.js 14 (Pages Router) + TypeScript + TailwindCSS**.
+A data-driven portfolio built with **Next.js 14 (Pages Router) + TypeScript + TailwindCSS**.
 
-The whole point of this setup: **all content lives in plain data files** so you can add or
-edit a project or job without touching any layout or logic. If you can copy an object and
-change some text, you can update the site.
+The homepage is a **full-screen snap-scroll slide deck** — one project per slide, skimmable in
+~1 minute. A matching **PDF** is generated from the same data via the print route. Depth on
+demand lives at `/portfolio/[slug]`.
 
 ---
 
 ## How to add or edit a PROJECT
 
-All projects live in **`src/data/projects.tsx`** in the `projects` array. The order of the
-array is the order they appear on the homepage (most impressive first).
+All projects live in **`src/data/projects.tsx`** in the `projects` array. Order = slide order
+on the deck, table of contents, and PDF.
 
-To add one, copy an existing object and change the fields:
+| Field         | Required | What it is                                                                 |
+| ------------- | -------- | -------------------------------------------------------------------------- |
+| `slug`        | ✅       | URL-safe id → slide id `project-<slug>` and page `/portfolio/<slug>`.      |
+| `title`       | ✅       | Project name on the slide and detail page.                                 |
+| `caption`     | ✅       | One punchy hook line (subtitle on the slide).                              |
+| `heroStat`    | ✅       | Bold achievement line: `{value, label}`.                                   |
+| `media`       | ✅       | Main visual: `{type, src, poster?}`.                                       |
+| `tldr`        | optional | Overview paragraph on the slide.                                           |
+| `highlights`  | optional | Key Contributions bullets (3–4).                                             |
+| `techTags`    | optional | Small chips under the bullets.                                             |
+| `links`       | optional | GitHub / demo / deck buttons.                                              |
+| `gallery`     | optional | Extra images shown in the visual block alongside `media`.                  |
+| `subtitle`    | optional | Explicit slide subtitle (defaults to `caption`).                           |
+| `achievement` | optional | Override text for the bottom achievement line (else `heroStat`).           |
+| `deepDive`    | optional | Full breakdown on `/portfolio/[slug]` (rich JSX, collapsed by default).    |
+| `external`    | optional | If set, links straight out — no detail page or "Full breakdown" link.      |
 
-| Field        | Required | What it is                                                                 |
-| ------------ | -------- | -------------------------------------------------------------------------- |
-| `slug`       | ✅       | URL-safe id. `"taflab"` → page at `/portfolio/taflab`.                      |
-| `title`      | ✅       | Project name shown on the card and page.                                   |
-| `caption`    | ✅       | One punchy hook line.                                                       |
-| `heroStat`   | ✅       | The big bold number: `{value: "23% faster", label: "than ..."}`.           |
-| `media`      | ✅       | `{type: 'video' \| 'image', src: '/path', poster: '/path'}` (see below).   |
-| `tldr`       | optional | 1–2 sentence plain-English summary.                                        |
-| `highlights` | optional | 3–4 short bullet outcomes shown on the project page.                       |
-| `techTags`   | optional | List of tech, e.g. `['ROS2', 'C++']`.                                      |
-| `links`      | optional | Buttons: `{type, label, href}`. `type` is `github`/`demo`/`deck`/`external`.|
-| `deepDive`   | optional | Collapsible long-form sections (the only field that uses rich content).    |
-| `external`   | optional | If set to a URL, the card links straight out — **no detail page**.          |
-| `featured`   | optional | Marks the project as featured.                                             |
+A new project automatically appears as a **new slide**, in the **TOC**, in the **PDF**, and
+gets a detail page — no other code changes.
 
-> The `deepDive` field is the only one that takes rich JSX (paragraphs, lists, images). If
-> you just want the basics, you can leave it out and the project still gets a clean page.
+## Slide order
 
-A new project automatically shows up on the homepage grid **and** gets its own page at
-`/portfolio/<slug>` — no other code changes needed.
+Defined in **`src/data/deck.ts`** → `buildDeckSlides()`:
+
+`Cover → About → [one slide per project] → Experience → Education → Contact`
+
+To change deck copy (cover bio, about intro, contact tagline, company logos), edit
+**`deckData`** in **`src/data/data.tsx`**.
 
 ## How to add or edit a JOB or EDUCATION entry
 
-These live in **`src/data/data.tsx`**:
+In **`src/data/data.tsx`**:
 
-- Work history → the `experience` array.
-- Education → the `education` array.
+- Work → `experience` array
+- Education → `education` array
 
-Each entry has:
+Each entry supports `caption`, `tldr`, and `content` (full bullets — detail page / print only).
 
-- `title`, `location`, `date` — the basics.
-- `caption` — a one-line hook (shown in orange).
-- `tldr` — a one-sentence summary (work entries).
-- `content` — the full bullet list, collapsed by default behind a "View details" toggle.
+## How to swap media and logos
 
-## How to edit SKILLS, CONTACT, and the HERO
+- Project media → `/public/<folder>/` then update `media.src`, `poster`, and `gallery` paths.
+- Company logos (About / Experience slides) → `/public/experience/*.png`, listed in `deckData.experienceLogos`.
+- Headshot → `src/images/profilepic.jpg` (also exported as `profileImage` in `data.tsx`).
 
-Also in **`src/data/data.tsx`**:
-
-- `skills` — grouped tags. Add a skill by adding `{name: 'Thing'}` to a group.
-- `contact` — the contact links (email / LinkedIn / GitHub). No form, just links.
-- `heroData` — your name, the one-line positioning, and the resume/contact buttons.
-
-## How to swap media
-
-All media files live in **`/public`** (e.g. `/public/capstone/frontvideo.mp4`). Drop a file
-in there and point a project's `media.src` (and `poster`) at the path **relative to
-`/public`** — e.g. a file at `public/capstone/frontvideo.mp4` is referenced as
-`/capstone/frontvideo.mp4`.
-
-Tips for keeping the site fast:
-
-- Use H.264 `.mp4` for video and give every video a `poster` image.
-- Keep videos reasonably small (the homepage cards autoplay them, muted, only when in view).
-- Images are served through `next/image`, so they're optimized automatically.
-
----
+Keep videos as H.264 `.mp4` with a **poster** image — videos show as posters in the PDF.
 
 ## Run locally
 
 ```bash
 yarn install
-yarn dev          # http://localhost:3000
+yarn dev          # http://localhost:3000 — interactive deck
 ```
 
-Other useful scripts:
+Open **`/deck/print`** and click **Save as PDF** to preview the printable deck.
 
 ```bash
-yarn compile      # TypeScript type-check
-yarn lint         # Prettier + ESLint (must pass with zero warnings)
+yarn compile      # TypeScript check
+yarn lint         # Prettier + ESLint (zero warnings)
 yarn build        # Production build
-yarn sitemap      # Regenerate sitemap (next-sitemap)
+yarn sitemap      # Regenerate sitemap
 ```
 
 ## Deploy
 
-The site deploys to **Vercel** with zero config — push to your connected Git repo and Vercel
-runs `yarn build`. No environment variables are required (contact is links-only).
+Deploys to **Vercel** with zero config — `yarn build` on push. No environment variables required.

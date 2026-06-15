@@ -43,6 +43,8 @@ interface HeroActionItem {
  */
 export interface Skill {
   name: string;
+  /** Core skills render with emphasized chips on the About slide. */
+  core?: boolean;
 }
 
 export interface SkillGroup {
@@ -77,9 +79,11 @@ export interface DeepDiveSection {
 }
 
 export interface ProjectMedia {
-  type: 'video' | 'image';
+  type: 'video' | 'image' | 'document';
   src: string | StaticImageData;
   poster?: string | StaticImageData;
+  /** Shown on document frames, e.g. "Pitch deck" or "Full report". */
+  label?: string;
 }
 
 export interface Project {
@@ -95,6 +99,24 @@ export interface Project {
   deepDive?: DeepDiveSection[]; // optional; rendered collapsed by default
   external?: string; // if set, the card links straight out (no detail page)
   featured?: boolean;
+  subtitle?: string; // optional explicit slide subtitle (else use caption)
+  gallery?: ProjectMedia[]; // optional extra images/clips in the visual block
+  achievement?: string; // optional override for the bottom achievement line
+}
+
+/**
+ * Deck / slide-deck content (homepage presentation layer).
+ */
+export interface DeckData {
+  kicker: string;
+  name: string;
+  coverBio: JSX.Element;
+  aboutIntro: string;
+  contactTagline: string;
+  /** Company/school logos shown on About slide — paths relative to /public */
+  experienceLogos: {name: string; src: string}[];
+  /** Skill/tool logos shown on About slide — paths relative to /public */
+  skillLogos: {name: string; src: string}[];
 }
 
 /**

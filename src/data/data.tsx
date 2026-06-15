@@ -3,7 +3,8 @@ import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import heroImage from '../images/personal-front.jpg';
-import {ContactSection, ContactType, Hero, HomepageMeta, SkillGroup, Social, TimelineItem} from './dataDef';
+import profilepic from '../images/profilepic.jpg';
+import {ContactSection, ContactType, DeckData, Hero, HomepageMeta, SkillGroup, Social, TimelineItem} from './dataDef';
 
 /**
  * Page meta data
@@ -27,6 +28,41 @@ export const SectionId = {
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
 /**
+ * Deck / slide-deck presentation content
+ */
+export const deckData: DeckData = {
+  kicker: 'Full-Stack Robotics Engineer',
+  name: 'Kieran Pereira',
+  coverBio: (
+    <p className="text-base leading-relaxed text-deck-muted sm:text-lg">
+      I build robots end to end: mechanical design, embedded hardware, control software, and the AI on top. MEng at{' '}
+      <strong className="text-deck-text">UC Berkeley</strong>, BEng at <strong className="text-deck-text">UCL</strong>,
+      with time at <strong className="text-deck-text">Lockheed Martin</strong>,{' '}
+      <strong className="text-deck-text">Airbus</strong>, and <strong className="text-deck-text">HSBC</strong>.
+    </p>
+  ),
+  aboutIntro:
+    "I'm a Master's graduate from UC Berkeley who thrives on using engineering to solve real problems. Everything I build starts with one: ships waste billions in fuel because nobody measures waves where they happen, so I built the navigation stack for a swarm of ocean sensors that do; athletes get injured training with bad form, so I co-founded a company and built a wearable that corrects it live. I work across the whole stack — CAD and PCBs through control loops and trained models — and I like it best when the thing actually ships.",
+  contactTagline: 'Open to full-stack robotics roles: software, integration, and technical program management.',
+  experienceLogos: [
+    {name: 'Lockheed Martin', src: '/experience/Lockheed Martin.png'},
+    {name: 'Airbus', src: '/experience/Airbus.png'},
+    {name: 'UC Berkeley', src: '/experience/Berkeley.png'},
+    {name: 'Undaunted', src: '/experience/Undaunted.svg'},
+  ],
+  skillLogos: [
+    {name: 'ROS 2', src: '/skills/ros.svg'},
+    {name: 'C++', src: '/skills/cplusplus.svg'},
+    {name: 'Python', src: '/skills/python.svg'},
+    {name: 'MATLAB', src: '/skills/matlab.svg'},
+    {name: 'Simulink', src: '/skills/simulink.svg'},
+    {name: 'Fusion 360', src: '/skills/fusion360.svg'},
+  ],
+};
+
+export const profileImage = profilepic;
+
+/**
  * Hero section
  */
 export const heroData: Hero = {
@@ -34,8 +70,9 @@ export const heroData: Hero = {
   name: `Hi, I'm Kieran`,
   description: (
     <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-      Robotics &amp; AI engineer — <strong className="text-stone-100">autonomous systems, controls, embedded</strong>.
-      MEng at UC Berkeley, BEng at UCL.
+      Full-stack robotics engineer:{' '}
+      <strong className="text-stone-100">autonomous systems, controls, and embedded AI</strong>. MEng at UC Berkeley,
+      BEng at UCL.
     </p>
   ),
   actions: [
@@ -62,20 +99,35 @@ export const heroData: Hero = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Languages',
-    skills: [{name: 'C++'}, {name: 'Python'}, {name: 'MATLAB'}, {name: 'Flutter'}],
+    name: 'Languages & Frameworks',
+    skills: [{name: 'C++', core: true}, {name: 'Python', core: true}, {name: 'MATLAB'}, {name: 'Flutter'}],
   },
   {
     name: 'Robotics & Embedded',
-    skills: [{name: 'ROS2'}, {name: 'Simulink'}, {name: 'ESP32'}, {name: 'Microcontroller Design'}, {name: 'I2C'}],
+    skills: [
+      {name: 'ROS2', core: true},
+      {name: 'Simulink'},
+      {name: 'ESP32'},
+      {name: 'Microcontroller Design'},
+      {name: 'I2C'},
+    ],
+  },
+  {
+    name: 'Controls & Autonomy',
+    skills: [{name: 'Kalman Filtering', core: true}, {name: 'LQR'}, {name: 'PID'}, {name: 'Sensor Fusion'}],
   },
   {
     name: 'AI/ML',
-    skills: [{name: 'TensorFlow'}, {name: 'PyTorch'}, {name: 'OpenCV'}, {name: 'Embedded AI'}],
+    skills: [{name: 'Embedded AI', core: true}, {name: 'TensorFlow'}, {name: 'PyTorch'}, {name: 'OpenCV'}],
   },
   {
     name: 'Design & Manufacturing',
-    skills: [{name: 'SolidWorks / Fusion 360'}, {name: 'PCB Design'}, {name: 'DfMA Processes'}, {name: 'CAD'}],
+    skills: [
+      {name: 'SolidWorks / Fusion 360', core: true},
+      {name: 'PCB Design'},
+      {name: 'DfMA Processes'},
+      {name: 'CAD'},
+    ],
   },
 ];
 
@@ -144,7 +196,7 @@ export const experience: TimelineItem[] = [
     location: 'HSBC',
     title: 'Global Digital Strategy Analyst',
     imageSrc: '/experience/HSBC.png',
-    caption: 'Digital transformation across 7 countries.',
+    caption: 'The business side of engineering: digital strategy across 7 countries.',
     tldr: 'Identified $300k in savings and cut time-to-market by 11%.',
     content: (
       <ul>
@@ -155,7 +207,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2022 - 2022',
+    date: '2022',
     location: 'University College London',
     title: 'Machine Learning Researcher',
     imageSrc: '/experience/UCL.png',
@@ -172,9 +224,9 @@ export const experience: TimelineItem[] = [
   {
     date: '2019',
     location: 'Airbus',
-    title: 'Summer Work Experience',
+    title: 'Engineering Intern, Wing Aerodynamics',
     imageSrc: '/experience/Airbus.png',
-    caption: 'Wing-aerodynamics R&D.',
+    caption: 'First taste of aerospace engineering.',
     tldr: 'Modeled new wing tech and led the 1st-place team in an innovation competition.',
     content: (
       <ul>

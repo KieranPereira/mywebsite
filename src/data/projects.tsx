@@ -29,17 +29,27 @@ export const projects: Project[] = [
   {
     slug: 'taflab',
     title: 'Berkeley TAFLAB — Autonomous Ocean-Sensor Swarm',
-    caption: 'Coordinating a swarm of self-powered ocean sensors to cut global shipping emissions.',
-    tldr: 'Built the guidance, navigation & swarm-mesh-networking stack for autonomous ocean sensors that measure wave conditions for fuel-saving ship routing.',
-    heroStat: {value: '~30%', label: 'potential shipping fuel saved via wave-aware routing'},
+    caption: 'Ships burn $45B a year fighting waves nobody measures. We built a sensor swarm that measures them.',
+    tldr: 'Built the guidance, navigation, and mesh-networking stack for a swarm of self-powered ocean sensors that map wave conditions for fuel-saving ship routing.',
+    heroStat: {value: '~30%', label: 'of shipping fuel saved through wave-aware routing'},
     highlights: [
       'Field-tested 18 units and validated swarm mesh networks',
-      'LQR/PID + Kalman-filter navigation built in ROS2 / C++',
-      'Automated calibration scripts in Python / MATLAB',
+      'Wrote the LQR, PID, and Kalman-filter navigation stack in ROS2 and C++',
+      'Automated calibration scripts in Python and MATLAB',
       'Pursuing publication of the wave-forecasting and swarm-coordination work',
     ],
     techTags: ['ROS2', 'C++', 'MATLAB/Simulink', 'Kalman Filter', 'LQR', 'PID', 'ESP32', 'Sensor Fusion'],
-    media: {type: 'video', src: '/capstone/frontvideo.mp4', poster: '/capstone/capstone-title.jpg'},
+    media: {
+      type: 'video',
+      src: '/capstone/frontvideo.mp4',
+      poster: '/capstone/capstone-title.jpg',
+      label: 'Field test',
+    },
+    gallery: [
+      {type: 'image', src: '/capstone/capstone-swarm.jpg'},
+      {type: 'image', src: '/capstone/capstone-workshop.jpg'},
+      {type: 'image', src: '/capstone/capstone-problem.jpg'},
+    ],
     links: [
       {
         type: 'github',
@@ -56,14 +66,14 @@ export const projects: Project[] = [
             <p>
               Global shipping incurs roughly $45B in extra fuel costs annually due to encountering unpredicted ocean
               waves, contributing nearly 1% of the world&apos;s total GHG emissions. By accurately forecasting wave
-              conditions, routing algorithms can improve efficiency by over 20% — equivalent to eliminating the
-              emissions of 70 million cars.
+              conditions, routing algorithms can improve efficiency by over 20%, equivalent to eliminating the emissions
+              of 70 million cars.
             </p>
             <p>
               Our solution is a swarm of autonomous, self-powered ocean sensors that dynamically position themselves to
-              measure wave height, frequency, and direction — inputs vital for newly developed wave-prediction models. I
-              focused specifically on the guidance and navigation systems for each autonomous vessel, coordinating them
-              through swarm mesh networks to optimize data collection and smart routing.
+              measure wave height, frequency, and direction: the inputs vital for newly developed wave-prediction
+              models. I focused specifically on the guidance and navigation systems for each autonomous vessel,
+              coordinating them through swarm mesh networks to optimize data collection and smart routing.
             </p>
           </div>
         ),
@@ -188,11 +198,11 @@ export const projects: Project[] = [
     slug: 'bladerunner',
     title: 'Berkeley Robotics Lab — Quadrupedal Running Robot',
     caption: "An efficient running quadruped that outpaces Boston Dynamics' Spot.",
-    tldr: 'Designed a running quadruped optimized for speed and efficiency using RL-based control.',
+    tldr: "Designed and trained a running quadruped in simulation, combining genetic algorithms with reinforcement learning to beat Spot's top speed.",
     heroStat: {value: '23% faster', label: "than Boston Dynamics' Spot"},
     highlights: [
       'Simulation-first design in MATLAB Simscape Multibody',
-      'J-shaped running blades + passive knee for energy-efficient gait',
+      'J-shaped running blades and a passive knee for an energy-efficient gait',
       'Gait optimized with a genetic algorithm and DDPG reinforcement learning',
       'Final gait covered 23 m in 10 s with strong stability',
     ],
@@ -205,7 +215,17 @@ export const projects: Project[] = [
       'SolidWorks',
       'Control Systems',
     ],
-    media: {type: 'video', src: '/bladerunner/rl-montage.mp4', poster: '/bladerunner/bladerunner-title.jpg'},
+    media: {
+      type: 'video',
+      src: '/bladerunner/rl-montage.mp4',
+      poster: '/bladerunner/bladerunner-title.jpg',
+      label: 'Simulation',
+    },
+    gallery: [
+      {type: 'image', src: '/bladerunner/bladerunner-biomimicry.jpg'},
+      {type: 'image', src: '/bladerunner/bladerunner-passive-knee.jpg'},
+      {type: 'image', src: '/bladerunner/bladerunner-results.jpg'},
+    ],
     featured: true,
     deepDive: [
       {
@@ -297,8 +317,8 @@ export const projects: Project[] = [
         body: (
           <div className="space-y-3">
             <p>
-              Combining the passive knee, J-shaped blades, and biomimicry-driven gait — refined through genetic
-              algorithms and reinforcement learning — produced a gait that covered 23 meters in 10 seconds while
+              Combining the passive knee, J-shaped blades, and a biomimicry-driven gait, refined through genetic
+              algorithms and reinforcement learning, produced a gait that covered 23 meters in 10 seconds while
               maintaining excellent stability and energy efficiency.
             </p>
             <Image
@@ -360,17 +380,27 @@ export const projects: Project[] = [
   {
     slug: 'opg',
     title: 'Obsidian Performance Gear',
-    caption: 'A smart wearable that corrects athletic form in real time — and the company I built around it.',
-    tldr: 'As CTO, built the wearable sensor + embedded-AI system delivering real-time 3D motion feedback to athletes.',
+    caption: 'Bad form causes most training injuries. I built a company around fixing it in real time.',
+    tldr: 'Founded the company and led engineering as CTO: a custom PCB, embedded AI, and real-time 3D motion feedback packed into a wearable.',
     heroStat: {value: '$1.2M+', label: 'company valuation'},
     highlights: [
       'Real-time 3D motion analysis on resource-constrained hardware',
-      'Custom PCB + IoT / I2C sensor design',
+      'Designed a custom PCB with an I2C sensor network',
       'Embedded AI for real-time form correction',
       'Led the engineering team as CTO',
     ],
-    techTags: ['C++', 'Python', 'Embedded AI', 'PCB Design', 'IoT', 'I2C', 'LabVIEW'],
-    media: {type: 'video', src: '/obsidian/explodedview.mp4', poster: '/obsidian/obsidian-hero.jpg'},
+    techTags: ['C++', 'Python', 'Embedded AI', 'PCB Design', 'IoT', 'I2C'],
+    media: {type: 'video', src: '/obsidian/explodedview.mp4', poster: '/obsidian/obsidian-hero.jpg', label: 'Hardware'},
+    gallery: [
+      {
+        type: 'document',
+        src: '/obsidian/pitch-deck.pdf',
+        label: 'Pitch deck',
+        poster: '/obsidian/obsidian-hero.jpg',
+      },
+      {type: 'image', src: '/obsidian/obsidian-competitive.jpg'},
+      {type: 'image', src: '/obsidian/obsidian-team.jpg'},
+    ],
     links: [
       {type: 'demo', label: 'Watch demo', href: '/obsidian/techdemo.mp4'},
       {type: 'deck', label: 'Pitch deck', href: '/obsidian/pitch-deck.pdf'},
@@ -393,7 +423,7 @@ export const projects: Project[] = [
           <div className="space-y-3">
             <p>
               With millions of gym enthusiasts and a rapidly growing wearable-tech market, there&apos;s a huge
-              opportunity to transform the way people work out — like having a friendly coach by your side guiding you
+              opportunity to transform the way people work out, like having a friendly coach by your side guiding you
               through every move.
             </p>
             <Image
@@ -412,7 +442,7 @@ export const projects: Project[] = [
         body: (
           <p>
             Our solution uses smart sensors to capture every detail of your movement. The system processes this data in
-            real time and gently nudges you to adjust your form — making workouts not only safer but more productive.
+            real time and gently nudges you to adjust your form, making workouts not only safer but more productive.
           </p>
         ),
       },
@@ -466,17 +496,27 @@ export const projects: Project[] = [
   {
     slug: 'ucl-capstone',
     title: 'UCL Capstone — Traffic-Sign Detection & Narration',
-    caption: 'A neural-net dashboard that reads road signs aloud for elderly & new drivers.',
-    tldr: "Built a traffic-sign recognition + narration platform; trained on 100k+ images and beat Meta's benchmark model.",
-    heroStat: {value: '100k+', label: "images trained — outperformed Meta's benchmark"},
+    caption: 'New and elderly drivers miss road signs. This dashboard reads them aloud in real time.',
+    tldr: "Trained a YOLOv5 pipeline on 100k+ images to recognize and narrate road signs in real time, outperforming Meta's benchmark model.",
+    heroStat: {value: '100k+', label: "training images, outperforming Meta's benchmark model"},
     highlights: [
       'Trained YOLOv5 on 100k+ Mapillary traffic-sign images',
       'Final model reached 84.4% mAP and 0.81 F1 (4.0 GPA capstone)',
-      'Custom hybrid cropping + RGB background-elimination preprocessing',
+      'Custom hybrid cropping and RGB background-elimination preprocessing',
       'Real-time narration prototype running at ~15.5 FPS',
     ],
     techTags: ['Python', 'YOLOv5', 'OpenCV', 'Deep Learning', 'Computer Vision', 'Genetic Algorithm'],
-    media: {type: 'video', src: '/UCLCapstone/trafficsign.mp4', poster: '/UCLCapstone/figure1.png'},
+    media: {type: 'video', src: '/UCLCapstone/trafficsign.mp4', poster: '/UCLCapstone/figure1.png', label: 'Live demo'},
+    gallery: [
+      {
+        type: 'document',
+        src: '/UCLCapstone/finalreport.pdf',
+        label: 'Full report',
+        poster: '/UCLCapstone/finaltrainingresults.png',
+      },
+      {type: 'image', src: '/UCLCapstone/finaltrainingresults.png'},
+      {type: 'image', src: '/UCLCapstone/obstructions.png'},
+    ],
     links: [{type: 'deck', label: 'Full report', href: '/UCLCapstone/finalreport.pdf'}],
     deepDive: [
       {
@@ -485,7 +525,7 @@ export const projects: Project[] = [
           <div className="space-y-3">
             <p>
               Skills to drive motorised vehicles are acquired through experience and situational learning. This is
-              concerning given the increased amount of roadside advertising and environmental clutter — studies show
+              concerning given the increased amount of roadside advertising and environmental clutter; studies show
               young drivers invest more attention in road advertising than highway-code signs. Driver-awareness
               technology like Tesla&apos;s Autopilot is proven but, given high vehicle cost and evidence that young
               drivers buy used cars, far from reaching the demographics that need it most.
@@ -536,8 +576,8 @@ export const projects: Project[] = [
               thresholds) reduced background noise from sky, trees, and roads.
             </p>
             <p>
-              <strong>Hyperparameter optimisation.</strong> A genetic algorithm tuned YOLOv5&apos;s 27 hyperparameters —
-              10 variations per generation, 10 epochs each, averaging the top 5 — improving mAP to 83.43%.
+              <strong>Hyperparameter optimisation.</strong> A genetic algorithm tuned YOLOv5&apos;s 27 hyperparameters
+              (10 variations per generation, 10 epochs each, averaging the top 5), improving mAP to 83.43%.
             </p>
             <p>
               <strong>Narration algorithm.</strong> The detection model was integrated with audio narration: predictions
@@ -581,7 +621,7 @@ export const projects: Project[] = [
             </p>
             <p>
               Integrated with the narration algorithm and tested with a laptop webcam plus simulated GPU support, the
-              prototype reached an estimated 15.5 FPS — suitable for real-time use. The final model achieved 84.4% mAP
+              prototype reached an estimated 15.5 FPS, suitable for real-time use. The final model achieved 84.4% mAP
               and 0.81 F1, demonstrating strong potential to improve driver awareness and road safety.
             </p>
           </div>
@@ -597,8 +637,8 @@ export const projects: Project[] = [
     slug: 'uas',
     title: 'UCL UAS — Project Dragonfly',
     caption: 'Guidance system for an autonomous helicopter (IMechE UAS Challenge).',
-    heroStat: {value: 'Autonomous', label: 'helicopter guidance system'},
-    media: {type: 'video', src: '/UAS/Heli.mp4'},
+    heroStat: {value: 'Autonomous', label: 'helicopter guidance, built for the IMechE UAS Challenge'},
+    media: {type: 'video', src: '/UAS/Heli.mp4', label: 'Flight test'},
     external: 'https://uclr-uas.notion.site/Project-DRAGONFLY-b92b4bb6e1b941aa9e0137fc74e913ca',
   },
 ];

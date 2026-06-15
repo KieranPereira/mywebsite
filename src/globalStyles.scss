@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 @layer utilities {
-  /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
@@ -20,7 +19,6 @@
   }
 }
 
-/* Global styles */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,30 +26,112 @@
 
 html {
   -webkit-tap-highlight-color: transparent;
-  scroll-behavior: smooth;
   height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
   position: relative;
   width: 100%;
-  color: #444444;
+  color: theme('colors.deck.text');
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
-  background-color: #fafafa;
-}
-
-td,
-th {
-  padding: 4px 8px 4px 4px;
-  text-align: left;
-}
-
-th {
-  font-weight: 600;
+  background-color: theme('colors.deck.bg');
 }
 
 @layer components {
   .company-logo {
-    @apply w-24 h-24 object-contain md:mr-6 mb-4 md:mb-0;
+    @apply mb-4 h-16 w-16 object-contain md:mb-0 md:mr-6;
+  }
+
+  .deck-snap-container {
+    @apply h-screen w-screen snap-y snap-mandatory overflow-y-scroll no-scrollbar;
+    scroll-snap-type: y mandatory;
+  }
+
+  /* Slightly shorter than viewport so the next slide peeks through — signals scrollability */
+  .deck-slide-frame {
+    @apply relative flex w-full snap-start snap-always flex-col;
+    min-height: 92vh;
+    height: 92vh;
+    break-inside: avoid;
+  }
+
+  @media (max-width: 767px) {
+    .deck-slide-frame {
+      min-height: 92vh;
+      height: auto;
+    }
+  }
+}
+
+/* Print deck — one 16:9 slide per page */
+@media print {
+  @page {
+    margin: 0;
+    size: 1280px 720px landscape;
+  }
+
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+    background: white;
+  }
+
+  .deck-chrome {
+    display: none !important;
+  }
+
+  .deck-snap-container {
+    height: auto !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
+  }
+
+  .deck-slide-frame {
+    height: 720px !important;
+    min-height: 720px !important;
+    max-height: 720px !important;
+    overflow: hidden !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .deck-slide-frame:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .deck-video-print-hide {
+    display: none !important;
+  }
+
+  .deck-video-poster-print {
+    display: block !important;
+  }
+
+  /* Solid scrim behind the cover hero so white text prints legibly */
+  .deck-cover-print-scrim {
+    display: block !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hold entrance animations at their final, visible state when printing */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .deck-no-print {
+    display: none !important;
   }
 }

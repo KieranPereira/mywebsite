@@ -4,8 +4,6 @@ import {useRouter} from 'next/router';
 import {memo, PropsWithChildren} from 'react';
 
 import {HomepageMeta} from '../../data/dataDef';
-import Footer from '../Sections/Footer'; // ✅ Import Footer
-import Header from '../Sections/Header'; // ✅ Import Header
 
 const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, description}) => {
   const {asPath: pathname} = useRouter();
@@ -17,9 +15,7 @@ const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, 
         <meta content={description} name="description" />
         <link href={`https://reactresume.com${pathname}`} key="canonical" rel="canonical" />
       </Head>
-      <Header /> {/* ✅ Ensure Header is included */}
-      <main className="min-h-screen">{children}</main> {/* ✅ Main content */}
-      <Footer /> {/* ✅ Ensure Footer is included */}
+      <main className="min-h-screen bg-deck-bg text-deck-text">{children}</main>
     </>
   );
 });
