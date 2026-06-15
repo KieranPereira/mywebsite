@@ -19,19 +19,19 @@ interface LogoCardProps {
 }
 
 const LogoCard: FC<LogoCardProps> = ({label, logos, withNames}) => (
-  <div className="flex flex-col rounded-2xl bg-deck-bg p-5 ring-1 ring-deck-border sm:p-6">
+  <div className="flex flex-col rounded-2xl bg-deck-bg px-5 py-3 ring-1 ring-deck-border sm:py-4">
     <SectionLabel className="text-center">{label}</SectionLabel>
-    <div className="mt-4 flex flex-1 flex-wrap items-center justify-center gap-x-6 gap-y-4">
+    <div className="mt-3 flex flex-1 flex-wrap items-center justify-center gap-x-8 gap-y-3">
       {logos.map(logo => (
         <div className="flex flex-col items-center gap-1.5" key={logo.name}>
-          <div className="flex h-12 w-20 items-center justify-center sm:h-14 sm:w-24">
+          <div className="flex h-14 w-28 items-center justify-center sm:h-16 sm:w-32">
             <Image
               alt={logo.name}
               className="max-h-full w-auto object-contain"
-              height={56}
+              height={64}
               src={logo.src}
               unoptimized
-              width={96}
+              width={128}
             />
           </div>
           {withNames && <span className="text-xs font-medium text-deck-muted">{logo.name}</span>}
@@ -58,7 +58,11 @@ const AboutSlide: FC<AboutSlideProps> = memo(({slide, showScrollHint, isLastSlid
           <h2 className="text-3xl font-bold text-deck-text sm:text-4xl">
             <span className="text-deck-muted">First of all… </span>Hello!
           </h2>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-deck-text sm:text-lg">{deckData.aboutIntro}</p>
+          <div className="mt-3 max-w-2xl space-y-3 text-base leading-relaxed text-deck-text sm:text-lg">
+            {deckData.aboutIntro.map(paragraph => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
 

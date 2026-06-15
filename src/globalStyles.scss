@@ -67,6 +67,16 @@ body {
       height: auto;
     }
   }
+
+  /* Cover intro hold — launch fills the whole viewport, deck chrome hidden, until the reveal */
+  html.deck-cover-intro .deck-chrome {
+    display: none !important;
+  }
+
+  html.deck-cover-intro #cover.deck-slide-frame {
+    height: 100vh;
+    min-height: 100vh;
+  }
 }
 
 /* Print deck — one 16:9 slide per page */

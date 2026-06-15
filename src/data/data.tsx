@@ -41,14 +41,17 @@ export const deckData: DeckData = {
       <strong className="text-deck-text">Airbus</strong>, and <strong className="text-deck-text">HSBC</strong>.
     </p>
   ),
-  aboutIntro:
-    "I'm a Master's graduate from UC Berkeley who thrives on using engineering to solve real problems. Everything I build starts with one: ships waste billions in fuel because nobody measures waves where they happen, so I built the navigation stack for a swarm of ocean sensors that do; athletes get injured training with bad form, so I co-founded a company and built a wearable that corrects it live. I work across the whole stack — CAD and PCBs through control loops and trained models — and I like it best when the thing actually ships.",
+  aboutIntro: [
+    "I'm a Master's graduate from UC Berkeley who thrives on using engineering to solve real problems.",
+    'Everything I build starts with a real problem: from the largest robotic security fleet in the US, deployed to keep communities safe, to a swarm of ocean sensors that optimize global shipping routes.',
+    'Working across the entire stack alongside sharp people, on some of the hardest problems out there, is the part I enjoy most.',
+  ],
   contactTagline: 'Open to full-stack robotics roles: software, integration, and technical program management.',
   experienceLogos: [
     {name: 'Lockheed Martin', src: '/experience/Lockheed Martin.png'},
     {name: 'Airbus', src: '/experience/Airbus.png'},
     {name: 'UC Berkeley', src: '/experience/Berkeley.png'},
-    {name: 'Undaunted', src: '/experience/Undaunted.svg'},
+    {name: 'Undaunted', src: '/experience/Undaunted.png'},
   ],
   skillLogos: [
     {name: 'ROS 2', src: '/skills/ros.svg'},

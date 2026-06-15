@@ -111,7 +111,8 @@ export interface DeckData {
   kicker: string;
   name: string;
   coverBio: JSX.Element;
-  aboutIntro: string;
+  /** About-slide intro, one entry per paragraph. */
+  aboutIntro: string[];
   contactTagline: string;
   /** Company/school logos shown on About slide — paths relative to /public */
   experienceLogos: {name: string; src: string}[];

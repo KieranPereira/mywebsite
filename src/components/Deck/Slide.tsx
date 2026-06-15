@@ -58,7 +58,7 @@ const Slide: FC<PropsWithChildren<SlideProps>> = memo(
         visible={showScrollHint && !isLastSlide}
       />
 
-      <div className="relative z-[2] mx-auto flex h-full w-full max-w-6xl flex-col px-6 py-8 sm:px-10 sm:py-10 md:max-h-full md:overflow-hidden lg:px-14">
+      <div className="relative z-[2] mx-auto flex h-full w-full max-w-[86rem] flex-col px-6 py-8 sm:px-10 sm:py-10 md:max-h-full md:overflow-hidden lg:px-14">
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto md:overflow-hidden">{children}</div>
         {!hideFooter && <DeckFooter slideNumber={slideNumber} totalSlides={deckSlideCount} />}
       </div>

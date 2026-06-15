@@ -84,6 +84,14 @@ const CoverSlide: FC<CoverSlideProps> = memo(
       return () => window.clearTimeout(timer);
     }, []);
 
+    useEffect(() => {
+      // While holding on the launch, the cover fills the whole viewport and the deck
+      // chrome is hidden (see .deck-cover-intro in globalStyles).
+      const root = document.documentElement;
+      root.classList.toggle('deck-cover-intro', !revealed);
+      return () => root.classList.remove('deck-cover-intro');
+    }, [revealed]);
+
     // Hidden until the reveal, then flies in. Keeps the launch as the only thing on screen first.
     const enter = (animation: string) => (revealed ? animation : 'opacity-0');
 
@@ -134,7 +142,7 @@ const CoverSlide: FC<CoverSlideProps> = memo(
                 )}
                 style={{animationDelay: '0.7s'}}>
                 <Button Icon={ArrowDownTrayIcon} href="/deck/print" variant="primary">
-                  Download PDF
+                  Download Resume
                 </Button>
                 <button
                   className="group inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
