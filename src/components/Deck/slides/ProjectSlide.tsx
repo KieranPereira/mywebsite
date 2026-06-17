@@ -4,7 +4,6 @@ import {
   DocumentTextIcon,
   PlayCircleIcon,
 } from '@heroicons/react/24/outline';
-import Link from 'next/link';
 import {FC, memo} from 'react';
 
 import {Project, ProjectLink} from '../../../data/dataDef';
@@ -33,20 +32,7 @@ interface ProjectSlideProps {
 
 const ProjectSlide: FC<ProjectSlideProps> = memo(
   ({slide, project, isActive, isLastSlide = false, showScrollHint = true}) => {
-    const {
-      title,
-      caption,
-      subtitle,
-      tldr,
-      highlights,
-      techTags,
-      links,
-      heroStat,
-      achievement,
-      deepDive,
-      external,
-      slug,
-    } = project;
+    const {title, caption, subtitle, tldr, highlights, techTags, links, heroStat, achievement, external} = project;
 
     return (
       <Slide id={slide.id} isLastSlide={isLastSlide} showScrollHint={showScrollHint} slideNumber={slide.number}>
@@ -104,13 +90,6 @@ const ProjectSlide: FC<ProjectSlideProps> = memo(
 
             <div className="mt-auto space-y-2 pt-2">
               <StatLine achievement={achievement} stat={heroStat} />
-              {deepDive && deepDive.length > 0 && !external && (
-                <Link
-                  className="deck-no-print inline-flex items-center gap-1 text-sm font-medium text-deck-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-deck-accent"
-                  href={`/portfolio/${slug}`}>
-                  Full breakdown →
-                </Link>
-              )}
               {external && (
                 <a
                   className="inline-flex items-center gap-1 text-sm font-medium text-deck-accent hover:underline"
