@@ -11,8 +11,14 @@ import AboutSlide from './slides/AboutSlide';
 import ContactSlide from './slides/ContactSlide';
 import CoverSlide from './slides/CoverSlide';
 import ExperienceSlide from './slides/ExperienceSlide';
+import CaptainOverviewSlide from './slides/CaptainOverviewSlide';
 import FieldTestingSlide from './slides/FieldTestingSlide';
 import ProjectSlide from './slides/ProjectSlide';
+
+const BESPOKE_PROJECT_SLIDES: Record<string, FC<Parameters<typeof ProjectSlide>[0]>> = {
+  taflab: CaptainOverviewSlide,
+  'captain-field-testing': FieldTestingSlide,
+};
 
 interface DeckProps {
   showChrome?: boolean;
@@ -67,8 +73,7 @@ const Deck: FC<DeckProps> = memo(({showChrome = true, showDownloadPdf = true}) =
               const project = projects.find(p => p.slug === slide.slug);
               if (!project) return null;
               const isActive = slides[activeIndex]?.id === slide.id;
-              // Bespoke poster layout for this slide; everything else uses the generic two-column slide.
-              const SlideComponent = project.slug === 'captain-field-testing' ? FieldTestingSlide : ProjectSlide;
+              const SlideComponent = BESPOKE_PROJECT_SLIDES[project.slug] ?? ProjectSlide;
               return (
                 <SlideComponent isActive={isActive} key={slide.id} project={project} slide={slide} {...hintProps} />
               );
