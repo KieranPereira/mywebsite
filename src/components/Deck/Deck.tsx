@@ -11,6 +11,7 @@ import AboutSlide from './slides/AboutSlide';
 import ContactSlide from './slides/ContactSlide';
 import CoverSlide from './slides/CoverSlide';
 import ExperienceSlide from './slides/ExperienceSlide';
+import FieldTestingSlide from './slides/FieldTestingSlide';
 import ProjectSlide from './slides/ProjectSlide';
 
 interface DeckProps {
@@ -66,7 +67,11 @@ const Deck: FC<DeckProps> = memo(({showChrome = true, showDownloadPdf = true}) =
               const project = projects.find(p => p.slug === slide.slug);
               if (!project) return null;
               const isActive = slides[activeIndex]?.id === slide.id;
-              return <ProjectSlide isActive={isActive} key={slide.id} project={project} slide={slide} {...hintProps} />;
+              // Bespoke poster layout for this slide; everything else uses the generic two-column slide.
+              const SlideComponent = project.slug === 'captain-field-testing' ? FieldTestingSlide : ProjectSlide;
+              return (
+                <SlideComponent isActive={isActive} key={slide.id} project={project} slide={slide} {...hintProps} />
+              );
             }
             case 'experience':
               return (

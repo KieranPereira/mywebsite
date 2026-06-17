@@ -64,14 +64,14 @@ export const projects: Project[] = [
         body: (
           <div className="space-y-3">
             <p>
-              Shipping carries 80% of global trade by volume, and fuel is 50–60% of a ship&apos;s operating budget. Around
-              30% of that fuel is spent simply overcoming wave forces, roughly $65B a year, because routes are planned as
-              straight lines through seas nobody is measuring in real time.
+              Shipping carries 80% of global trade by volume, and fuel is 50–60% of a ship&apos;s operating budget.
+              Around 30% of that fuel is spent simply overcoming wave forces, roughly $65B a year, because routes are
+              planned as straight lines through seas nobody is measuring in real time.
             </p>
             <p>
               The fix is wave-aware routing, but it needs dense, live ocean data. Weather balloons, stationary buoys and
-              million-dollar USVs each cover only part of the problem and none can blanket an area in a low-cost grid. We
-              estimate live route optimization could save the industry on the order of $6.5B/year.
+              million-dollar USVs each cover only part of the problem and none can blanket an area in a low-cost grid.
+              We estimate live route optimization could save the industry on the order of $6.5B/year.
             </p>
           </div>
         ),
@@ -107,14 +107,14 @@ export const projects: Project[] = [
           <div className="space-y-3">
             <p>
               Unlike a motorboat, a sailboat is underactuated, it relies on the wind, so the autonomy has to be
-              wind-aware at every step. The central constraint is the <strong>no-sail zone</strong>, a band roughly 30–45°
-              directly upwind where the sail produces no forward thrust.
+              wind-aware at every step. The central constraint is the <strong>no-sail zone</strong>, a band roughly
+              30–45° directly upwind where the sail produces no forward thrust.
             </p>
             <p>
-              A boat therefore can&apos;t head straight at a goal that sits upwind; it has to <strong>tack</strong> (zigzag
-              across the wind) to get there, and <strong>jibe</strong> to turn quickly downwind. My planner screens every
-              candidate heading against the no-sail zone and inserts intermediate tacking waypoints automatically, pairing
-              an A* global planner with the on-board controller.
+              A boat therefore can&apos;t head straight at a goal that sits upwind; it has to <strong>tack</strong>{' '}
+              (zigzag across the wind) to get there, and <strong>jibe</strong> to turn quickly downwind. My planner
+              screens every candidate heading against the no-sail zone and inserts intermediate tacking waypoints
+              automatically, pairing an A* global planner with the on-board controller.
             </p>
           </div>
         ),
@@ -125,9 +125,9 @@ export const projects: Project[] = [
           <div className="space-y-3">
             <p>
               I implemented the autonomy on ROS2, which splits functionality into independent nodes that talk over a
-              publish/subscribe bus. That modularity is exactly what an autonomous marine system needs: sensing, planning
-              and actuation run as asynchronous processes, individual nodes can be simulated or debugged in isolation, and
-              the same design scales out to multiple vessels.
+              publish/subscribe bus. That modularity is exactly what an autonomous marine system needs: sensing,
+              planning and actuation run as asynchronous processes, individual nodes can be simulated or debugged in
+              isolation, and the same design scales out to multiple vessels.
             </p>
             <Image
               alt="ROS2-based modular node architecture for waypoint management, path planning and low-level control"
@@ -169,8 +169,8 @@ export const projects: Project[] = [
             To coordinate the fleet and stay in touch with shore, the system uses an XBee-based mesh network in a
             master/client model: the shoreside radio broadcasts data requests and each boat replies with its GPS,
             environmental readings and system health. We validated stable, low-latency communication across ten boats at
-            ranges up to 200 m, enough for the formation and relay setups our design needs, with the architecture built to
-            scale as more boats join. The detailed field-testing and state-estimation work lives on the next slide.
+            ranges up to 200 m, enough for the formation and relay setups our design needs, with the architecture built
+            to scale as more boats join. The detailed field-testing and state-estimation work lives on the next slide.
           </p>
         ),
       },
@@ -182,17 +182,29 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'captain-field-testing',
-    title: 'Berkeley CAPTAIN: Field Testing & Kalman Filtering',
-    caption: 'A control loop is only as good as the noisy sensors feeding it. Here is how I made the autonomy survive the real ocean.',
-    tldr: 'The validation half of my Berkeley capstone: hardware-in-the-loop testing, low-pass + Kalman filtering to tame IMU and wind-vane noise, an LQI controller, and full-autonomy field trials at the Berkeley Marina.',
-    heroStat: {value: 'Live sea trials', label: 'full autonomy stack validated on the water at the Berkeley Marina'},
+    title: 'Berkeley CAPTAIN: Virtual Testing & Kalman Filtering',
+    caption:
+      'We could only sail a few hours a week between tides. So I rebuilt those hours in software — and filtered the ocean out of our sensors.',
+    tldr: 'Marina time was scarce, so I built a virtual test bed that replayed real run data through new algorithms — cutting iteration from weeks to days — then a 1-D Kalman filter to clean the boat’s noisy IMU and wind-vane signals.',
+    heroStat: {
+      value: 'Weeks → days',
+      label: 'to test and ship each algorithm change, by replaying real field data offline',
+    },
     highlights: [
-      'De-risked the stack with hardware-in-the-loop testing before any on-water run',
-      'Cut IMU & wind-vane noise with a combined low-pass + 1-D Kalman filter',
-      'Tuned an LQI controller to kill steady-state heading error with minimal actuator effort',
-      'Field-tested full autonomy: the boat planned and executed its own tack at the Berkeley Marina',
+      'Built a virtual test bed replaying real field logs to iterate in days, not weeks',
+      'Hardware-in-the-loop tested real servos to catch actuation bugs pre-launch',
+      'Low-pass + 1-D Kalman filter cuts steady-state noise, yet still tracks sudden jolts',
+      'Validated the full autonomy stack on the water at the Berkeley Marina',
     ],
-    techTags: ['Kalman Filter', 'LQI Control', 'Hardware-in-the-Loop', 'ROS2', 'Sensor Fusion', 'Simulation', 'Python'],
+    techTags: [
+      'Virtual Test Bed',
+      'Hardware-in-the-Loop',
+      '1-D Kalman Filter',
+      'Sensor Fusion',
+      'LQI Control',
+      'ROS2',
+      'Python',
+    ],
     media: {
       type: 'image',
       src: '/capstone/marina-launch.png',
@@ -201,6 +213,7 @@ export const projects: Project[] = [
     },
     gallery: [
       {type: 'image', src: '/capstone/kalman-noise-reduction.png'},
+      {type: 'image', src: '/capstone/kalman-stimulus-response.png'},
       {type: 'image', src: '/capstone/simulation-gui.png'},
       {type: 'image', src: '/capstone/capstone-workshop.jpg'},
     ],
@@ -220,12 +233,14 @@ export const projects: Project[] = [
             <p>
               Before putting anything on the water, I validated the stack with hardware-in-the-loop (HIL) testing: real
               physical servos on a test rig driven by the full ROS2 autonomy stack, with the remaining sensor inputs
-              simulated. That let me watch real actuation behaviour and exercise the control logic without burning time at
-              the marina.
+              simulated. That let me watch real actuation behaviour and exercise the control logic without burning time
+              at the marina.
             </p>
             <p>HIL surfaced exactly the kind of bug that ruins a field day:</p>
             <ul className="list-inside list-disc space-y-1">
-              <li>Inconsistent coordinate conventions across servo models, fixed by recalibrating the control output.</li>
+              <li>
+                Inconsistent coordinate conventions across servo models, fixed by recalibrating the control output.
+              </li>
               <li>The need for command smoothing and rate limiting to avoid mechanical stress on the actuators.</li>
               <li>
                 Significant sensor noise, especially in the wind-vane and IMU, which pushed me to build a dedicated
@@ -267,8 +282,8 @@ export const projects: Project[] = [
           <div className="space-y-3">
             <p>
               For rudder and sail actuation I started from a Linear Quadratic Regulator (LQR), which computes an optimal
-              state-feedback law balancing heading accuracy against actuator effort. HIL testing showed each actuator had
-              a persistent steady-state error, so I added an integral term, turning it into a{' '}
+              state-feedback law balancing heading accuracy against actuator effort. HIL testing showed each actuator
+              had a persistent steady-state error, so I added an integral term, turning it into a{' '}
               <strong>Linear Quadratic Integrator (LQI)</strong> that drives that error to zero over time.
             </p>
             <p>
@@ -299,9 +314,10 @@ export const projects: Project[] = [
               width={420}
             />
             <p>
-              Dedicated ROS2 logging nodes captured rudder and sail commands in real time, confirming heading corrections
-              and sail trim matched design intent even through abrupt transients, and exposing subtle estimator drift and
-              rate-limit issues I could tune immediately. That tight loop shrank the debug cycle dramatically.
+              Dedicated ROS2 logging nodes captured rudder and sail commands in real time, confirming heading
+              corrections and sail trim matched design intent even through abrupt transients, and exposing subtle
+              estimator drift and rate-limit issues I could tune immediately. That tight loop shrank the debug cycle
+              dramatically.
             </p>
           </div>
         ),
@@ -314,7 +330,8 @@ export const projects: Project[] = [
               In a day-long series of trials at the Berkeley Marina, I tested the full autonomy stack by assigning
               waypoints placed deliberately upwind so a tack would be unavoidable, and logged every sensor channel. The
               GPS track shows the boat advancing on the first close-hauled leg, easing off as it reached the edge of the
-              no-sail zone, then pivoting through the tack at a controlled rate before accelerating onto the new heading.
+              no-sail zone, then pivoting through the tack at a controlled rate before accelerating onto the new
+              heading.
             </p>
             <Image
               alt="The sailboat beginning its voyage from the Berkeley Marina autonomously"
