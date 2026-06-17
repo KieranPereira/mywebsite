@@ -24,21 +24,21 @@ import {Project} from './dataDef';
  */
 export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
-  /* 1. Berkeley TAFLAB — Autonomous Ocean-Sensor Swarm                       */
+  /* 1. Berkeley CAPTAIN — Overview & ROS2 Autonomy Stack                     */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'taflab',
-    title: 'Berkeley TAFLAB: Autonomous Ocean-Sensor Swarm',
-    caption: 'Ships burn $45B a year fighting waves nobody measures. We built a sensor swarm that measures them.',
-    tldr: 'Built the guidance, navigation, and mesh-networking stack for a swarm of self-powered ocean sensors that map wave conditions for fuel-saving ship routing.',
+    title: 'Berkeley CAPTAIN: Autonomous Ocean-Sensor Swarm',
+    caption: 'Ships burn $65B a year fighting waves nobody measures. We built a sensor swarm that measures them.',
+    tldr: 'My Berkeley capstone (with the TAFLAB lab): a swarm of self-powered autonomous sailboats that map wave conditions for fuel-saving ship routing. I owned the guidance, navigation and control, built on a modular ROS2 stack.',
     heroStat: {value: '~30%', label: 'of shipping fuel saved through wave-aware routing'},
     highlights: [
-      'Field-tested 18 units and validated swarm mesh networks',
-      'Wrote the LQR, PID, and Kalman-filter navigation stack in ROS2 and C++',
-      'Automated calibration scripts in Python and MATLAB',
-      'Pursuing publication of the wave-forecasting and swarm-coordination work',
+      'Owned the guidance, navigation & control for each autonomous sailboat',
+      'Designed a modular, real-time ROS2 node architecture for waypoint handling, path planning and actuation',
+      'A* global planner that respects the no-sail zone and auto-inserts tacking waypoints',
+      'Built to scale from a single vessel to a coordinated, mesh-networked swarm',
     ],
-    techTags: ['ROS2', 'C++', 'MATLAB/Simulink', 'Kalman Filter', 'LQR', 'PID', 'ESP32', 'Sensor Fusion'],
+    techTags: ['ROS2', 'C++', 'Python', 'A* Path Planning', 'LQI Control', 'Sensor Fusion', 'XBee Mesh', 'ESP32'],
     media: {
       type: 'video',
       src: '/capstone/frontvideo.mp4',
@@ -46,8 +46,8 @@ export const projects: Project[] = [
       label: 'Field test',
     },
     gallery: [
+      {type: 'image', src: '/capstone/ros2-node-architecture.png'},
       {type: 'image', src: '/capstone/capstone-swarm.jpg'},
-      {type: 'image', src: '/capstone/capstone-workshop.jpg'},
       {type: 'image', src: '/capstone/capstone-problem.jpg'},
     ],
     links: [
@@ -64,126 +64,289 @@ export const projects: Project[] = [
         body: (
           <div className="space-y-3">
             <p>
-              Global shipping incurs roughly $45B in extra fuel costs annually due to encountering unpredicted ocean
-              waves, contributing nearly 1% of the world&apos;s total GHG emissions. By accurately forecasting wave
-              conditions, routing algorithms can improve efficiency by over 20%, equivalent to eliminating the emissions
-              of 70 million cars.
+              Shipping carries 80% of global trade by volume, and fuel is 50–60% of a ship&apos;s operating budget. Around
+              30% of that fuel is spent simply overcoming wave forces, roughly $65B a year, because routes are planned as
+              straight lines through seas nobody is measuring in real time.
             </p>
             <p>
-              Our solution is a swarm of autonomous, self-powered ocean sensors that dynamically position themselves to
-              measure wave height, frequency, and direction: the inputs vital for newly developed wave-prediction
-              models. I focused specifically on the guidance and navigation systems for each autonomous vessel,
-              coordinating them through swarm mesh networks to optimize data collection and smart routing.
+              The fix is wave-aware routing, but it needs dense, live ocean data. Weather balloons, stationary buoys and
+              million-dollar USVs each cover only part of the problem and none can blanket an area in a low-cost grid. We
+              estimate live route optimization could save the industry on the order of $6.5B/year.
             </p>
           </div>
         ),
       },
       {
-        heading: 'Methodology & key challenges',
-        body: (
-          <div className="space-y-3">
-            <p>To ensure accurate navigation and reliable performance, the project combines several methodologies:</p>
-            <ul className="list-inside list-disc space-y-1">
-              <li>MATLAB/Simulink for initial controller modeling and validation.</li>
-              <li>ROS2 for modular control and real-time data management.</li>
-              <li>Sensor fusion (GPS, IMU, anemometer) to track position and wind data.</li>
-            </ul>
-            <p className="font-semibold">Key challenges</p>
-            <ul className="list-inside list-disc space-y-1">
-              <li>
-                <strong>Real-time adaptability:</strong> balancing computational load against rapid adjustments to wind
-                shifts.
-              </li>
-              <li>
-                <strong>Sensor reliability:</strong> robust performance under harsh marine conditions.
-              </li>
-              <li>
-                <strong>Energy efficiency:</strong> maintaining low power usage for longer voyages.
-              </li>
-              <li>
-                <strong>Environmental factors:</strong> accounting for wave height, currents, and gusts.
-              </li>
-            </ul>
-          </div>
-        ),
-      },
-      {
-        heading: 'Control algorithm design',
+        heading: 'Our solution',
         body: (
           <div className="space-y-3">
             <p>
-              The autonomous sailing system uses a modular control architecture that integrates several advanced control
-              techniques to optimize navigation, stability, and efficiency.
+              We built a swarm of autonomous, self-powered sailboats that position themselves to measure tidal forces,
+              currents, wave height and weather, the inputs that feed wave-prediction and routing models. It blends the
+              mapping fidelity of a USV, the low cost of a buoy, and the broad coverage of a weather balloon.
+            </p>
+            <p>
+              Working with the TAFLAB lab at UC Berkeley, my focus was the guidance, navigation and control: making each
+              boat sail itself reliably toward its waypoints, and designing the software so it scales cleanly from one
+              vessel to a coordinated, mesh-networked fleet.
             </p>
             <Image
-              alt="Sail control node diagram"
+              alt="Autonomous sailboat swarm"
               className="rounded-lg"
               height={400}
               loading="lazy"
-              src="/capstone/Node Diagram.png"
-              width={600}
-            />
-            <ul className="list-inside list-disc space-y-1">
-              <li>
-                <strong>Dynamic waypoint handling:</strong> a queue-based system to manage waypoints efficiently.
-              </li>
-              <li>
-                <strong>LQR-based path optimization:</strong> dynamically adjusts waypoints and avoids inefficient
-                paths.
-              </li>
-              <li>
-                <strong>Complex maneuver planning:</strong> algorithms for advanced sailing maneuvers (tacking, jibing).
-              </li>
-              <li>
-                <strong>Kalman filtering:</strong> refines GPS, magnetometer, and wind-sensor data, reducing noise.
-              </li>
-              <li>
-                <strong>PID rudder control:</strong> fine-tunes rudder inputs for precise course corrections.
-              </li>
-              <li>
-                <strong>Drift estimation:</strong> Kalman filters compensate for currents and gusts, improving
-                stability.
-              </li>
-            </ul>
-          </div>
-        ),
-      },
-      {
-        heading: 'Progress',
-        body: (
-          <div className="space-y-3">
-            <p>
-              Initial prototypes have completed inland lake tests with promising results for stable heading. A newly
-              integrated sensor suite (9-DOF IMU, high-precision GPS) further improves navigation accuracy. Current work
-              focuses on advanced wind-prediction models and dynamic route optimization, validated through a mix of
-              calm-water and rough-sea simulations before on-water trials.
-            </p>
-            <Image
-              alt="Capstone field testing"
-              className="rounded-lg"
-              height={400}
-              loading="lazy"
-              src="/capstone/capstone-workshop.jpg"
+              src="/capstone/capstone-swarm.jpg"
               width={600}
             />
           </div>
         ),
       },
       {
-        heading: 'Future',
+        heading: 'Sailing under hard dynamic constraints',
+        body: (
+          <div className="space-y-3">
+            <p>
+              Unlike a motorboat, a sailboat is underactuated, it relies on the wind, so the autonomy has to be
+              wind-aware at every step. The central constraint is the <strong>no-sail zone</strong>, a band roughly 30–45°
+              directly upwind where the sail produces no forward thrust.
+            </p>
+            <p>
+              A boat therefore can&apos;t head straight at a goal that sits upwind; it has to <strong>tack</strong> (zigzag
+              across the wind) to get there, and <strong>jibe</strong> to turn quickly downwind. My planner screens every
+              candidate heading against the no-sail zone and inserts intermediate tacking waypoints automatically, pairing
+              an A* global planner with the on-board controller.
+            </p>
+          </div>
+        ),
+      },
+      {
+        heading: 'A modular, real-time ROS2 architecture',
+        body: (
+          <div className="space-y-3">
+            <p>
+              I implemented the autonomy on ROS2, which splits functionality into independent nodes that talk over a
+              publish/subscribe bus. That modularity is exactly what an autonomous marine system needs: sensing, planning
+              and actuation run as asynchronous processes, individual nodes can be simulated or debugged in isolation, and
+              the same design scales out to multiple vessels.
+            </p>
+            <Image
+              alt="ROS2-based modular node architecture for waypoint management, path planning and low-level control"
+              className="rounded-lg"
+              height={400}
+              loading="lazy"
+              src="/capstone/ros2-node-architecture.png"
+              width={700}
+            />
+            <p>Navigation is organised into three layers, with sail control running independently:</p>
+            <ul className="list-inside list-disc space-y-1">
+              <li>
+                <strong>Waypoint Queue node:</strong> receives targets from the ground station and manages them in a
+                dynamic queue, stripping conflicts and duplicates.
+              </li>
+              <li>
+                <strong>Coordinate Calculations node:</strong> turns the queue into an optimized trajectory, handling
+                tacking/jibing and recovery from getting caught in the no-sail zone (&quot;in irons&quot;).
+              </li>
+              <li>
+                <strong>Rudder Servo Control node:</strong> issues low-level LQI heading commands to the actuators.
+              </li>
+              <li>
+                <strong>Sail Servo node:</strong> subscribes to wind angle and heading and trims the sail in its own
+                closed loop.
+              </li>
+            </ul>
+            <p>
+              Clean separation between high-level planning and low-level execution means every layer can react in real
+              time to new data without the others getting in the way.
+            </p>
+          </div>
+        ),
+      },
+      {
+        heading: 'Scaling to a coordinated swarm',
+        body: (
+          <p>
+            To coordinate the fleet and stay in touch with shore, the system uses an XBee-based mesh network in a
+            master/client model: the shoreside radio broadcasts data requests and each boat replies with its GPS,
+            environmental readings and system health. We validated stable, low-latency communication across ten boats at
+            ranges up to 200 m, enough for the formation and relay setups our design needs, with the architecture built to
+            scale as more boats join. The detailed field-testing and state-estimation work lives on the next slide.
+          </p>
+        ),
+      },
+    ],
+  },
+
+  /* ----------------------------------------------------------------------- */
+  /* 2. Berkeley CAPTAIN — Field Testing & Kalman Filtering                   */
+  /* ----------------------------------------------------------------------- */
+  {
+    slug: 'captain-field-testing',
+    title: 'Berkeley CAPTAIN: Field Testing & Kalman Filtering',
+    caption: 'A control loop is only as good as the noisy sensors feeding it. Here is how I made the autonomy survive the real ocean.',
+    tldr: 'The validation half of my Berkeley capstone: hardware-in-the-loop testing, low-pass + Kalman filtering to tame IMU and wind-vane noise, an LQI controller, and full-autonomy field trials at the Berkeley Marina.',
+    heroStat: {value: 'Live sea trials', label: 'full autonomy stack validated on the water at the Berkeley Marina'},
+    highlights: [
+      'De-risked the stack with hardware-in-the-loop testing before any on-water run',
+      'Cut IMU & wind-vane noise with a combined low-pass + 1-D Kalman filter',
+      'Tuned an LQI controller to kill steady-state heading error with minimal actuator effort',
+      'Field-tested full autonomy: the boat planned and executed its own tack at the Berkeley Marina',
+    ],
+    techTags: ['Kalman Filter', 'LQI Control', 'Hardware-in-the-Loop', 'ROS2', 'Sensor Fusion', 'Simulation', 'Python'],
+    media: {
+      type: 'image',
+      src: '/capstone/marina-launch.png',
+      poster: '/capstone/marina-launch.png',
+      label: 'Berkeley Marina trial',
+    },
+    gallery: [
+      {type: 'image', src: '/capstone/kalman-noise-reduction.png'},
+      {type: 'image', src: '/capstone/simulation-gui.png'},
+      {type: 'image', src: '/capstone/capstone-workshop.jpg'},
+    ],
+    links: [
+      {
+        type: 'github',
+        label: 'View code',
+        href: 'https://github.com/dustinteng/TAFLAB_boatpi_roshumble/tree/version2',
+      },
+    ],
+    featured: true,
+    deepDive: [
+      {
+        heading: 'Hardware-in-the-loop testing',
+        body: (
+          <div className="space-y-3">
+            <p>
+              Before putting anything on the water, I validated the stack with hardware-in-the-loop (HIL) testing: real
+              physical servos on a test rig driven by the full ROS2 autonomy stack, with the remaining sensor inputs
+              simulated. That let me watch real actuation behaviour and exercise the control logic without burning time at
+              the marina.
+            </p>
+            <p>HIL surfaced exactly the kind of bug that ruins a field day:</p>
+            <ul className="list-inside list-disc space-y-1">
+              <li>Inconsistent coordinate conventions across servo models, fixed by recalibrating the control output.</li>
+              <li>The need for command smoothing and rate limiting to avoid mechanical stress on the actuators.</li>
+              <li>
+                Significant sensor noise, especially in the wind-vane and IMU, which pushed me to build a dedicated
+                noise-preprocessing stage before that data ever touched the controller.
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        heading: 'Taming sensor noise with Kalman filtering',
+        body: (
+          <div className="space-y-3">
+            <p>
+              Raw IMU and wind-vane signals were far too noisy to feed a controller directly, jittery inputs turn into
+              jittery, energy-wasting steering. I combined a <strong>low-pass filter</strong> with a{' '}
+              <strong>one-dimensional Kalman filter</strong> to attenuate the high-frequency noise while preserving the
+              underlying trend, then applied the same approach to the wind-vane.
+            </p>
+            <Image
+              alt="Steady-state IMU measurements: raw signal versus low-pass + 1-D Kalman filter output"
+              className="rounded-lg"
+              height={350}
+              loading="lazy"
+              src="/capstone/kalman-noise-reduction.png"
+              width={700}
+            />
+            <p>
+              The result (above) is a clean, stable estimate from a badly noisy raw signal, which is what made smooth
+              closed-loop control possible. On the sail side, a Kalman-filtered wind loop kept the wind-angle estimate
+              steady enough to hold the sail near its optimal driving angle through gusts.
+            </p>
+          </div>
+        ),
+      },
+      {
+        heading: 'LQI closed-loop control',
+        body: (
+          <div className="space-y-3">
+            <p>
+              For rudder and sail actuation I started from a Linear Quadratic Regulator (LQR), which computes an optimal
+              state-feedback law balancing heading accuracy against actuator effort. HIL testing showed each actuator had
+              a persistent steady-state error, so I added an integral term, turning it into a{' '}
+              <strong>Linear Quadratic Integrator (LQI)</strong> that drives that error to zero over time.
+            </p>
+            <p>
+              I tuned the state and control weights iteratively in simulation. Penalising control action harder produced
+              smoother rudder commands, fewer high-frequency oscillations and lower energy use, which matters for
+              long-duration missions, while the integral term absorbed slow disturbances like gradual wind shifts and
+              current drift without aggressive steering.
+            </p>
+          </div>
+        ),
+      },
+      {
+        heading: 'Full-system simulation',
+        body: (
+          <div className="space-y-3">
+            <p>
+              After HIL, I built a simulated environment on the same ROS2 framework to generate wind patterns, target
+              waypoints and heading anomalies, a virtual test bed for exercising both global and local path planning and
+              running the LQI heading loop under the conditions we&apos;d see on the water, without monopolising marina
+              time.
+            </p>
+            <Image
+              alt="Simulation GUI showing commanded sail and rudder angles"
+              className="rounded-lg"
+              height={360}
+              loading="lazy"
+              src="/capstone/simulation-gui.png"
+              width={420}
+            />
+            <p>
+              Dedicated ROS2 logging nodes captured rudder and sail commands in real time, confirming heading corrections
+              and sail trim matched design intent even through abrupt transients, and exposing subtle estimator drift and
+              rate-limit issues I could tune immediately. That tight loop shrank the debug cycle dramatically.
+            </p>
+          </div>
+        ),
+      },
+      {
+        heading: 'On-the-water field trials',
+        body: (
+          <div className="space-y-3">
+            <p>
+              In a day-long series of trials at the Berkeley Marina, I tested the full autonomy stack by assigning
+              waypoints placed deliberately upwind so a tack would be unavoidable, and logged every sensor channel. The
+              GPS track shows the boat advancing on the first close-hauled leg, easing off as it reached the edge of the
+              no-sail zone, then pivoting through the tack at a controlled rate before accelerating onto the new heading.
+            </p>
+            <Image
+              alt="The sailboat beginning its voyage from the Berkeley Marina autonomously"
+              className="rounded-lg"
+              height={400}
+              loading="lazy"
+              src="/capstone/marina-launch.png"
+              width={600}
+            />
+            <p>
+              Post-mission log analysis confirmed the autonomy correctly recognised the tack was needed and split the
+              original waypoint into two intermediate ones, while the Kalman-filtered sail loop held the wind angle near
+              optimal throughout. Together the planner, LQI rudder loop and autonomous sail control delivered reliable
+              navigation in real wind, executing a complex maneuver with no shore-side intervention.
+            </p>
+          </div>
+        ),
+      },
+      {
+        heading: "What's next",
         body: (
           <ul className="list-inside list-disc space-y-1">
             <li>
-              <strong>Adaptive AI integration:</strong> predict wind shifts and optimize sail trim in real time.
+              <strong>Adaptive gain scheduling:</strong> e.g. shift the LQI weights toward low actuator effort when
+              battery falls below a threshold to extend mission life.
             </li>
             <li>
-              <strong>Oceanic expedition trials:</strong> transition from lakes to offshore endurance testing.
+              <strong>Longer-endurance trials:</strong> move from marina runs toward offshore, multi-day testing.
             </li>
             <li>
-              <strong>Energy harvesting:</strong> solar and wind-turbine systems for multi-day journeys.
-            </li>
-            <li>
-              <strong>Fleet coordination:</strong> swarm intelligence for many autonomous sailboats at once.
+              <strong>Tighter swarm coordination:</strong> fleets sharing live environmental data to re-plan routes
+              together in real time.
             </li>
           </ul>
         ),
@@ -192,7 +355,7 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 2. Berkeley Robotics Lab — Quadrupedal Running Robot                     */
+  /* 3. Berkeley Robotics Lab — Quadrupedal Running Robot                     */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'bladerunner',
@@ -375,7 +538,7 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 3. Obsidian Performance Gear (OPG)                                       */
+  /* 4. Obsidian Performance Gear (OPG)                                       */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'opg',
@@ -491,7 +654,7 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 4. UCL Capstone — Traffic-Sign Detection & Narration                     */
+  /* 5. UCL Capstone — Traffic-Sign Detection & Narration                     */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'ucl-capstone',
@@ -631,7 +794,7 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 5. UCL UAS — Project Dragonfly (external, no detail page)                */
+  /* 6. UCL UAS — Project Dragonfly (external, no detail page)                */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'uas',
