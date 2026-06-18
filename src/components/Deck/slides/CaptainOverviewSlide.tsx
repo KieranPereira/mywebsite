@@ -109,21 +109,33 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
             {/* Right: sailing dynamics copy + headline result */}
             <div className="flex min-h-0 flex-col justify-between md:col-span-5">
               <div>
-                <p className="text-sm leading-snug text-deck-text sm:text-base">
-                  These boats run on <em>wind</em>, not a propeller — and you can&apos;t sail straight upwind, so my ROS2
-                  planner has to <em>tack</em> (zig-zag) to reach any target:
+                <p className="text-sm leading-snug text-deck-muted sm:text-base">
+                  These boats run on <strong className="font-semibold text-deck-text">wind</strong>, not a propeller, and
+                  you can&apos;t sail straight upwind, so my{' '}
+                  <strong className="font-semibold text-deck-text">ROS2 planner</strong> has to{' '}
+                  <strong className="font-semibold text-deck-text">tack</strong> (zig-zag) to reach any target:
                 </p>
                 <ul className="mt-1 space-y-0.5">
-                  {[
-                    'Beating upwind by tacking across the wind',
-                    'Dynamic waypoint tracking',
-                    'Real-time wind and heading adjustments',
-                  ].map(item => (
-                    <li className="flex gap-2 text-sm leading-snug text-deck-text" key={item}>
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                  <li className="flex gap-2 text-sm leading-snug text-deck-muted">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+                    <span>
+                      <strong className="font-semibold text-deck-text">Beating upwind</strong> by{' '}
+                      <strong className="font-semibold text-deck-text">tacking</strong> across the wind
+                    </span>
+                  </li>
+                  <li className="flex gap-2 text-sm leading-snug text-deck-muted">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+                    <span>
+                      <strong className="font-semibold text-deck-text">Dynamic waypoint tracking</strong>
+                    </span>
+                  </li>
+                  <li className="flex gap-2 text-sm leading-snug text-deck-muted">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+                    <span>
+                      <strong className="font-semibold text-deck-text">Real-time</strong> wind and{' '}
+                      <strong className="font-semibold text-deck-text">heading</strong> adjustments
+                    </span>
+                  </li>
                 </ul>
               </div>
 
