@@ -42,7 +42,7 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
             src="/capstone/simulation-gui.png"
           />
           <figcaption className="mt-1 text-center text-[11px] text-deck-muted">
-            Replay-driven boat simulator — rudder &amp; sail
+            Replay-driven boat simulator: rudder &amp; sail
           </figcaption>
         </figure>
 
@@ -53,11 +53,11 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
             We were heavily dependent on tidal windows and the marina&apos;s opening hours. Field testing was the best
             way to learn how the boat really behaved, so I built a virtual testing environment that parsed our
             real-world measurements from historical runs and replayed how the boat would have reacted under new
-            algorithm improvements — cutting the time to test and ship changes by weeks.
+            algorithm improvements, cutting the time to test and ship changes by weeks.
           </p>
           <p className="mt-2 text-xs leading-relaxed text-deck-text lg:text-sm">
-            I paired it with <strong>hardware-in-the-loop testing</strong> — driving the real servos from the full ROS2
-            stack with the remaining sensors simulated — to catch actuation bugs before any on-water run.
+            I paired it with <strong>hardware-in-the-loop testing</strong>, driving the real servos from the full ROS2
+            stack with the remaining sensors simulated, to catch actuation bugs before any on-water run.
           </p>
         </div>
 
@@ -72,19 +72,38 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
 
         {/* Bottom-left: Kalman copy */}
         <div className="flex min-h-0 flex-col md:col-span-4 md:row-start-2">
-          <SectionLabel className="text-xs">1-D Kalman filtering</SectionLabel>
-          <p className="mt-1 text-xs leading-relaxed text-deck-text lg:text-sm">
-            IMU measurements were noisy after testing: the boat tips and rocks as it moves, and that motion bleeds into
-            the path-planning algorithms, making the boat harder to navigate. So I implemented a 1-D Kalman filter to
-            improve sensor confidence.
+          <p className="text-sm font-bold leading-snug text-deck-accent">
+            Our sensor measurements were too noisy to control the boat.
           </p>
+          <ul className="mt-2 space-y-1.5">
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                The cheap IMUs we used, combined with the boat rocking in every wave, left the raw motion data noisy and
+                hard to trust.
+              </span>
+            </li>
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                I implemented a <strong>1-D Kalman filter</strong> to fuse the readings and sharpen sensor confidence.
+              </span>
+            </li>
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                Field testing showed an <strong className="text-deck-accent">85% drop</strong> in steady-state sensor
+                noise (RMS).
+              </span>
+            </li>
+          </ul>
         </div>
 
         {/* Bottom-right: the two captioned plots, grouped */}
         <div className="grid min-h-0 grid-cols-1 gap-3 rounded-xl border-2 border-deck-accent/30 bg-deck-surface p-3 sm:grid-cols-2 md:col-span-8 md:row-start-2">
           <figure className="flex min-h-0 flex-col">
             <figcaption className="text-[11px] font-medium leading-snug text-deck-text lg:text-xs">
-              Real field data — the Kalman filter pulling wave noise out of a steady-state signal
+              Real field data: the Kalman filter pulling wave noise out of a steady-state signal
             </figcaption>
             <DownArrow />
             <img

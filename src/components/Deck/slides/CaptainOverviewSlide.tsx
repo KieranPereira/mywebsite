@@ -1,4 +1,4 @@
-import {FC, memo, useState} from 'react';
+import {FC, memo} from 'react';
 
 import {Project} from '../../../data/dataDef';
 import {DeckSlideMeta} from '../../../data/deck';
@@ -20,168 +20,318 @@ interface CaptainOverviewSlideProps {
  * overview / problem statement, a divider, then a bottom band for sailing
  * dynamics copy and the ROS2 node architecture diagram.
  */
-const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(({slide, isLastSlide = false, showScrollHint = true}) => (
-  <Slide id={slide.id} isLastSlide={isLastSlide} showScrollHint={showScrollHint} slideNumber={slide.number}>
-    <div className="flex h-full min-h-0 flex-1 flex-col gap-2 lg:gap-3">
-      {/* Title */}
-      <header>
-        <SectionLabel>Berkeley CAPTAIN · Project overview</SectionLabel>
-        <h2 className="text-3xl font-bold text-deck-text sm:text-4xl">Autonomous Ocean-Sensor Swarm</h2>
-      </header>
+const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
+  ({slide, isLastSlide = false, showScrollHint = true}) => (
+    <Slide id={slide.id} isLastSlide={isLastSlide} showScrollHint={showScrollHint} slideNumber={slide.number}>
+      <div className="flex h-full min-h-0 flex-1 flex-col gap-2 lg:gap-3">
+        {/* Title */}
+        <header>
+          <SectionLabel>Berkeley Capstone Project · Project overview</SectionLabel>
+          <h2 className="text-3xl font-bold text-deck-text sm:text-4xl">
+            CaptAIn: Building a network of autonomous ocean drones
+          </h2>
+        </header>
 
-      {/* ── Top band: problem & solution ── */}
-      <div className="grid min-h-0 flex-[5] grid-cols-1 gap-2 md:grid-cols-12 md:gap-3 lg:gap-4">
-        {/* Left: energy-inefficient vs efficient path metaphor */}
-        <figure className="flex min-h-0 flex-col rounded-xl border border-deck-border bg-white p-1.5 md:col-span-3">
-          <img
-            alt="Direct straight-line ship route versus wave-aware energy-efficient path"
-            className="min-h-0 w-full flex-1 object-contain"
-            src="/capstone/capstone-problem.jpg"
-          />
-        </figure>
-
-        {/* Centre: headline problem / solution stat */}
-        <div className="flex min-h-0 items-center md:col-span-4">
-          <p className="text-base leading-relaxed text-deck-text sm:text-lg">
-            Cargo ships waste ~30% of fuel fighting waves. We built a swarm of robot sailboats to map the ocean and
-            reroute them — ~$9B/yr saved.
-          </p>
-        </div>
-
-        {/* Right: solution copy + stacked figures */}
-        <div className="flex min-h-0 gap-2 md:col-span-5">
-          <div className="flex w-[42%] flex-col justify-center">
-            <p className="text-base leading-relaxed text-deck-text sm:text-lg">
-              By creating a network of drones, we can map ocean waves and inform intelligent path planning for cargo
-              ships.
-            </p>
-            <DownArrow />
-          </div>
-          <div className="flex min-h-0 w-[58%] flex-col gap-1.5">
-            <PlaceholderFigure
-              alt="Swarm mesh network diagram showing boats spaced 200 m apart"
-              label="Swarm mesh network (200 m spacing)"
-              src="/capstone/swarm-mesh-network.png"
+        {/* ── Top band: motivation ── */}
+        <div className="grid min-h-0 flex-[5] grid-cols-1 gap-2 md:grid-cols-12 md:gap-3 lg:gap-4">
+          {/* Left: roads-vs-waves energy metaphor */}
+          <figure className="flex min-h-0 flex-col rounded-xl border border-deck-border bg-white p-2 md:col-span-4">
+            <img
+              alt="Aerial view of a winding mountain road tracing an energy-efficient path versus a straight line"
+              className="min-h-0 w-full flex-1 object-contain"
+              src="/capstone/capstone-problem.jpg"
             />
+            <figcaption className="mt-1 flex items-start gap-1.5">
+              <UpArrow />
+              <span className="text-xs leading-snug text-deck-muted sm:text-sm">
+                Roads wind uphill to save energy. Ships should steer around the waves, not straight through them.
+              </span>
+            </figcaption>
+          </figure>
+
+          {/* Centre: motivation headline + bullets */}
+          <div className="flex min-h-0 flex-col justify-center md:col-span-4">
+            <p className="text-base font-bold leading-snug text-deck-text sm:text-lg">
+              Cargo ships waste ~30% of fuel fighting waves. We built{' '}
+              <span className="text-deck-accent">Google Maps for the ocean</span> to help them save fuel.
+            </p>
+            <ul className="mt-2.5 space-y-1.5">
+              {[
+                'Wave resistance wastes up to ~30% of a cargo ship’s fuel, about 1% of all global emissions.',
+                'Forecasting waves lets ships steer smarter, cutting fuel use by ~20% (≈ $9B a year).',
+                'We deploy a grid-based swarm of autonomous sailboats that map ocean currents in real time.',
+              ].map(item => (
+                <li className="flex gap-2 text-xs leading-snug text-deck-text sm:text-sm" key={item}>
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: concept (mesh diagram) → reality (real swarm photo) */}
+          <div className="flex min-h-0 items-stretch gap-1.5 md:col-span-4">
+            <figure className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-deck-border bg-white p-1">
+              <img
+                alt="Swarm mesh network diagram showing sailboats spaced 200 m apart"
+                className="min-h-0 w-full flex-1 object-contain"
+                src="/capstone/swarm-mesh-network.png"
+              />
+            </figure>
+            <RightArrow />
             <figure className="min-h-0 flex-1 overflow-hidden rounded-xl border border-deck-border">
               <img
                 alt="Fleet of autonomous sail drones on the water"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-center"
                 src="/capstone/capstone-swarm.jpg"
               />
             </figure>
           </div>
         </div>
-      </div>
 
-      {/* Divider */}
-      <hr aria-hidden="true" className="shrink-0 border-0 border-t-2 border-deck-accent/70" />
+        {/* Divider */}
+        <hr aria-hidden="true" className="shrink-0 border-0 border-t-2 border-deck-accent/70" />
 
-      {/* ── Bottom band: ROS2 path planning ── */}
-      <div className="flex min-h-0 flex-[6] flex-col gap-2">
-        <SectionLabel>Creating path planning algorithm in ROS2</SectionLabel>
+        {/* ── Bottom band: ROS2 path planning ── */}
+        <div className="flex min-h-0 flex-[6] flex-col gap-1">
+          <SectionLabel>Creating the path-planning and control algorithms in ROS2</SectionLabel>
 
-        <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-12 md:gap-3 lg:gap-4">
-          {/* Left: pier photo */}
-          <figure className="min-h-0 overflow-hidden rounded-xl border border-deck-border md:col-span-3">
-            <img
-              alt="Sail drone on the Berkeley Marina pier"
-              className="h-full w-full object-cover object-top"
-              src="/capstone/capstone-title.jpg"
-            />
-          </figure>
+          <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-12 md:gap-3 lg:gap-4">
+            {/* Left: ROS2 node graph (crisp vector) + caption */}
+            <figure className="flex min-h-0 flex-col rounded-xl border-2 border-deck-accent/30 bg-white p-2 md:col-span-7">
+              <Ros2NodeGraph />
+              <figcaption className="mt-1 text-center text-xs leading-snug text-deck-muted">
+                The ROS2 node graph I built: waypoints and live sensor data flow through path planning out to the rudder
+                and sail servos.
+              </figcaption>
+            </figure>
 
-          {/* Centre: sailing dynamics copy */}
-          <div className="flex min-h-0 flex-col justify-between md:col-span-4">
-            <div>
-              <p className="text-base leading-relaxed text-deck-text sm:text-lg">
-                Sailing can be tricky — the dynamics are different from a conventional propeller boat. This algorithm
-                accounted for:
-              </p>
-              <ul className="mt-2 space-y-1.5">
-                {['Sailing upwind (tacking)', 'Dynamic waypoint tracking', 'Real-time adjustments to wind & heading'].map(
-                  item => (
-                    <li className="flex gap-2 text-base text-deck-text sm:text-lg" key={item}>
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+            {/* Right: sailing dynamics copy + headline result */}
+            <div className="flex min-h-0 flex-col justify-between md:col-span-5">
+              <div>
+                <p className="text-sm leading-snug text-deck-text sm:text-base">
+                  I built the ROS2 planner to steer <em>with</em> the wind, not a propeller:
+                </p>
+                <ul className="mt-1 space-y-0.5">
+                  {[
+                    'Sailing upwind by tacking',
+                    'Dynamic waypoint tracking',
+                    'Real-time wind and heading adjustments',
+                  ].map(item => (
+                    <li className="flex gap-2 text-sm leading-snug text-deck-text" key={item}>
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
                       <span>{item}</span>
                     </li>
-                  ),
-                )}
-              </ul>
-            </div>
-            <div className="mt-2 flex items-center gap-1.5">
-              <LeftArrow />
-              <p className="text-base leading-relaxed text-deck-text sm:text-lg">
-                Here&apos;s our sail drone. In the time I was on the team we made <strong>50</strong> of them!
-              </p>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Headline result */}
+              <div className="mt-1.5 flex items-stretch gap-2 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 p-1.5">
+                <figure className="w-16 shrink-0 overflow-hidden rounded-lg sm:w-20">
+                  <img
+                    alt="Kieran on the Berkeley Marina pier with an autonomous sail drone"
+                    className="h-full w-full object-cover object-center"
+                    src="/capstone/capstone-title.jpg"
+                  />
+                </figure>
+                <div className="min-w-0 self-center">
+                  <p className="text-sm font-bold leading-snug text-deck-text sm:text-base">
+                    The result: my planner sailed the boat anywhere we pointed it.
+                  </p>
+                  <p className="mt-0.5 text-xs leading-snug text-deck-muted sm:text-sm">
+                    Proven on a <strong className="text-deck-accent">2.3 km</strong> autonomous round trip up SF Bay,
+                    both upwind and downwind. 50 built and tested.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Right: ROS2 architecture diagram */}
-          <figure className="flex min-h-0 flex-col rounded-xl border-2 border-deck-accent/30 bg-white p-2 md:col-span-5">
-            <img
-              alt="ROS2 node architecture for waypoint queue, coordinate calculations, rudder and sail servo control"
-              className="min-h-0 w-full flex-1 object-contain"
-              src="/capstone/ros2-node-architecture.png"
-            />
-          </figure>
         </div>
       </div>
-    </div>
-  </Slide>
-));
+    </Slide>
+  ),
+);
 
-/** Dashed placeholder for assets the user still needs to drop into /public/capstone. */
-const PlaceholderFigure: FC<{src: string; alt: string; label: string}> = ({src, alt, label}) => {
-  const [status, setStatus] = useState<'loading' | 'loaded' | 'missing'>('loading');
-  const showPlaceholder = status !== 'loaded';
+interface GraphNodeProps {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  fill: string;
+  color: string;
+  title: string;
+  subtitle: string;
+  sub2?: string;
+}
 
+/** A single rounded node box with a coloured title and muted descriptor lines. */
+const GraphNode: FC<GraphNodeProps> = ({x, y, w, h, fill, color, title, subtitle, sub2}) => {
+  const cx = x + w / 2;
+  const titleY = sub2 ? y + 22 : y + h / 2 - 2;
   return (
-    <figure
-      className={`relative flex min-h-[4.5rem] flex-1 flex-col overflow-hidden rounded-xl border-2 ${
-        showPlaceholder ? 'border-dashed border-amber-400/80 bg-amber-50/60' : 'border-deck-border bg-white'
-      }`}>
-      <img
-        alt={alt}
-        className="min-h-0 w-full flex-1 object-contain"
-        onError={() => setStatus('missing')}
-        onLoad={() => setStatus('loaded')}
-        src={src}
-      />
-      {showPlaceholder && (
-        <figcaption className="absolute inset-0 flex flex-col items-center justify-center gap-0.5 px-2 text-center">
-          <span className="text-[10px] font-semibold uppercase tracking-wide text-amber-700">Insert photo</span>
-          <span className="text-[10px] leading-snug text-amber-800/80">{label}</span>
-          <code className="mt-0.5 text-[9px] text-amber-700/70">{src}</code>
-        </figcaption>
-      )}
-    </figure>
+    <g>
+      <rect fill={fill} height={h} rx={9} stroke={color} strokeWidth={1.75} width={w} x={x} y={y} />
+      <text fill={color} fontSize={13.5} fontWeight={700} textAnchor="middle" x={cx} y={titleY}>
+        {title}
+      </text>
+      <text fill="#64748b" fontSize={10.5} textAnchor="middle" x={cx} y={titleY + 16}>
+        {subtitle}
+      </text>
+      {sub2 ? (
+        <text fill="#64748b" fontSize={10.5} textAnchor="middle" x={cx} y={titleY + 31}>
+          {sub2}
+        </text>
+      ) : null}
+    </g>
   );
 };
 
-const DownArrow: FC = () => (
+/**
+ * Crisp vector recreation of the ROS2 node architecture: two inputs (ground-station
+ * waypoints + live sensors) flow left-to-right through planning into the rudder and
+ * sail servo controllers. Scales sharply at any size, unlike the source raster.
+ */
+const Ros2NodeGraph: FC = () => (
   <svg
-    aria-hidden="true"
-    className="mx-auto my-1 h-5 w-3 shrink-0 text-deck-accent"
+    aria-label="ROS2 node graph: ground-station waypoints and sensor data flow through a waypoint queue and coordinate calculations out to the rudder and sail servo controllers"
+    className="min-h-0 w-full flex-1"
     fill="none"
-    stroke="currentColor"
-    strokeWidth={1.5}
-    viewBox="0 0 12 20">
-    <path d="M6 1v15" strokeLinecap="round" />
-    <path d="M2 12l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+    preserveAspectRatio="xMidYMid meet"
+    role="img"
+    viewBox="0 0 680 210"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker
+        id="ros2-arrow"
+        markerHeight={7}
+        markerWidth={7}
+        orient="auto-start-reverse"
+        refX={7}
+        refY={5}
+        viewBox="0 0 10 10">
+        <path d="M0 0L10 5L0 10z" fill="#2563eb" />
+      </marker>
+      <marker
+        id="ros2-arrow-violet"
+        markerHeight={7}
+        markerWidth={7}
+        orient="auto-start-reverse"
+        refX={7}
+        refY={5}
+        viewBox="0 0 10 10">
+        <path d="M0 0L10 5L0 10z" fill="#7c3aed" />
+      </marker>
+    </defs>
+
+    {/* Stage labels */}
+    <text fill="#94a3b8" fontSize={9} fontWeight={700} letterSpacing={1} textAnchor="middle" x={80} y={11}>
+      INPUTS
+    </text>
+    <text fill="#94a3b8" fontSize={9} fontWeight={700} letterSpacing={1} textAnchor="middle" x={300} y={11}>
+      PLANNING
+    </text>
+    <text fill="#94a3b8" fontSize={9} fontWeight={700} letterSpacing={1} textAnchor="middle" x={550} y={11}>
+      ACTUATION
+    </text>
+
+    {/* Flow arrows (drawn under the boxes) */}
+    <g stroke="#2563eb" strokeWidth={2}>
+      <line markerEnd="url(#ros2-arrow)" x1={150} x2={198} y1={49} y2={42} />
+      <line markerEnd="url(#ros2-arrow)" x1={300} x2={300} y1={64} y2={94} />
+      <line markerEnd="url(#ros2-arrow)" x1={400} x2={468} y1={118} y2={58} />
+      <line markerEnd="url(#ros2-arrow)" x1={400} x2={468} y1={146} y2={164} />
+    </g>
+    <line markerEnd="url(#ros2-arrow-violet)" stroke="#7c3aed" strokeWidth={2} x1={150} x2={198} y1={162} y2={150} />
+
+    {/* Nodes */}
+    <GraphNode
+      color="#64748b"
+      fill="#f1f5f9"
+      h={44}
+      subtitle="waypoints"
+      title="Ground Station"
+      w={140}
+      x={10}
+      y={26}
+    />
+    <GraphNode
+      color="#7c3aed"
+      fill="#f5f3ff"
+      h={48}
+      subtitle="IMU · wind · GPS"
+      title="Sensor Data"
+      w={140}
+      x={10}
+      y={138}
+    />
+    <GraphNode
+      color="#16a34a"
+      fill="#f0fdf4"
+      h={44}
+      subtitle="queue + de-dupe"
+      title="Waypoint Queue"
+      w={200}
+      x={200}
+      y={20}
+    />
+    <GraphNode
+      color="#d97706"
+      fill="#fffbeb"
+      h={72}
+      sub2="Kalman-filtered sensors"
+      subtitle="optimised path · tacking"
+      title="Coordinate Calculations"
+      w={200}
+      x={200}
+      y={96}
+    />
+    <GraphNode
+      color="#2563eb"
+      fill="#eff6ff"
+      h={52}
+      subtitle="LQI course control"
+      title="Rudder Servo"
+      w={160}
+      x={470}
+      y={30}
+    />
+    <GraphNode
+      color="#ea580c"
+      fill="#fff7ed"
+      h={52}
+      subtitle="LQI trim control"
+      title="Sail Servo"
+      w={160}
+      x={470}
+      y={136}
+    />
   </svg>
 );
 
-const LeftArrow: FC = () => (
+const RightArrow: FC = () => (
   <svg
     aria-hidden="true"
-    className="h-3 w-5 shrink-0 text-orange-500"
+    className="my-auto h-5 w-5 shrink-0 text-deck-accent"
     fill="none"
     stroke="currentColor"
     strokeWidth={2}
-    viewBox="0 0 20 12">
-    <path d="M18 6H3" strokeLinecap="round" />
-    <path d="M8 1L3 6l5 5" strokeLinecap="round" strokeLinejoin="round" />
+    viewBox="0 0 20 20">
+    <path d="M2 10h14" strokeLinecap="round" />
+    <path d="M11 4l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const UpArrow: FC = () => (
+  <svg
+    aria-hidden="true"
+    className="mt-0.5 h-4 w-3 shrink-0 text-orange-500"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    viewBox="0 0 12 16">
+    <path d="M6 15V2" strokeLinecap="round" />
+    <path d="M2 6l4-4 4 4" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
