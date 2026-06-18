@@ -48,17 +48,45 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
 
         {/* Top-center: virtual testing copy */}
         <div className="flex min-h-0 flex-col md:col-span-5 md:row-start-1">
-          <SectionLabel className="text-xs">Virtual testing environment</SectionLabel>
-          <p className="mt-1 text-xs leading-relaxed text-deck-text lg:text-sm">
-            We were heavily dependent on tidal windows and the marina&apos;s opening hours. Field testing was the best
-            way to learn how the boat really behaved, so I built a virtual testing environment that parsed our
-            real-world measurements from historical runs and replayed how the boat would have reacted under new
-            algorithm improvements, cutting the time to test and ship changes by weeks.
+          <p className="text-sm font-bold leading-snug text-deck-accent">
+            Our testing process was expensive and time-consuming.
           </p>
-          <p className="mt-2 text-xs leading-relaxed text-deck-text lg:text-sm">
-            I paired it with <strong>hardware-in-the-loop testing</strong>, driving the real servos from the full ROS2
-            stack with the remaining sensors simulated, to catch actuation bugs before any on-water run.
-          </p>
+          <ul className="mt-2 space-y-1.5">
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                We were heavily dependent on <strong>tidal windows</strong> and the marina&apos;s opening hours.
+              </span>
+            </li>
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                Although <strong>field testing</strong> was the best way to learn how the boat really behaved, we needed
+                a way to <strong>rapidly test new algorithm features</strong>.
+              </span>
+            </li>
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                I used our pre-existing data from prior tests to create a <strong>virtual testing environment</strong>{' '}
+                which simulated exactly how new iterations on the control algorithm would react to real-world data.
+              </span>
+            </li>
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                This let me and the team conduct <strong>hardware-in-the-loop testing</strong> in the lab, catching
+                actuation bugs before any on-water run.
+              </span>
+            </li>
+            <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+              <span>
+                This reduced the iteration time from{' '}
+                <strong className="text-deck-accent">days to hours</strong>.
+              </span>
+            </li>
+          </ul>
         </div>
 
         {/* Top-right: field photo */}

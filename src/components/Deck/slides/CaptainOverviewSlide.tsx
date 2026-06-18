@@ -59,7 +59,7 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
               {[
                 'Wave resistance wastes up to ~30% of a cargo ship’s fuel, about 1% of all global emissions.',
                 'Forecasting waves lets ships steer smarter, cutting fuel use by ~20% (≈ $9B a year).',
-                'We deploy a grid-based swarm of autonomous sailboats that map ocean currents in real time.',
+                'Our network of autonomous sailboats maps ocean currents in real time, steering cargo ships clear of high-wave waters.',
               ].map(item => (
                 <li className="flex gap-2 text-xs leading-snug text-deck-text sm:text-sm" key={item}>
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
@@ -110,11 +110,12 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
             <div className="flex min-h-0 flex-col justify-between md:col-span-5">
               <div>
                 <p className="text-sm leading-snug text-deck-text sm:text-base">
-                  I built the ROS2 planner to steer <em>with</em> the wind, not a propeller:
+                  These boats run on <em>wind</em>, not a propeller — and you can&apos;t sail straight upwind, so my ROS2
+                  planner has to <em>tack</em> (zig-zag) to reach any target:
                 </p>
                 <ul className="mt-1 space-y-0.5">
                   {[
-                    'Sailing upwind by tacking',
+                    'Beating upwind by tacking across the wind',
                     'Dynamic waypoint tracking',
                     'Real-time wind and heading adjustments',
                   ].map(item => (
@@ -127,8 +128,8 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
               </div>
 
               {/* Headline result */}
-              <div className="mt-1.5 flex items-stretch gap-2 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 p-1.5">
-                <figure className="w-16 shrink-0 overflow-hidden rounded-lg sm:w-20">
+              <div className="mt-1.5 flex items-center gap-2.5 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 p-2">
+                <figure className="aspect-[3/4] w-24 shrink-0 overflow-hidden rounded-lg sm:w-28">
                   <img
                     alt="Kieran on the Berkeley Marina pier with an autonomous sail drone"
                     className="h-full w-full object-cover object-center"
