@@ -184,8 +184,8 @@ export const projects: Project[] = [
     slug: 'captain-field-testing',
     title: 'Berkeley CAPTAIN: Virtual Testing & Kalman Filtering',
     caption:
-      'We could only sail a few hours a week between tides. So I rebuilt those hours in software — and filtered the ocean out of our sensors.',
-    tldr: 'Marina time was scarce, so I built a virtual test bed that replayed real run data through new algorithms — cutting iteration from weeks to days — then a 1-D Kalman filter to clean the boat’s noisy IMU and wind-vane signals.',
+      'We could only sail a few hours a week between tides. So I rebuilt those hours in software, and filtered the ocean out of our sensors.',
+    tldr: 'Marina time was scarce, so I built a virtual test bed that replayed real run data through new algorithms, cutting iteration from weeks to days, then a 1-D Kalman filter to clean the boat’s noisy IMU and wind-vane signals.',
     heroStat: {
       value: 'Weeks → days',
       label: 'to test and ship each algorithm change, by replaying real field data offline',
@@ -372,11 +372,14 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 3. Berkeley Robotics Lab — Quadrupedal Running Robot                     */
+  /* 3. BladeRunner — Quadrupedal Running Robot                             */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'bladerunner',
-    title: 'Berkeley Robotics Lab: Quadrupedal Running Robot',
+    deckSectionLabel:
+      'Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot',
+    title: 'BladeRunner: Training a quadruped to run on spring blades',
+    subtitle: 'Creating an energy efficient running quadruped for search and rescue.',
     caption: "An efficient running quadruped that outpaces Boston Dynamics' Spot.",
     tldr: "Designed and trained a running quadruped in simulation, combining genetic algorithms with reinforcement learning to beat Spot's top speed.",
     heroStat: {value: '23% faster', label: "than Boston Dynamics' Spot"},

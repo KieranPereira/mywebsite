@@ -26,7 +26,7 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
     <div className="flex h-full min-h-0 flex-1 flex-col gap-3">
       {/* Title */}
       <header>
-        <SectionLabel className="text-xs">Berkeley CAPTAIN · Field testing</SectionLabel>
+        <SectionLabel className="text-xs">CaptAIn · Field testing</SectionLabel>
         <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">
           Field Testing &amp; Sensor Improvement
         </h2>
@@ -98,8 +98,8 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
           />
         </figure>
 
-        {/* Bottom-left: Kalman copy */}
-        <div className="flex min-h-0 flex-col md:col-span-4 md:row-start-2">
+        {/* Bottom-left: Kalman copy — vertically centred against the plot panel */}
+        <div className="flex min-h-0 flex-col justify-center md:col-span-4 md:row-start-2">
           <p className="text-sm font-bold leading-snug text-deck-accent">
             Our sensor measurements were too noisy to control the boat.
           </p>

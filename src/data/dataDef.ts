@@ -100,6 +100,8 @@ export interface Project {
   external?: string; // if set, the card links straight out (no detail page)
   featured?: boolean;
   subtitle?: string; // optional explicit slide subtitle (else use caption)
+  /** Blue deck header above the title (e.g. lab name · project type). */
+  deckSectionLabel?: string;
   gallery?: ProjectMedia[]; // optional extra images/clips in the visual block
   achievement?: string; // optional override for the bottom achievement line
 }

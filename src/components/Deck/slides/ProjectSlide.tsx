@@ -32,17 +32,19 @@ interface ProjectSlideProps {
 
 const ProjectSlide: FC<ProjectSlideProps> = memo(
   ({slide, project, isActive, isLastSlide = false, showScrollHint = true}) => {
-    const {title, caption, subtitle, tldr, highlights, techTags, links, heroStat, achievement, external} = project;
+    const {title, caption, subtitle, deckSectionLabel, tldr, highlights, techTags, links, heroStat, achievement, external} =
+      project;
 
     return (
       <Slide id={slide.id} isLastSlide={isLastSlide} showScrollHint={showScrollHint} slideNumber={slide.number}>
         <div className="flex h-full min-h-0 flex-1 flex-col gap-4 lg:grid lg:grid-cols-2 lg:gap-8">
           {/* Text column */}
           <div className="flex min-h-0 flex-col gap-3 lg:overflow-hidden">
-            <div>
+            <header>
+              {deckSectionLabel ? <SectionLabel>{deckSectionLabel}</SectionLabel> : null}
               <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{title}</h2>
               <p className="mt-1 text-sm text-deck-muted sm:text-base">{subtitle ?? caption}</p>
-            </div>
+            </header>
 
             {tldr && (
               <div>

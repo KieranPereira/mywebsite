@@ -12,12 +12,14 @@ import ContactSlide from './slides/ContactSlide';
 import CoverSlide from './slides/CoverSlide';
 import ExperienceSlide from './slides/ExperienceSlide';
 import CaptainOverviewSlide from './slides/CaptainOverviewSlide';
+import BladeRunnerOverviewSlide from './slides/BladeRunnerOverviewSlide';
 import FieldTestingSlide from './slides/FieldTestingSlide';
 import ProjectSlide from './slides/ProjectSlide';
 
 const BESPOKE_PROJECT_SLIDES: Record<string, FC<Parameters<typeof ProjectSlide>[0]>> = {
   taflab: CaptainOverviewSlide,
   'captain-field-testing': FieldTestingSlide,
+  bladerunner: BladeRunnerOverviewSlide,
 };
 
 interface DeckProps {
