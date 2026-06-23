@@ -160,7 +160,7 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
               <p className="text-xs leading-snug text-deck-text sm:text-sm">
                 <strong className="font-semibold text-deck-accent">My proudest project.</strong> I helped start UCL
                 Rocketry independently after the university declined to back us. It has since grown into UCL&apos;s most
-                successful engineering team, with podium finishes at Spaceport America and European competitions.
+                successful engineering team, with podium finishes at Spaceport America and several European competitions.
               </p>
             </div>
           </div>
