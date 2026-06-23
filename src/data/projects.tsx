@@ -372,7 +372,142 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 3. BladeRunner — Quadrupedal Running Robot                             */
+  /* 3. UCL Rocketry — CanSat Payload & Camera Stabilisation                  */
+  /* ----------------------------------------------------------------------- */
+  {
+    slug: 'ucl-rocketry',
+    deckSectionLabel: 'UCL Rocketry · Head of Payload',
+    title: 'CanSat Payload: 360° Flight Video & In-Flight Air-Quality Capture',
+    subtitle:
+      'Designing the recovery system and a spring-catch mechanism that kept our GoPro steady through launch.',
+    caption:
+      'A CanSat that films its own rocket flight in 360°, with a spring-catch that stops the camera shaking itself useless.',
+    tldr: 'As Head of Payload I led 5 engineers to design, build and fly a CanSat that records 360° footage of our rocket. Lab testing showed the camera shook too hard to film, so I designed a spring-catch mechanism that fixes it at 45°. We took 2nd at the Mach22 national competition, our first-ever entry.',
+    heroStat: {value: '2nd place', label: 'at Mach22, our inaugural national rocketry competition'},
+    highlights: [
+      'Led a team of 5 engineers as Head of Payload',
+      'CanSat launched at 1.5 km with a successful recovery mechanism',
+      'Designed a spring-catch that fixes the 360° camera at 45° to kill vibration',
+      'Owned the CAD for the parachute and camera deployment',
+    ],
+    techTags: ['CAD', 'Mechanism Design', '3D Printing', 'Recovery Systems', 'CanSat Payload', 'Team Leadership'],
+    media: {type: 'video', src: '/rocketry/flight.mp4', poster: '/rocketry/flight-poster.jpg', label: 'Launch day'},
+    gallery: [
+      {type: 'image', src: '/rocketry/cansat-cad.png'},
+      {type: 'image', src: '/rocketry/mechanism-labeled.png'},
+      {type: 'image', src: '/rocketry/avionics-bay.jpg'},
+    ],
+    featured: true,
+    deepDive: [
+      {
+        heading: 'The goal',
+        body: (
+          <div className="space-y-3">
+            <p>
+              UCL Rocketry set out to build a CanSat (a soda-can-sized satellite payload) that could record 360°
+              footage of our rocket&apos;s flight and collect pollutant and atmospheric data, a rapid and recoverable
+              alternative to weather balloons.
+            </p>
+            <p>
+              As Head of Payload I led a team of five engineers to design, build and fly it. The CanSat launched at
+              1.5&nbsp;km and returned safely on its own recovery mechanism.
+            </p>
+          </div>
+        ),
+      },
+      {
+        heading: 'Designing the payload',
+        body: (
+          <div className="space-y-3">
+            <p>
+              I owned the CAD design and the deployment mechanisms for both the parachute and the 360° camera. The
+              payload packs a GoPro, an avionics stack and the recovery hardware into a compact 3D-printed shell.
+            </p>
+            <Image
+              alt="CanSat payload CAD with recovery lifting eye"
+              className="rounded-lg"
+              height={420}
+              loading="lazy"
+              src="/rocketry/cansat-cad.png"
+              width={260}
+            />
+          </div>
+        ),
+      },
+      {
+        heading: 'The problem: a camera shaking itself useless',
+        body: (
+          <div className="space-y-3">
+            <p>
+              Lab testing showed the camera would shake too violently during flight for the footage to be usable. We
+              needed a way to hold it rock-steady the moment the payload deployed.
+            </p>
+            <p>
+              I designed a spring-catch mechanism: as the payload deploys, an <strong>outer tube</strong> displaces a
+              spring, driving a <strong>stopper</strong> that catches and fixes the camera at 45°. Vibration is damped
+              and the 360° camera holds a stable, usable shot.
+            </p>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <figure>
+                <Image
+                  alt="CAD section of the spring-catch: a stopper and an outer tube that displaces the spring"
+                  className="rounded-lg"
+                  height={360}
+                  loading="lazy"
+                  src="/rocketry/mechanism-labeled.png"
+                  width={500}
+                />
+                <figcaption className="mt-1 text-sm text-gray-500">
+                  The catch: a stopper and an outer tube that displaces the spring.
+                </figcaption>
+              </figure>
+              <figure>
+                <Image
+                  alt="Spring-catch mechanism mounted under the deployed payload"
+                  className="rounded-lg"
+                  height={360}
+                  loading="lazy"
+                  src="/rocketry/mechanism-mounted.png"
+                  width={500}
+                />
+                <figcaption className="mt-1 text-sm text-gray-500">
+                  Deployed: stoppers extended, camera fixed and stabilised at 45°.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        ),
+      },
+      {
+        heading: 'The result, and the bigger story',
+        body: (
+          <div className="space-y-3">
+            <p>
+              We secured <strong>2nd place</strong> at the Mach22 national competition, our inaugural entry into any
+              rocketry competition, beating teams who had been building their rockets for up to three years. We formed
+              the team, designed and built the rocket in under a year.
+            </p>
+            <p>
+              This is probably my proudest achievement. I helped start UCL Rocketry independently after the university
+              declined to sponsor a rocketry team; we secured the sponsorship ourselves, and it has since grown into
+              UCL&apos;s most successful engineering team, with podium finishes at Spaceport America and European
+              rocketry competitions.
+            </p>
+            <video
+              className="w-full rounded shadow"
+              controls
+              poster="/rocketry/flight-poster.jpg"
+              preload="none"
+              src="/rocketry/flight.mp4"
+            />
+          </div>
+        ),
+      },
+    ],
+  },
+
+  /* ----------------------------------------------------------------------- */
+  /* 4. BladeRunner — Quadrupedal Running Robot                             */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'bladerunner',
@@ -558,7 +693,7 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 4. Obsidian Performance Gear (OPG)                                       */
+  /* 5. Obsidian Performance Gear (OPG)                                       */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'opg',
@@ -674,7 +809,7 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 5. UCL Capstone — Traffic-Sign Detection & Narration                     */
+  /* 6. UCL Capstone — Traffic-Sign Detection & Narration                     */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'ucl-capstone',
@@ -814,7 +949,7 @@ export const projects: Project[] = [
   },
 
   /* ----------------------------------------------------------------------- */
-  /* 6. UCL UAS — Project Dragonfly (external, no detail page)                */
+  /* 7. UCL UAS — Project Dragonfly (external, no detail page)                */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'uas',
