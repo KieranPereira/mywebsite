@@ -813,6 +813,7 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'ucl-capstone',
+    deckSectionLabel: 'UCL Capstone · Individual Project',
     title: 'UCL Capstone: Traffic-Sign Detection & Narration',
     caption: 'New and elderly drivers miss road signs. This dashboard reads them aloud in real time.',
     tldr: "Trained a YOLOv5 pipeline on 100k+ images to recognize and narrate road signs in real time, outperforming Meta's benchmark model.",
@@ -824,7 +825,12 @@ export const projects: Project[] = [
       'Real-time narration prototype running at ~15.5 FPS',
     ],
     techTags: ['Python', 'YOLOv5', 'OpenCV', 'Deep Learning', 'Computer Vision', 'Genetic Algorithm'],
-    media: {type: 'video', src: '/UCLCapstone/trafficsign.mp4', poster: '/UCLCapstone/figure1.png', label: 'Live demo'},
+    media: {
+      type: 'video',
+      src: '/UCLCapstone/trafficsign.mp4',
+      poster: '/UCLCapstone/detection-demo-poster.jpg',
+      label: 'Live demo',
+    },
     gallery: [
       {
         type: 'document',
