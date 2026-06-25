@@ -15,7 +15,7 @@ interface CapstoneOverviewSlideProps {
 
 /**
  * Bespoke layout for the UCL capstone: a left-rail live demo anchors the slide
- * while the right side walks through problem → pipeline → proof in three bands.
+ * while the right side walks through goal → problem → pipeline → proof in four bands.
  */
 const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
   ({slide, project, isActive, isLastSlide = false, showScrollHint = true}) => (
@@ -38,7 +38,7 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
               <span className="text-deck-accent">84.4% mAP</span> · <span className="text-deck-accent">0.81 F1</span>
             </p>
             <p className="mt-0.5 text-[11px] leading-snug text-deck-muted">
-              Beat Meta&apos;s benchmark on a harder <Em>global, 63-class</Em> dataset — 4.0 GPA capstone.
+              Beat Meta&apos;s benchmark on a harder <Em>global, 63-class</Em> dataset, 4.0 GPA capstone.
             </p>
           </div>
 
@@ -53,16 +53,12 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
           <header className="shrink-0">
             <SectionLabel>{project.deckSectionLabel ?? 'UCL Capstone · Individual Project'}</SectionLabel>
             <h2 className="text-lg font-bold leading-tight text-deck-text sm:text-xl lg:text-2xl">{project.title}</h2>
-            <p className="mt-0.5 text-xs leading-snug text-deck-muted sm:text-sm">
-              A low-cost dashboard that detects road signs and reads them aloud — built for the drivers most at risk.
-            </p>
           </header>
 
           {/* Band 1 — The problem */}
           <div className="grid min-h-0 flex-[4] grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
             <div className="flex min-h-0 flex-col justify-center md:col-span-5">
-              <PhaseTag color="problem">01 · The problem</PhaseTag>
-              <p className="mt-1 text-sm font-bold leading-snug text-deck-text sm:text-base">
+              <p className="text-sm font-bold leading-snug text-deck-text sm:text-base">
                 The drivers most at risk are the ones{' '}
                 <span className="text-deck-accent">missing the signs</span>.
               </p>
@@ -76,6 +72,10 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
                 <Bullet tight>
                   Driver-assist tech exists, but is priced out of the used cars these groups actually buy.
                 </Bullet>
+                <Bullet prominent>
+                  I delivered a <Accent>low-cost</Accent> notification system, providing <Accent>audio alerts</Accent> of
+                  oncoming traffic signs, to <Accent>improve road safety</Accent>.
+                </Bullet>
               </ul>
             </div>
 
@@ -86,7 +86,7 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
                 src="/UCLCapstone/problem-age-stats.png"
               />
               <figcaption className="absolute bottom-2 right-2 rounded-md bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-deck-accent shadow-sm">
-                Peak risk: ages 20–29
+                Peak risk: ages 20-29
               </figcaption>
             </figure>
           </div>
@@ -94,40 +94,29 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
           <hr aria-hidden="true" className="shrink-0 border-0 border-t border-deck-border" />
 
           {/* Band 2 — Methodology + dataset journey */}
-          <div className="grid min-h-0 flex-[5] grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
-            <div className="flex min-h-0 flex-col md:col-span-4">
-              <PhaseTag color="method">02 · Methodology</PhaseTag>
-              <p className="mt-1 text-xs leading-snug text-deck-text sm:text-sm">
-                Ten-stage <Em>YOLOv5</Em> pipeline: clean a global dataset, tune with a genetic algorithm, then stress-test
-                in weather, brightness and narration integration.
-              </p>
-
-              <div className="mt-2 flex min-h-0 flex-1 flex-col justify-center gap-1.5">
-                <DatasetStep
-                  detail="320k signs · 401 classes · global coverage"
-                  label="Raw MTSD"
-                  value="~100k images"
-                />
-                <PipelineArrow />
-                <DatasetStep
-                  accent
-                  detail="Hybrid crop to ~1:1 · 36.6k / 5.3k / 13.3k split"
-                  label="After cleaning"
-                  value="63 classes · ~55k imgs"
-                />
+          <div className="flex min-h-0 flex-[5] flex-col gap-2">
+            <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
+              <div className="flex min-h-0 flex-col md:col-span-3">
+                <PhaseTag color="method">Methodology</PhaseTag>
+                <p className="mt-1 text-sm font-bold leading-snug text-deck-text sm:text-base">
+                  10-stage custom CNN using <Em>YOLOv5</Em> in <Em>PyTorch</Em>:
+                </p>
+                <ul className="mt-1.5 space-y-1">
+                  <Bullet tight>Dataset cleaning &amp; manipulation</Bullet>
+                  <Bullet tight>Model architecture tuning and hyperparameter optimization</Bullet>
+                  <Bullet tight>Live testing, robustness testing</Bullet>
+                </ul>
               </div>
+
+              <MethodologyFlowchart />
             </div>
 
-            <figure className="flex min-h-0 flex-col rounded-xl border border-deck-border bg-white p-2 md:col-span-8">
-              <img
-                alt="Methodology flowchart: dataset selection, manipulation, augmentation, background elimination, model architecture, hyperparameter optimisation, final training, then scenario, large-dataset and narration testing"
-                className="min-h-0 w-full flex-1 object-contain"
-                src="/UCLCapstone/methodology-flowchart.png"
-              />
-              <figcaption className="mt-1 text-center text-[10px] leading-snug text-deck-muted sm:text-[11px]">
-                Data prep → model development → testing &amp; narration integration
-              </figcaption>
-            </figure>
+            <div className="grid shrink-0 grid-cols-2 gap-1.5 sm:grid-cols-4">
+              <CompactStat label="Training images" value="100k" />
+              <CompactStat label="Raw sign classes" value="401" />
+              <CompactStat label="GPU hours post-opt" value="270" />
+              <CompactStat label="Hyperparams tuned" value="31" />
+            </div>
           </div>
 
           <hr aria-hidden="true" className="shrink-0 border-0 border-t-2 border-deck-accent/70" />
@@ -135,7 +124,7 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
           {/* Band 3 — Training proof + robustness */}
           <div className="grid min-h-0 flex-[6] grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
             <div className="flex min-h-0 flex-col md:col-span-7">
-              <PhaseTag color="results">03 · Trained to state-of-the-art</PhaseTag>
+              <PhaseTag color="results">Trained to state-of-the-art</PhaseTag>
               <figure className="mt-1 flex min-h-0 flex-1 flex-col rounded-xl border-2 border-deck-accent/30 bg-white p-2">
                 <img
                   alt="Line chart of maximum F1 score versus epoch for each pipeline stage, with the final model crossing the state-of-the-art threshold"
@@ -150,7 +139,7 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
             </div>
 
             <div className="flex min-h-0 flex-col md:col-span-5">
-              <PhaseTag color="results">04 · Robust to the real world</PhaseTag>
+              <PhaseTag color="results">Robust to the real world</PhaseTag>
               <div className="mt-1 flex min-h-0 flex-1 flex-col gap-2">
                 <figure className="flex min-h-0 flex-1 flex-col rounded-xl border border-deck-border bg-white p-1.5">
                   <img
@@ -165,9 +154,9 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
 
                 <ul className="shrink-0 space-y-0.5">
                   <Bullet tight>Reads signs with up to 50% obstruction from foliage, dirt or vehicles.</Bullet>
-                  <Bullet tight>Holds up in fog, rain and snow — sharper in low light.</Bullet>
+                  <Bullet tight>Holds up in fog, rain and snow, sharper in low light.</Bullet>
                   <Bullet tight>
-                    <Em>0.711 F1</Em> on <Em>7,783</Em> unseen images — barely below training.
+                    <Em>0.711 F1</Em> on <Em>7,783</Em> unseen images, barely below training.
                   </Bullet>
                 </ul>
               </div>
@@ -183,17 +172,27 @@ const Em: FC<{children: ReactNode}> = ({children}) => (
   <strong className="font-semibold text-deck-text">{children}</strong>
 );
 
-const Bullet: FC<{children: ReactNode; tight?: boolean}> = ({children, tight = false}) => (
-  <li className={`flex gap-2 leading-snug text-deck-text ${tight ? 'text-[10px] lg:text-[11px]' : 'text-xs sm:text-sm'}`}>
-    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
+const Accent: FC<{children: ReactNode}> = ({children}) => (
+  <span className="font-semibold text-deck-accent">{children}</span>
+);
+
+const Bullet: FC<{children: ReactNode; tight?: boolean; prominent?: boolean}> = ({
+  children,
+  tight = false,
+  prominent = false,
+}) => (
+  <li
+    className={`leading-snug text-deck-text ${
+      prominent ? 'mt-1 text-sm font-semibold' : `flex gap-2 ${tight ? 'text-[10px] lg:text-[11px]' : 'text-xs sm:text-sm'}`
+    }`}>
+    {!prominent && <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />}
     <span>{children}</span>
   </li>
 );
 
-type PhaseColor = 'problem' | 'method' | 'results';
+type PhaseColor = 'method' | 'results';
 
 const PHASE_STYLES: Record<PhaseColor, string> = {
-  problem: 'bg-red-500/10 text-red-700 ring-red-500/25',
   method: 'bg-teal-600/10 text-teal-800 ring-teal-600/25',
   results: 'bg-deck-accent/10 text-deck-accent ring-deck-accent/30',
 };
@@ -212,28 +211,68 @@ const MiniStat: FC<{label: string; value: string}> = ({label, value}) => (
   </div>
 );
 
-const DatasetStep: FC<{label: string; value: string; detail: string; accent?: boolean}> = ({
-  label,
-  value,
-  detail,
-  accent = false,
-}) => (
-  <div
-    className={`rounded-lg border px-2.5 py-1.5 ${
-      accent ? 'border-deck-accent/40 bg-deck-accent-muted/40' : 'border-deck-border bg-deck-surface'
-    }`}>
-    <p className="text-[9px] font-bold uppercase tracking-wide text-deck-muted">{label}</p>
-    <p className={`text-sm font-extrabold leading-tight ${accent ? 'text-deck-accent' : 'text-deck-text'}`}>{value}</p>
-    <p className="mt-0.5 text-[10px] leading-snug text-deck-muted">{detail}</p>
+const CompactStat: FC<{label: string; value: string}> = ({label, value}) => (
+  <div className="rounded-lg border border-deck-border bg-deck-surface px-2 py-1 text-center">
+    <p className="text-xs font-extrabold leading-none text-deck-accent sm:text-sm">{value}</p>
+    <p className="mt-0.5 text-[8px] font-semibold uppercase leading-tight tracking-wide text-deck-muted sm:text-[9px]">
+      {label}
+    </p>
   </div>
 );
 
-const PipelineArrow: FC = () => (
-  <div aria-hidden="true" className="flex items-center justify-center py-0.5">
-    <svg className="h-3 w-3 text-deck-accent" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 20 20">
-      <path d="M10 3v14M10 17l-4-4M10 17l4-4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  </div>
+const FLOW_PHASE_STYLES = {
+  prep: 'text-blue-700',
+  model: 'text-orange-700',
+  test: 'text-green-700',
+} as const;
+
+type FlowPhase = keyof typeof FLOW_PHASE_STYLES;
+
+const FlowPhaseLabel: FC<{phase: FlowPhase; children: ReactNode}> = ({phase, children}) => (
+  <p
+    className={`text-right text-[8px] font-bold uppercase leading-tight tracking-wide sm:text-[9px] lg:text-[10px] ${FLOW_PHASE_STYLES[phase]}`}>
+    {children}
+  </p>
+);
+
+const FlowDownArrow: FC<{className?: string}> = ({className}) => (
+  <svg
+    aria-hidden="true"
+    className={`h-3 w-3 text-deck-muted ${className ?? ''}`}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    viewBox="0 0 20 20">
+    <path d="M10 3v14M10 17l-4-4M10 17l4-4" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const MethodologyFlowchart: FC = () => (
+  <figure className="flex min-h-0 flex-1 items-stretch justify-center gap-1.5 overflow-hidden rounded-xl border border-deck-border bg-white p-1.5 sm:p-2 md:col-span-9 lg:gap-2.5">
+    <div className="flex w-[4.25rem] shrink-0 flex-col sm:w-[5rem] lg:w-[5.5rem]">
+      <div className="flex flex-[34] items-center justify-end pr-0.5">
+        <FlowPhaseLabel phase="prep">Data prep</FlowPhaseLabel>
+      </div>
+      <div className="flex flex-none items-center justify-end pr-1.5">
+        <FlowDownArrow />
+      </div>
+      <div className="flex flex-[33] items-center justify-end pr-0.5">
+        <FlowPhaseLabel phase="model">Model Development</FlowPhaseLabel>
+      </div>
+      <div className="flex flex-none items-center justify-end pr-1.5">
+        <FlowDownArrow />
+      </div>
+      <div className="flex flex-[33] items-center justify-end pr-0.5">
+        <FlowPhaseLabel phase="test">Testing &amp; Narration Integration</FlowPhaseLabel>
+      </div>
+    </div>
+
+    <img
+      alt="Methodology flowchart: dataset selection, manipulation, augmentation, background elimination, model architecture, hyperparameter optimisation, final training, then scenario, large-dataset and narration testing"
+      className="h-full w-auto min-h-0 max-w-full object-contain"
+      src="/UCLCapstone/methodology-flowchart.png"
+    />
+  </figure>
 );
 
 const PlayIcon: FC<{className?: string}> = ({className}) => (

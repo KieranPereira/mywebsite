@@ -953,18 +953,6 @@ export const projects: Project[] = [
       },
     ],
   },
-
-  /* ----------------------------------------------------------------------- */
-  /* 7. UCL UAS — Project Dragonfly (external, no detail page)                */
-  /* ----------------------------------------------------------------------- */
-  {
-    slug: 'uas',
-    title: 'UCL UAS: Project Dragonfly',
-    caption: 'Guidance system for an autonomous helicopter (IMechE UAS Challenge).',
-    heroStat: {value: 'Autonomous', label: 'helicopter guidance, built for the IMechE UAS Challenge'},
-    media: {type: 'video', src: '/UAS/Heli.mp4', label: 'Flight test'},
-    external: 'https://uclr-uas.notion.site/Project-DRAGONFLY-b92b4bb6e1b941aa9e0137fc74e913ca',
-  },
 ];
 
 export const getProjectBySlug = (slug: string): Project | undefined => projects.find(project => project.slug === slug);
