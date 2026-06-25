@@ -1,6 +1,5 @@
 import {FC, memo, useCallback, useMemo} from 'react';
 
-import {education, experience} from '../../data/data';
 import {buildDeckSlides} from '../../data/deck';
 import {projects} from '../../data/projects';
 import {useDeckKeyboard} from '../../hooks/useDeckKeyboard';
@@ -10,7 +9,6 @@ import DeckNav from './DeckNav';
 import AboutSlide from './slides/AboutSlide';
 import ContactSlide from './slides/ContactSlide';
 import CoverSlide from './slides/CoverSlide';
-import ExperienceSlide from './slides/ExperienceSlide';
 import CaptainOverviewSlide from './slides/CaptainOverviewSlide';
 import BladeRunnerOverviewSlide from './slides/BladeRunnerOverviewSlide';
 import RocketryOverviewSlide from './slides/RocketryOverviewSlide';
@@ -84,18 +82,6 @@ const Deck: FC<DeckProps> = memo(({showChrome = true, showDownloadPdf = true}) =
                 <SlideComponent isActive={isActive} key={slide.id} project={project} slide={slide} {...hintProps} />
               );
             }
-            case 'experience':
-              return (
-                <ExperienceSlide
-                  key={slide.id}
-                  sections={[
-                    {heading: 'Experience', items: experience},
-                    {heading: 'Education', items: education},
-                  ]}
-                  slide={slide}
-                  {...hintProps}
-                />
-              );
             case 'contact':
               return <ContactSlide isLastSlide key={slide.id} showDownloadPdf={showDownloadPdf} slide={slide} />;
             default:

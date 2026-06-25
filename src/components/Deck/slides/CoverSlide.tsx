@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import {FC, memo, useEffect, useRef, useState} from 'react';
 
-import {deckData} from '../../../data/data';
+import {deckData, resumePdfPath} from '../../../data/data';
 import {DeckSlideMeta} from '../../../data/deck';
 import Button from '../../UI/Button';
 import Slide from '../Slide';
@@ -141,7 +141,7 @@ const CoverSlide: FC<CoverSlideProps> = memo(
                   enter('animate-cover-rise'),
                 )}
                 style={{animationDelay: '0.7s'}}>
-                <Button Icon={ArrowDownTrayIcon} href="/deck/print" variant="primary">
+                <Button download Icon={ArrowDownTrayIcon} href={resumePdfPath} variant="primary">
                   Download Resume
                 </Button>
                 <button

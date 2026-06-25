@@ -71,6 +71,8 @@ export const deckData: DeckData = {
 
 export const profileImage = profilepic;
 
+export const resumePdfPath = '/assets/KieranPereira_Resume.pdf';
+
 /**
  * Hero section
  */
@@ -86,7 +88,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/KieranPereira_Resume.pdf',
+      href: resumePdfPath,
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,

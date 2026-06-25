@@ -1,6 +1,6 @@
 import {projects} from './projects';
 
-export type DeckSlideKind = 'cover' | 'about' | 'project' | 'experience' | 'contact';
+export type DeckSlideKind = 'cover' | 'about' | 'project' | 'contact';
 
 export interface DeckSlideMeta {
   id: string;
@@ -12,7 +12,7 @@ export interface DeckSlideMeta {
 
 /**
  * Single source of truth for slide order, TOC, and PDF page sequence.
- * Cover → About → [one slide per project] → Experience & Education → Contact
+ * Cover → About → [one slide per project] → Contact
  */
 export const buildDeckSlides = (): DeckSlideMeta[] => {
   const slides: Omit<DeckSlideMeta, 'number'>[] = [
@@ -24,7 +24,6 @@ export const buildDeckSlides = (): DeckSlideMeta[] => {
       label: project.title,
       slug: project.slug,
     })),
-    {id: 'experience', kind: 'experience', label: 'Experience & Education'},
     {id: 'contact', kind: 'contact', label: 'Get in touch'},
   ];
 
