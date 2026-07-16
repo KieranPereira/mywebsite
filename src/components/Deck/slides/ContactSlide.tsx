@@ -2,7 +2,7 @@ import {ArrowDownTrayIcon, EnvelopeIcon} from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import {FC, memo} from 'react';
 
-import {contact, deckData, profileImage, resumePdfPath, socialLinks} from '../../../data/data';
+import {contact, profileImage, resumePdfPath, socialLinks} from '../../../data/data';
 import {DeckSlideMeta} from '../../../data/deck';
 import Button from '../../UI/Button';
 import Slide from '../Slide';
@@ -26,7 +26,6 @@ const ContactSlide: FC<ContactSlideProps> = memo(({slide, showDownloadPdf = true
       </div>
       <div>
         <h2 className="text-3xl font-bold text-deck-text">Get in touch</h2>
-        <p className="mt-2 text-deck-muted">{deckData.contactTagline}</p>
       </div>
 
       <div className="flex flex-col items-center gap-3 text-sm sm:text-base">

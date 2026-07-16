@@ -115,7 +115,6 @@ export interface DeckData {
   coverBio: JSX.Element;
   /** About-slide intro, one entry per paragraph. */
   aboutIntro: string[];
-  contactTagline: string;
   /** Company/school logos shown on About slide — paths relative to /public */
   experienceLogos: {name: string; src: string}[];
   /** Skill/tool logos shown on About slide — paths relative to /public */
