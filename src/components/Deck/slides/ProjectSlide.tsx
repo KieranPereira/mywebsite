@@ -32,8 +32,19 @@ interface ProjectSlideProps {
 
 const ProjectSlide: FC<ProjectSlideProps> = memo(
   ({slide, project, isActive, isLastSlide = false, showScrollHint = true}) => {
-    const {title, caption, subtitle, deckSectionLabel, tldr, highlights, techTags, links, heroStat, achievement, external} =
-      project;
+    const {
+      title,
+      caption,
+      subtitle,
+      deckSectionLabel,
+      tldr,
+      highlights,
+      techTags,
+      links,
+      heroStat,
+      achievement,
+      external,
+    } = project;
 
     return (
       <Slide id={slide.id} isLastSlide={isLastSlide} showScrollHint={showScrollHint} slideNumber={slide.number}>

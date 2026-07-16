@@ -141,7 +141,7 @@ const CoverSlide: FC<CoverSlideProps> = memo(
                   enter('animate-cover-rise'),
                 )}
                 style={{animationDelay: '0.7s'}}>
-                <Button download Icon={ArrowDownTrayIcon} href={resumePdfPath} variant="primary">
+                <Button Icon={ArrowDownTrayIcon} download href={resumePdfPath} variant="primary">
                   Download Resume
                 </Button>
                 <button

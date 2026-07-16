@@ -82,8 +82,7 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                This reduced the iteration time from{' '}
-                <strong className="text-deck-accent">days to hours</strong>.
+                This reduced the iteration time from <strong className="text-deck-accent">days to hours</strong>.
               </span>
             </li>
           </ul>

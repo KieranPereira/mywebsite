@@ -26,13 +26,9 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
       <div className="flex h-full min-h-0 flex-1 flex-col gap-2 lg:gap-3">
         {/* Title */}
         <header>
-          <SectionLabel>
-            Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot
-          </SectionLabel>
+          <SectionLabel>Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot</SectionLabel>
           <h2 className="text-3xl font-bold text-deck-text sm:text-4xl">{project.title}</h2>
-          {project.subtitle ? (
-            <p className="mt-1 text-sm text-deck-muted sm:text-base">{project.subtitle}</p>
-          ) : null}
+          {project.subtitle ? <p className="mt-1 text-sm text-deck-muted sm:text-base">{project.subtitle}</p> : null}
         </header>
 
         {/* ── Top band: motivation & biomimicry ── */}
@@ -66,8 +62,8 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
               </Bullet>
               <Bullet>
                 We modelled a quadruped in{' '}
-                <strong className="font-semibold text-deck-text">MATLAB Simscape Multibody</strong> with J-shaped running
-                blades on each leg, capturing compression, joint dynamics, and ground contact.
+                <strong className="font-semibold text-deck-text">MATLAB Simscape Multibody</strong> with J-shaped
+                running blades on each leg, capturing compression, joint dynamics, and ground contact.
               </Bullet>
               <Bullet>
                 We trained a <strong className="font-semibold text-deck-text">DDPG actor-critic agent</strong> to run as
@@ -140,8 +136,8 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
               {/* Headline result */}
               <div className="mt-1.5 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 p-2.5">
                 <p className="text-sm font-bold leading-snug text-deck-text sm:text-base">
-                  The result: a gait <strong className="text-deck-accent">23% faster</strong> than Boston
-                  Dynamics&apos; Spot.
+                  The result: a gait <strong className="text-deck-accent">23% faster</strong> than Boston Dynamics&apos;
+                  Spot.
                 </p>
                 <p className="mt-0.5 text-xs leading-snug text-deck-muted sm:text-sm">
                   Covered <strong className="font-semibold text-deck-text">23 m in 10 s</strong> in simulation with
@@ -196,16 +192,7 @@ const MontageVideo: FC<MontageVideoProps> = ({alt, src, isActive, className}) =>
   }, [isActive]);
 
   return (
-    <video
-      aria-label={alt}
-      className={className}
-      loop
-      muted
-      playsInline
-      preload="metadata"
-      ref={videoRef}
-      src={src}
-    />
+    <video aria-label={alt} className={className} loop muted playsInline preload="metadata" ref={videoRef} src={src} />
   );
 };
 

@@ -160,7 +160,8 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
               <p className="text-xs leading-snug text-deck-text sm:text-sm">
                 <strong className="font-semibold text-deck-accent">My proudest project.</strong> I helped start UCL
                 Rocketry independently after the university declined to back us. It has since grown into UCL&apos;s most
-                successful engineering team, with podium finishes at Spaceport America and several European competitions.
+                successful engineering team, with podium finishes at Spaceport America and several European
+                competitions.
               </p>
             </div>
           </div>
@@ -196,7 +197,11 @@ const FlowArrow: FC = () => (
 
 const FlowImg: FC<{src: string; alt: string; contain?: boolean}> = ({src, alt, contain = false}) => (
   <div className="flex min-h-0 min-w-0 flex-1 items-center justify-center overflow-hidden rounded-lg bg-deck-surface">
-    <img alt={alt} className={`max-h-full min-h-0 w-full ${contain ? 'object-contain p-1' : 'object-cover'}`} src={src} />
+    <img
+      alt={alt}
+      className={`max-h-full min-h-0 w-full ${contain ? 'object-contain p-1' : 'object-cover'}`}
+      src={src}
+    />
   </div>
 );
 

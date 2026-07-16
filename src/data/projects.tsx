@@ -24,6 +24,35 @@ import {Project} from './dataDef';
  */
 export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
+  /* Undaunted Rover — Autonomous Security Rover Build Iterations            */
+  /* (Bespoke deck slide: RoverSlide.tsx, branched by slug in Deck.tsx)       */
+  /* ----------------------------------------------------------------------- */
+  {
+    slug: 'rover',
+    title: 'Undaunted: Building the largest security rover fleet in the Southeast.',
+    caption: 'Our quadrupeds ran out of battery in two hours, so we built a rover that patrols all day.',
+    tldr: 'Across three build iterations in five months, including one instructive failure, I helped take an autonomous security rover from a repurposed off-the-shelf toy to a reliable, teleoperated platform deployed across Atlanta.',
+    heroStat: {value: '5 months', label: 'from off-the-shelf toy to a deployed security-rover fleet'},
+    deckSectionLabel: 'Autonomous Security Rover · Build Iterations',
+    highlights: [
+      'Repurposed an off-the-shelf ATV buggy into a field-ready, teleoperated test bed in one month',
+      'Brought the chassis in-house, then diagnosed why our custom tank-drive geometry failed under load',
+      'Pivoted to a proven go-kart architecture with Ackerman steering and suspension for reliable units',
+      'Scaled to a security-rover fleet deployed across Atlanta at 96% uptime',
+    ],
+    techTags: ['LiveKit', 'LTE Teleop', 'Dual H-Bridge', 'VESC', 'LiFePO₄', 'Ackerman Steering', 'CAD'],
+    media: {
+      type: 'image',
+      src: '/rover/iter2-chassis.jpg',
+      label: 'In-house chassis',
+    },
+    gallery: [
+      {type: 'image', src: '/rover/iter3-ackerman.png'},
+      {type: 'image', src: '/rover/iter1-buggy.png'},
+    ],
+    featured: true,
+  },
+  /* ----------------------------------------------------------------------- */
   /* 1. Berkeley CAPTAIN — Overview & ROS2 Autonomy Stack                     */
   /* ----------------------------------------------------------------------- */
   {
@@ -378,8 +407,7 @@ export const projects: Project[] = [
     slug: 'ucl-rocketry',
     deckSectionLabel: 'UCL Rocketry · Head of Payload',
     title: 'CanSat Payload: 360° Flight Video & In-Flight Air-Quality Capture',
-    subtitle:
-      'Designing the recovery system and a spring-catch mechanism that kept our GoPro steady through launch.',
+    subtitle: 'Designing the recovery system and a spring-catch mechanism that kept our GoPro steady through launch.',
     caption:
       'A CanSat that films its own rocket flight in 360°, with a spring-catch that stops the camera shaking itself useless.',
     tldr: 'As Head of Payload I led 5 engineers to design, build and fly a CanSat that records 360° footage of our rocket. Lab testing showed the camera shook too hard to film, so I designed a spring-catch mechanism that fixes it at 45°. We took 2nd at the Mach22 national competition, our first-ever entry.',
@@ -404,8 +432,8 @@ export const projects: Project[] = [
         body: (
           <div className="space-y-3">
             <p>
-              UCL Rocketry set out to build a CanSat (a soda-can-sized satellite payload) that could record 360°
-              footage of our rocket&apos;s flight and collect pollutant and atmospheric data, a rapid and recoverable
+              UCL Rocketry set out to build a CanSat (a soda-can-sized satellite payload) that could record 360° footage
+              of our rocket&apos;s flight and collect pollutant and atmospheric data, a rapid and recoverable
               alternative to weather balloons.
             </p>
             <p>
@@ -511,8 +539,7 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'bladerunner',
-    deckSectionLabel:
-      'Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot',
+    deckSectionLabel: 'Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot',
     title: 'BladeRunner: Training a quadruped to run on spring blades',
     subtitle: 'Creating an energy efficient running quadruped for search and rescue.',
     caption: "An efficient running quadruped that outpaces Boston Dynamics' Spot.",
@@ -697,18 +724,24 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'opg',
+    deckSectionLabel: 'UC Berkeley · Co-founder & CTO',
     title: 'Obsidian Performance Gear',
-    caption: 'Bad form causes most training injuries. I built a company around fixing it in real time.',
-    tldr: 'Founded the company and led engineering as CTO: a custom PCB, embedded AI, and real-time 3D motion feedback packed into a wearable.',
-    heroStat: {value: '$1.2M+', label: 'company valuation'},
+    caption: 'Bad form causes most training injuries. We built a wearable that corrects it mid-rep.',
+    tldr: 'Co-founded a wearables startup as CTO: ESP32 nodes with dual IMUs and vibration motors that correct swimming and lifting form in real time, validated through 156 NSF I-Corps interviews — then shut down when the evidence said stop.',
+    heroStat: {value: '156', label: 'customer interviews through NSF I-Corps'},
     highlights: [
-      'Real-time 3D motion analysis on resource-constrained hardware',
-      'Designed a custom PCB with an I2C sensor network',
-      'Embedded AI for real-time form correction',
-      'Led the engineering team as CTO',
+      'Real-time posture correction: IMU sensing to haptic feedback on-device',
+      'FreeRTOS firmware: concurrent sensing, telemetry and command tasks over I²C',
+      'Working prototypes for swimming and weightlifting with a live Python visualiser',
+      '156 I-Corps interviews, 2 letters of intent and a Draper University accelerator offer',
     ],
-    techTags: ['C++', 'Python', 'Embedded AI', 'PCB Design', 'IoT', 'I2C'],
-    media: {type: 'video', src: '/obsidian/explodedview.mp4', poster: '/obsidian/obsidian-hero.jpg', label: 'Hardware'},
+    techTags: ['Embedded C++', 'ESP32', 'FreeRTOS', 'I2C', 'Bluetooth', 'Python'],
+    media: {
+      type: 'video',
+      src: '/obsidian/explodedview.mp4',
+      poster: '/obsidian/explodedview-poster.jpg',
+      label: 'Hardware',
+    },
     gallery: [
       {
         type: 'document',

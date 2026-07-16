@@ -71,12 +71,7 @@ const ContactSlide: FC<ContactSlideProps> = memo(({slide, showDownloadPdf = true
       )}
 
       {showDownloadPdf && (
-        <Button
-          Icon={ArrowDownTrayIcon}
-          className="deck-no-print"
-          download
-          href={resumePdfPath}
-          variant="secondary">
+        <Button Icon={ArrowDownTrayIcon} className="deck-no-print" download href={resumePdfPath} variant="secondary">
           Download Resume
         </Button>
       )}

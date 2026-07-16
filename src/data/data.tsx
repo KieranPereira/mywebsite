@@ -8,9 +8,7 @@ import profilepic from '../images/profilepic.jpg';
 import {ContactSection, ContactType, DeckData, Hero, HomepageMeta, SkillGroup, Social, TimelineItem} from './dataDef';
 
 /** Emphasis for key metrics/phrases inside experience summaries. */
-const Key = ({children}: {children: ReactNode}) => (
-  <strong className="font-semibold text-deck-text">{children}</strong>
-);
+const Key = ({children}: {children: ReactNode}) => <strong className="font-semibold text-deck-text">{children}</strong>;
 
 /**
  * Page meta data

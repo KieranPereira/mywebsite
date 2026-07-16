@@ -110,8 +110,8 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
             <div className="flex min-h-0 flex-col justify-between md:col-span-5">
               <div>
                 <p className="text-sm leading-snug text-deck-muted sm:text-base">
-                  These boats run on <strong className="font-semibold text-deck-text">wind</strong>, not a propeller, and
-                  you can&apos;t sail straight upwind, so my{' '}
+                  These boats run on <strong className="font-semibold text-deck-text">wind</strong>, not a propeller,
+                  and you can&apos;t sail straight upwind, so my{' '}
                   <strong className="font-semibold text-deck-text">ROS2 planner</strong> has to{' '}
                   <strong className="font-semibold text-deck-text">tack</strong> (zig-zag) to reach any target:
                 </p>

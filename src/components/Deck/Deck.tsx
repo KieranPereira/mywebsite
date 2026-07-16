@@ -7,21 +7,25 @@ import {useDeckObserver} from '../../hooks/useDeckObserver';
 import {useDeckScrollHint} from '../../hooks/useDeckScrollHint';
 import DeckNav from './DeckNav';
 import AboutSlide from './slides/AboutSlide';
+import BladeRunnerOverviewSlide from './slides/BladeRunnerOverviewSlide';
+import CapstoneOverviewSlide from './slides/CapstoneOverviewSlide';
+import CaptainOverviewSlide from './slides/CaptainOverviewSlide';
 import ContactSlide from './slides/ContactSlide';
 import CoverSlide from './slides/CoverSlide';
-import CaptainOverviewSlide from './slides/CaptainOverviewSlide';
-import BladeRunnerOverviewSlide from './slides/BladeRunnerOverviewSlide';
-import RocketryOverviewSlide from './slides/RocketryOverviewSlide';
-import CapstoneOverviewSlide from './slides/CapstoneOverviewSlide';
 import FieldTestingSlide from './slides/FieldTestingSlide';
+import ObsidianOverviewSlide from './slides/ObsidianOverviewSlide';
 import ProjectSlide from './slides/ProjectSlide';
+import RocketryOverviewSlide from './slides/RocketryOverviewSlide';
+import RoverSlide from './slides/RoverSlide';
 
 const BESPOKE_PROJECT_SLIDES: Record<string, FC<Parameters<typeof ProjectSlide>[0]>> = {
+  rover: RoverSlide,
   taflab: CaptainOverviewSlide,
   'captain-field-testing': FieldTestingSlide,
   'ucl-rocketry': RocketryOverviewSlide,
   bladerunner: BladeRunnerOverviewSlide,
   'ucl-capstone': CapstoneOverviewSlide,
+  opg: ObsidianOverviewSlide,
 };
 
 interface DeckProps {

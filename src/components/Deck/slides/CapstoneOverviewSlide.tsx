@@ -59,8 +59,7 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
           <div className="grid min-h-0 flex-[4] grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
             <div className="flex min-h-0 flex-col justify-center md:col-span-5">
               <p className="text-sm font-bold leading-snug text-deck-text sm:text-base">
-                The drivers most at risk are the ones{' '}
-                <span className="text-deck-accent">missing the signs</span>.
+                The drivers most at risk are the ones <span className="text-deck-accent">missing the signs</span>.
               </p>
               <ul className="mt-1.5 space-y-1">
                 <Bullet tight>
@@ -73,8 +72,8 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
                   Driver-assist tech exists, but is priced out of the used cars these groups actually buy.
                 </Bullet>
                 <Bullet prominent>
-                  I delivered a <Accent>low-cost</Accent> notification system, providing <Accent>audio alerts</Accent> of
-                  oncoming traffic signs, to <Accent>improve road safety</Accent>.
+                  I delivered a <Accent>low-cost</Accent> notification system, providing <Accent>audio alerts</Accent>{' '}
+                  of oncoming traffic signs, to <Accent>improve road safety</Accent>.
                 </Bullet>
               </ul>
             </div>
@@ -132,8 +131,8 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
                   src="/UCLCapstone/training-f1-curve.png"
                 />
                 <figcaption className="mt-1 text-[10px] leading-snug text-deck-muted sm:text-[11px]">
-                  Each preprocessing stage lifted F1 (<Em>0.32 → 0.41 → 0.75</Em>); genetic-algorithm hyperparameter tuning
-                  pushed the final model past the SOTA threshold to <Em>0.81 F1</Em>.
+                  Each preprocessing stage lifted F1 (<Em>0.32 → 0.41 → 0.75</Em>); genetic-algorithm hyperparameter
+                  tuning pushed the final model past the SOTA threshold to <Em>0.81 F1</Em>.
                 </figcaption>
               </figure>
             </div>
@@ -183,7 +182,9 @@ const Bullet: FC<{children: ReactNode; tight?: boolean; prominent?: boolean}> = 
 }) => (
   <li
     className={`leading-snug text-deck-text ${
-      prominent ? 'mt-1 text-sm font-semibold' : `flex gap-2 ${tight ? 'text-[10px] lg:text-[11px]' : 'text-xs sm:text-sm'}`
+      prominent
+        ? 'mt-1 text-sm font-semibold'
+        : `flex gap-2 ${tight ? 'text-[10px] lg:text-[11px]' : 'text-xs sm:text-sm'}`
     }`}>
     {!prominent && <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />}
     <span>{children}</span>
