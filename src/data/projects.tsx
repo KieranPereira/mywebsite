@@ -738,9 +738,9 @@ export const projects: Project[] = [
     techTags: ['Embedded C++', 'ESP32', 'FreeRTOS', 'I2C', 'Bluetooth', 'Python'],
     media: {
       type: 'video',
-      src: '/obsidian/explodedview.mp4',
-      poster: '/obsidian/explodedview-poster.jpg',
-      label: 'Hardware',
+      src: '/obsidian/techdemo.mp4',
+      poster: '/obsidian/techdemo-poster.jpg',
+      label: 'Live demo',
     },
     gallery: [
       {

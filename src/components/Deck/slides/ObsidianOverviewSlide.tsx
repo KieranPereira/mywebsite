@@ -30,10 +30,10 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
           </SectionLabel>
           <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
           <p className="mt-1 text-sm font-bold leading-snug text-deck-accent sm:text-base">
-            Bad form causes most training injuries — and you only find out once it hurts.
+            Bad form causes most training injuries, and you only find out once it hurts.
           </p>
           <p className="mt-1 max-w-4xl text-xs leading-snug text-deck-text sm:text-sm">
-            We built <Em>two products</Em> on one embedded platform — a <Em>swimming coach</Em> and a{' '}
+            We built <Em>two products</Em> on one embedded platform: a <Em>swimming coach</Em> and a{' '}
             <Em>weightlifting coach</Em> that buzz you back on form <Em>mid-exercise</Em>.
           </p>
         </header>
@@ -42,48 +42,36 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
         <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
           <PhotoCard
             alt="Hand-soldered protoboard with an ESP32 Feather, MPU6050 IMU and two motor driver breakouts"
-            caption={
-              <>
-                The swimming build&rsquo;s body unit, hand-soldered: ESP32 Feather, the body IMU and two motor
-                drivers.{' '}
-                <a
-                  className="font-semibold text-deck-accent hover:underline"
-                  href="/obsidian/explodedview.mp4"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  CAD teardown →
-                </a>
-              </>
-            }
+            caption="The swimming build&rsquo;s body unit, hand-soldered: ESP32 Feather, the body IMU and two motor drivers."
             spanClass="md:col-span-3"
             src="/obsidian/body-board.jpg"
           />
 
           {/* Centre: the two prototypes + how they were built */}
           <div className="flex min-h-0 flex-col justify-center gap-1 overflow-hidden md:col-span-5">
-            <p className="shrink-0 text-sm font-bold leading-snug text-deck-text">
+            <p className="shrink-0 text-sm font-bold leading-snug text-deck-text sm:text-base">
               One embedded platform, two coaches:
             </p>
             <ProductCard number="01" title="Swimming">
               <Bullet>
                 IMUs on the <Em>head</Em> and <Em>body</Em>: keep the head <Em>streamlined</Em>, and buzz the moment
-                body roll drifts from a swimmer&rsquo;s gait — correction <Em>mid-stroke</Em>.
+                body roll drifts from a swimmer&rsquo;s gait: correction <Em>mid-stroke</Em>.
               </Bullet>
             </ProductCard>
             <ProductCard number="02" title="Weightlifting">
               <Bullet>
                 A sensor pod on the <Em>arm</Em> tracks lift angle through <Em>every rep</Em>, streamed live into our{' '}
-                <Em>Python</Em> visualiser — watch it on the right.
+                <Em>Python</Em> visualiser. Watch it on the right.
               </Bullet>
             </ProductCard>
-            <div className="min-h-0">
-              <p className="text-sm font-bold leading-snug text-deck-text">How we built it:</p>
-              <ul className="mt-0.5">
-                <Bullet tight>
+            <div className="mt-4 min-h-0">
+              <p className="shrink-0 text-sm font-bold leading-snug text-deck-text sm:text-base">How we built it:</p>
+              <ul className="mt-0.5 space-y-1">
+                <Bullet>
                   An <Em>ESP32</Em> reads two <Em>MPU6050 IMUs</Em> and drives four <Em>vibration motors</Em>.
                 </Bullet>
-                <Bullet tight>
-                  <Em>FreeRTOS</Em> with four concurrent tasks — <Em>mutexes</Em>, <Em>queues</Em> and{' '}
+                <Bullet>
+                  <Em>FreeRTOS</Em> with four concurrent tasks: <Em>mutexes</Em>, <Em>queues</Em> and{' '}
                   <Em>task notifications</Em> keep sensing, feedback and telemetry in sync.
                 </Bullet>
               </ul>
@@ -121,7 +109,7 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
               <StatCell label="Draper University accelerator offer" value="1" />
             </div>
             <p className="mt-1.5 text-[11px] leading-snug text-deck-muted sm:text-xs">
-              Five Berkeley MEng founders — ex-SpaceX, Tesla, Lockheed Martin and Samsung R&amp;D.{' '}
+              Five Berkeley MEng founders: ex-SpaceX, Tesla, Lockheed Martin and Samsung R&amp;D.{' '}
               <a
                 className="font-semibold text-deck-accent hover:underline"
                 href="/obsidian/pitch-deck.pdf"
@@ -138,7 +126,7 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
             </p>
             <p className="mt-0.5 text-[11px] leading-snug text-deck-text sm:text-xs">
               Customer discovery is meant to change your mind, and ours did: the evidence didn&rsquo;t support the
-              business, so we called it — before sunk cost could argue otherwise.
+              business, so we called it before sunk cost could argue otherwise.
             </p>
           </div>
         </div>
@@ -153,11 +141,8 @@ const Em: FC<{children: ReactNode}> = ({children}) => (
   <strong className="font-semibold text-deck-text">{children}</strong>
 );
 
-const Bullet: FC<{children: ReactNode; tight?: boolean}> = ({children, tight = false}) => (
-  <li
-    className={`flex gap-2 leading-snug text-deck-text ${
-      tight ? 'text-[10px] lg:text-[11px]' : 'text-[11px] lg:text-xs'
-    }`}>
+const Bullet: FC<{children: ReactNode}> = ({children}) => (
+  <li className="flex gap-2 text-xs leading-snug text-deck-text sm:text-sm">
     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
     <span>{children}</span>
   </li>
