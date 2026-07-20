@@ -20,40 +20,44 @@ interface RoverSlideProps {
  * platform), each with a tall media panel on top — the first is a
  * click-to-play video — and an accent outcome bar underneath.
  */
-const RoverSlide: FC<RoverSlideProps> = memo(({slide, project, isActive, isLastSlide = false, showScrollHint = true}) => (
-  <Slide id={slide.id} isLastSlide={isLastSlide} showScrollHint={showScrollHint} slideNumber={slide.number}>
-    <div className="flex h-full min-h-0 flex-1 flex-col gap-2.5">
-      <header className="shrink-0">
-        <SectionLabel className="text-xs">
-          {project.deckSectionLabel ?? 'Autonomous Security Rover · Build Iterations'}
-        </SectionLabel>
-        <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
-        <p className="mt-2 text-sm font-bold leading-snug text-deck-accent sm:text-base">
-          Our quadrupeds ran out of battery in two hours: too short to cover large estates, depots and warehouses.
-        </p>
-        <p className="mt-1.5 max-w-3xl text-xs leading-snug text-deck-text sm:text-sm">
-          Three builds in five months: a <Em>converted toy</Em> proved the idea, <Em>our own chassis</Em> broke in the
-          field, and a <Em>go-kart platform</Em> became the{' '}
-          <Accent>largest security-rover fleet in the Southeast.</Accent>
-        </p>
-      </header>
+const RoverSlide: FC<RoverSlideProps> = memo(
+  ({slide, project, isActive, isLastSlide = false, showScrollHint = true}) => (
+    <Slide id={slide.id} isLastSlide={isLastSlide} showScrollHint={showScrollHint} slideNumber={slide.number}>
+      <div className="flex h-full min-h-0 flex-1 flex-col gap-2.5">
+        <header className="shrink-0">
+          <SectionLabel className="text-xs">
+            {project.deckSectionLabel ?? 'Autonomous Security Rover · Build Iterations'}
+          </SectionLabel>
+          <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
+          <p className="mt-2 text-sm font-bold leading-snug text-deck-accent sm:text-base">
+            Our quadrupeds ran out of battery in two hours: too short to cover large estates, depots and warehouses.
+          </p>
+          <p className="mt-1.5 max-w-3xl text-xs leading-snug text-deck-text sm:text-sm">
+            Three builds in five months: a <Em>converted toy</Em> proved the idea, <Em>our own chassis</Em> broke in the
+            field, and a <Em>go-kart platform</Em> became the{' '}
+            <Accent>largest security-rover fleet in the Southeast.</Accent>
+          </p>
+        </header>
 
-      {/* Three iteration cards, read left to right */}
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-3 md:gap-3">
-        {ITERATIONS.map(iteration => (
-          <IterationCard key={iteration.number} {...iteration} slideIsActive={isActive} />
-        ))}
+        {/* Three iteration cards, read left to right */}
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-3 md:gap-3">
+          {ITERATIONS.map(iteration => (
+            <IterationCard key={iteration.number} {...iteration} slideIsActive={isActive} />
+          ))}
+        </div>
+
+        {/* Outcome bar */}
+        <ResultBar />
       </div>
-
-      {/* Outcome bar */}
-      <ResultBar />
-    </div>
-  </Slide>
-));
+    </Slide>
+  ),
+);
 
 /* ── Inline emphasis helpers (declared before the data that uses them) ───── */
 
-const Em: FC<{children: ReactNode}> = ({children}) => <strong className="font-semibold text-deck-text">{children}</strong>;
+const Em: FC<{children: ReactNode}> = ({children}) => (
+  <strong className="font-semibold text-deck-text">{children}</strong>
+);
 
 const Accent: FC<{children: ReactNode}> = ({children}) => (
   <strong className="font-semibold text-deck-accent">{children}</strong>
@@ -322,9 +326,7 @@ const Tag: FC<{children: ReactNode; variant: 'metric' | 'spec'}> = ({children, v
 const ResultBar: FC = () => (
   <div className="grid shrink-0 grid-cols-2 gap-2 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 p-2.5 sm:grid-cols-4 sm:p-3">
     {RESULTS.map(result => (
-      <div
-        className="rounded-lg border border-deck-border bg-white/70 px-2 py-2 text-center"
-        key={result.label}>
+      <div className="rounded-lg border border-deck-border bg-white/70 px-2 py-2 text-center" key={result.label}>
         <p
           className={`text-base font-extrabold leading-none sm:text-lg ${
             result.accent ? 'text-deck-accent' : 'text-deck-text'

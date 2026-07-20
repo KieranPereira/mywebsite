@@ -10,6 +10,7 @@ import AboutSlide from './slides/AboutSlide';
 import BladeRunnerOverviewSlide from './slides/BladeRunnerOverviewSlide';
 import CapstoneOverviewSlide from './slides/CapstoneOverviewSlide';
 import CaptainOverviewSlide from './slides/CaptainOverviewSlide';
+import ChargingHubSlide from './slides/ChargingHubSlide';
 import ContactSlide from './slides/ContactSlide';
 import CoverSlide from './slides/CoverSlide';
 import FieldTestingSlide from './slides/FieldTestingSlide';
@@ -20,6 +21,7 @@ import RoverSlide from './slides/RoverSlide';
 
 const BESPOKE_PROJECT_SLIDES: Record<string, FC<Parameters<typeof ProjectSlide>[0]>> = {
   rover: RoverSlide,
+  'charging-hub': ChargingHubSlide,
   taflab: CaptainOverviewSlide,
   'captain-field-testing': FieldTestingSlide,
   'ucl-rocketry': RocketryOverviewSlide,

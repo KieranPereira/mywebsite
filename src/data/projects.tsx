@@ -53,6 +53,41 @@ export const projects: Project[] = [
     featured: true,
   },
   /* ----------------------------------------------------------------------- */
+  /* Undaunted Charging Hub & Payload — Mechanical & Embedded Design          */
+  /* (Bespoke deck slide: ChargingHubSlide.tsx, branched by slug in Deck.tsx) */
+  /* ----------------------------------------------------------------------- */
+  {
+    slug: 'charging-hub',
+    title: 'Undaunted: Charging Hub & Payload',
+    caption:
+      'From a plywood box and a strapped-on Ring doorbell to 140 hubs in the field and $600k+ in unlocked deals.',
+    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I helped design the weatherproof, air-conditioned hub that replaced them — 140 in the field, manufactured at ten a week — and built the in-house Raspberry Pi teleop payload that unlocked $600k+ in dealflow.',
+    heroStat: {value: '140', label: 'charging hubs in the field, manufactured at 10 a week'},
+    deckSectionLabel: 'Undaunted · Charging Hub & Payload',
+    highlights: [
+      'Took the hub from a plywood prototype to 140 weatherproof, air-conditioned units in the field',
+      'Held a cadence of 10 hubs a week working with local manufacturers and contractors',
+      'Built the in-house payload: Raspberry Pi teleop with IMX cameras, microphone and amplified speaker',
+      'Designed a custom PCB driving MOSFETs for spotlight and patrol-light controls, unlocking $600k+ in dealflow',
+    ],
+    techTags: ['CAD', 'Design for Manufacture', 'Raspberry Pi', 'MQTT', 'PCB Design', 'Teleoperation'],
+    media: {
+      type: 'video',
+      src: '/hub/hub-door-open.mp4',
+      poster: '/hub/hub-door-poster.jpg',
+      label: 'Door demo',
+    },
+    gallery: [
+      {type: 'image', src: '/hub/hub-v2-field.jpg'},
+      {type: 'image', src: '/hub/payload-cad.png'},
+      {type: 'image', src: '/hub/payload-field.jpg'},
+      {type: 'image', src: '/hub/payload-v1-ring.jpg'},
+      {type: 'image', src: '/hub/hub-v1-plywood.jpg'},
+    ],
+    featured: true,
+  },
+
+  /* ----------------------------------------------------------------------- */
   /* 1. Berkeley CAPTAIN — Overview & ROS2 Autonomy Stack                     */
   /* ----------------------------------------------------------------------- */
   {

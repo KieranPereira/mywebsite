@@ -81,8 +81,8 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
           <VideoCard
             caption={
               <>
-                The weightlifting prototype live: our Python GUI tracking the arm through a lateral raise, streamed
-                from the wearable.
+                The weightlifting prototype live: our Python GUI tracking the arm through a lateral raise, streamed from
+                the wearable.
               </>
             }
             label="Watch the live demo · 1:07"
@@ -190,7 +190,12 @@ const FlowNode: FC<{title: string; sub: string; accent?: boolean; className?: st
 const FlowArrow: FC<{label: string}> = ({label}) => (
   <div className="flex min-w-[4.5rem] flex-1 flex-col items-center justify-center px-1">
     <p className="text-center text-[8px] font-semibold leading-tight text-deck-muted lg:text-[9px]">{label}</p>
-    <svg aria-hidden="true" className="h-2.5 w-full text-deck-muted" fill="none" preserveAspectRatio="none" viewBox="0 0 60 10">
+    <svg
+      aria-hidden="true"
+      className="h-2.5 w-full text-deck-muted"
+      fill="none"
+      preserveAspectRatio="none"
+      viewBox="0 0 60 10">
       <path d="M0 5h54M54 5l-5-3.5M54 5l-5 3.5" stroke="currentColor" strokeLinecap="round" strokeWidth={1.5} />
     </svg>
   </div>
