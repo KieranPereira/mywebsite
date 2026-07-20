@@ -17,8 +17,8 @@ interface RoverSlideProps {
 /**
  * Bespoke "build-iterations" poster for the Undaunted security rover: three
  * upright cards read left to right as a timeline (toy → our chassis → go-kart
- * platform), each with a tall media panel on top — the first is a
- * click-to-play video — and an accent outcome bar underneath.
+ * platform), each with a tall media panel on top (the first is a
+ * click-to-play video) and an accent outcome bar underneath.
  */
 const RoverSlide: FC<RoverSlideProps> = memo(
   ({slide, project, isActive, isLastSlide = false, showScrollHint = true}) => (

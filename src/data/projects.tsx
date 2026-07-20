@@ -24,7 +24,7 @@ import {Project} from './dataDef';
  */
 export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
-  /* Undaunted Rover — Autonomous Security Rover Build Iterations            */
+  /* Undaunted Rover: Autonomous Security Rover Build Iterations             */
   /* (Bespoke deck slide: RoverSlide.tsx, branched by slug in Deck.tsx)       */
   /* ----------------------------------------------------------------------- */
   {
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     featured: true,
   },
   /* ----------------------------------------------------------------------- */
-  /* Undaunted Charging Hub & Payload — Mechanical & Embedded Design          */
+  /* Undaunted Charging Hub & Payload: Mechanical & Embedded Design           */
   /* (Bespoke deck slide: ChargingHubSlide.tsx, branched by slug in Deck.tsx) */
   /* ----------------------------------------------------------------------- */
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     title: 'Undaunted: Charging Hub & Payload',
     caption:
       'From a plywood box and a strapped-on Ring doorbell to 140 hubs in the field and $600k+ in unlocked deals.',
-    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I helped design the weatherproof, air-conditioned hub that replaced them — 140 in the field, manufactured at ten a week — and built the in-house Raspberry Pi teleop payload that unlocked $600k+ in dealflow.',
+    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I helped design the weatherproof, air-conditioned hub that replaced them (140 in the field, manufactured at ten a week) and built the in-house Raspberry Pi teleop payload that unlocked $600k+ in dealflow.',
     heroStat: {value: '140', label: 'charging hubs in the field, manufactured at 10 a week'},
     deckSectionLabel: 'Undaunted · Charging Hub & Payload',
     highlights: [

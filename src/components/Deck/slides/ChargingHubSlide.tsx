@@ -31,7 +31,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
           <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
           <p className="mt-1.5 text-sm font-bold leading-snug text-deck-accent sm:text-base">
             Plywood hubs that cooked the robots inside. A Ring doorbell strapped on for teleop. Prospects said
-            &lsquo;prototype&rsquo; — and deals stalled.
+            &lsquo;prototype,&rsquo; and deals stalled.
           </p>
           <p className="mt-1 max-w-4xl text-xs leading-snug text-deck-text sm:text-sm">
             I helped design their replacements: a production hub, <Accent>140 in the field</Accent>, and an in-house
