@@ -47,7 +47,7 @@ export const projects: Project[] = [
       label: 'In-house chassis',
     },
     gallery: [
-      {type: 'image', src: '/rover/iter3-ackerman.png'},
+      {type: 'video', src: '/rover/iter3-ackerman.MOV', poster: '/rover/iter3-ackerman-poster.jpg'},
       {type: 'image', src: '/rover/iter1-buggy.png'},
     ],
     featured: true,

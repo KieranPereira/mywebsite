@@ -144,13 +144,6 @@ const CoverSlide: FC<CoverSlideProps> = memo(
                 <Button Icon={ArrowDownTrayIcon} download href={resumePdfPath} variant="primary">
                   Download Resume
                 </Button>
-                <button
-                  className="group inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                  onClick={() => onNavigate(1)}
-                  type="button">
-                  Start exploring
-                  <ChevronDownIcon className="h-4 w-4 motion-safe:animate-bounce" />
-                </button>
               </div>
             )}
           </div>

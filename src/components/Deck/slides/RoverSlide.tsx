@@ -77,6 +77,8 @@ interface IterationMedia {
   src: string;
   alt: string;
   poster?: string;
+  /** Caption under the play button, e.g. "Watch it drive · 0:07". */
+  playLabel?: string;
 }
 
 interface Iteration {
@@ -97,6 +99,7 @@ const ITERATIONS: Iteration[] = [
       src: '/rover/iter1-drive.mp4',
       poster: '/rover/iter1-drive-poster.jpg',
       alt: 'The converted kids ATV driving a patrol route in a car park',
+      playLabel: 'Watch it drive · 0:07',
     },
     title: 'A converted kids’ ATV',
     month: 'Month 0–1',
@@ -146,9 +149,11 @@ const ITERATIONS: Iteration[] = [
   {
     number: '03',
     media: {
-      kind: 'image',
-      src: '/rover/iter3-ackerman.png',
+      kind: 'video',
+      src: '/rover/iter3-ackerman.MOV',
+      poster: '/rover/iter3-ackerman-poster.jpg',
       alt: 'The go-kart-style rover with suspension and Ackerman steering, out on patrol',
+      playLabel: 'Watch it drive · 0:12',
     },
     title: 'Go-kart architecture',
     month: 'Month 4–6',
@@ -296,16 +301,18 @@ const VideoPanel: FC<{media: IterationMedia; number: string; slideIsActive: bool
 
       {!started && (
         <button
-          aria-label="Play video of the first rover driving"
+          aria-label={`Play video: ${media.alt}`}
           className="group absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-black/25 transition-colors hover:bg-black/35"
           onClick={handlePlay}
           type="button">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-deck-accent text-white shadow-lg ring-4 ring-white/40 transition-transform group-hover:scale-110">
             <PlayIcon className="ml-1 h-7 w-7" />
           </span>
-          <span className="rounded-full bg-black/55 px-3 py-1 text-[11px] font-semibold text-white">
-            Watch it drive · 0:07
-          </span>
+          {media.playLabel && (
+            <span className="rounded-full bg-black/55 px-3 py-1 text-[11px] font-semibold text-white">
+              {media.playLabel}
+            </span>
+          )}
         </button>
       )}
     </MediaFrame>

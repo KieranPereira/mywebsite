@@ -47,7 +47,7 @@ export const deckData: DeckData = {
   ),
   aboutIntro: [
     "I'm a Master's graduate from UC Berkeley who thrives on using engineering to solve real problems.",
-    'Everything I build starts with a real problem: from the largest robotic security fleet in the US, deployed to keep communities safe, to a swarm of ocean sensors that optimize global shipping routes.',
+    'Everything I build starts after identifying a real problem: from the largest robotic security fleet in the US, deployed to keep communities safe, to a swarm of ocean sensors that optimize global shipping routes.',
     'Working across the entire stack alongside sharp people, on some of the hardest problems out there, is the part I enjoy most.',
   ],
   experienceLogos: [

@@ -157,15 +157,20 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             <h3 className="shrink-0 text-sm font-bold text-deck-text lg:text-[15px]">What I built</h3>
             <ul className="mt-1.5 flex flex-col gap-1.5">
               <Bullet>
-                Custom teleop on a <Em>Raspberry Pi</Em>: IMX cameras, microphone and amplified speaker streaming{' '}
+                <Em>Wiring loom</Em> for routing 33.3V, 12V and 5V to connect and power different components within
+                the payload
+              </Bullet>
+              <Bullet>
+                Custom teleop on a <Em>Raspberry Pi</Em>: IMX cameras, microphone and amplified 12V speaker streaming{' '}
                 <Em>live video and two-way audio</Em> to our dashboard
               </Bullet>
               <Bullet>
-                Designed a <Em>custom PCB</Em> driving MOSFETs for the white spotlight and blue patrol-light controls
+                Designed a <Em>custom PCB</Em> to improve wire management, connect and drive MOSFETs for white and
+                blue light controls
               </Bullet>
               <Bullet>
-                The sleek in-house design unlocked <Em>$600k+ in dealflow</Em> with Atlanta&rsquo;s largest multifamily
-                businesses
+                A sleek design, created after workshopping designs with customers and the sales team. Unlocked{' '}
+                <Em>$600k in dealflow</Em> with Atlanta&rsquo;s largest multifamily business
               </Bullet>
             </ul>
           </article>
