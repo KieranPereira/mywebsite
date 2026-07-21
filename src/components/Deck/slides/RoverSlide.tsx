@@ -177,7 +177,7 @@ const ITERATIONS: Iteration[] = [
 
 const RESULTS: {value: string; label: string; accent?: boolean}[] = [
   {value: '5 mo', label: 'From toy to deployed product'},
-  {value: '20+', label: 'Rovers deployed across Atlanta'},
+  {value: '10+', label: 'Deployed across Atlanta'},
   {value: '96%', label: 'Fleet uptime'},
   {value: '#1', label: 'Security-rover fleet in the Southeast', accent: true},
 ];
