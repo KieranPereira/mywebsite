@@ -47,7 +47,7 @@ export const deckData: DeckData = {
   ),
   aboutIntro: [
     "I'm a robotics engineer with a Master's from UC Berkeley.",
-    'Most recently I helped build the largest robotic security fleet in the US. Before that, I wrote the path planning for a fleet of autonomous sailboats that map waves so cargo ships can steer around them.',
+    "I'm Head of Robotics at Undaunted, where we run the largest robotic security fleet in the US. Before that, I wrote the path planning for a fleet of autonomous sailboats that map waves so cargo ships can steer around them.",
     'I like working on the whole robot, from the chassis to the code, in a small team that moves quickly.',
   ],
   experienceLogos: [

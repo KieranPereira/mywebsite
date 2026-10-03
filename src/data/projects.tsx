@@ -29,12 +29,12 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'charging-hub',
-    title: 'Undaunted: Charging Hub & Payload',
+    title: 'Undaunted: Building the largest robotic security fleet in the country.',
     caption:
       'From a plywood box and a strapped-on Ring doorbell to 140 hubs in the field and $600k+ in unlocked deals.',
-    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I helped design the weatherproof, air-conditioned hub that replaced them (140 in the field, manufactured at ten a week) and built the in-house Raspberry Pi teleop payload that unlocked $600k+ in dealflow.',
+    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I designed the weatherproof, air-conditioned hub that replaced them (140 in the field, manufactured at ten a week) and built the in-house Raspberry Pi teleop payload that unlocked $600k+ in dealflow.',
     heroStat: {value: '140', label: 'charging hubs in the field, manufactured at 10 a week'},
-    deckSectionLabel: 'Undaunted · Charging Hub & Payload',
+    deckSectionLabel: 'Undaunted · Head of Robotics',
     highlights: [
       'Took the hub from a plywood prototype to 140 weatherproof, air-conditioned units in the field',
       'Held a cadence of 10 hubs a week working with local manufacturers and contractors',
@@ -63,11 +63,11 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'rover',
-    title: 'Undaunted: Building the largest robotic security fleet in the country.',
+    title: "Undaunted: Building a US-made rover for sites our robot dogs couldn't cover",
     caption: 'Our quadrupeds ran out of battery in two hours, so we built a rover that patrols all day.',
-    tldr: 'Across three build iterations in five months, including one instructive failure, I helped take an autonomous security rover from a repurposed off-the-shelf toy to a reliable, teleoperated platform deployed across Atlanta.',
+    tldr: 'Across three build iterations in five months, including one instructive failure, I took an autonomous security rover from a repurposed off-the-shelf toy to a reliable, teleoperated platform deployed across Atlanta.',
     heroStat: {value: '5 months', label: 'from off-the-shelf toy to a deployed security-rover fleet'},
-    deckSectionLabel: 'Autonomous Security Rover · Build Iterations',
+    deckSectionLabel: 'Undaunted · Head of Robotics',
     highlights: [
       'Repurposed an off-the-shelf ATV buggy into a field-ready, teleoperated test bed in one month',
       'Brought the chassis in-house, then diagnosed why our custom tank-drive geometry failed under load',

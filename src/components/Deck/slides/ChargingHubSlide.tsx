@@ -34,8 +34,9 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             that overheated, and the payload was a Ring doorbell strapped to the robot&rsquo;s back.
           </p>
           <p className="mt-1 max-w-6xl text-xs leading-snug text-deck-text sm:text-sm">
-            Prospects saw a prototype and deals stalled. I helped design the production hub, now{' '}
-            <Accent>140 in the field</Accent>, and our own payload, which unlocked <Accent>$600k+ in deals</Accent>.
+            Prospects saw a prototype and deals stalled. I designed the production hub, now{' '}
+            <Accent>140 in the field</Accent>, and built our own payload, which unlocked{' '}
+            <Accent>$600k+ in deals</Accent>.
           </p>
         </header>
 

@@ -34,9 +34,9 @@ const RoverSlide: FC<RoverSlideProps> = memo(
             depots or warehouses.
           </p>
           <p className="mt-1.5 max-w-3xl text-xs leading-snug text-deck-text sm:text-sm">
-            We went through three builds in five months. A <Em>converted toy</Em> proved the idea,{' '}
-            <Em>our own chassis</Em> broke in the field, and the third, built on a <Em>go-kart platform</Em>, is the one
-            we <Accent>deployed across Atlanta.</Accent>
+            I took the rover through three builds in five months. A <Em>converted toy</Em> proved the idea,{' '}
+            <Em>my own chassis</Em> broke in the field, and the third, built on a <Em>go-kart platform</Em>, is the
+            one <Accent>now patrolling Atlanta.</Accent>
           </p>
         </header>
 
@@ -108,10 +108,10 @@ const ITERATIONS: Iteration[] = [
     bullets: [
       <>Stripped a kids&rsquo; ride-on ATV down to its motors and used it as a rolling test bed</>,
       <>
-        Replaced the stock controller with our own <Em>dual H-bridge</Em> board for skid-steer (tank) drive
+        Replaced the stock controller with my own <Em>dual H-bridge</Em> board for skid-steer (tank) drive
       </>,
       <>
-        Drove it remotely over <Em>LiveKit</Em>, through an LTE modem we specced and fitted ourselves
+        Drove it remotely over <Em>LiveKit</Em>, through an LTE modem I specced and fitted
       </>,
     ],
     tags: [
@@ -127,18 +127,18 @@ const ITERATIONS: Iteration[] = [
       src: '/rover/iter2-chassis.jpg',
       alt: 'Our own aluminium-extrusion chassis with the electronics box on top',
     },
-    title: 'Our own chassis',
+    title: 'A custom chassis',
     month: 'Month 2–4',
     status: {label: '✗ Where it broke', tone: 'amber'},
     bullets: [
       <>
-        Designed and built our own <Em>aluminium-extrusion</Em> chassis, mostly from Amazon parts
+        Designed and built an <Em>aluminium-extrusion</Em> chassis, mostly from Amazon parts
       </>,
       <>
         Four hub motors on <Em>VESCs</Em>; iterated from 4WD tank drive to 2WD front-pivot steering
       </>,
       <>
-        At our weight the frame <Em>flexed</Em> and the wheels lost alignment; the geometry didn&rsquo;t hold up
+        At full weight the frame <Em>flexed</Em> and the wheels lost alignment; the geometry didn&rsquo;t hold up
       </>,
     ],
     tags: [
@@ -163,9 +163,9 @@ const ITERATIONS: Iteration[] = [
       <>
         Rebuilt it on a go-kart platform with proper <Em>suspension</Em> and <Em>Ackerman steering</Em>
       </>,
-      <>Moved fabrication to a manufacturer, cutting per-unit cost by about 60%</>,
+      <>Moved fabrication to a US manufacturer, cutting per-unit cost by about 60%</>,
       <>
-        Repairs mostly stopped. We hit <Em>96% uptime</Em> and deterred 56+ intruders
+        Repairs mostly stopped. The rovers hit <Em>96% uptime</Em> and deterred 56+ intruders
       </>,
     ],
     tags: [
@@ -178,7 +178,7 @@ const ITERATIONS: Iteration[] = [
 
 const RESULTS: {value: string; label: string; accent?: boolean}[] = [
   {value: '5 mo', label: 'From toy to deployed product'},
-  {value: '10+', label: 'Deployed across Atlanta'},
+  {value: '150', label: 'Robots in the fleet, ~15 of them rovers'},
   {value: '96%', label: 'Fleet uptime'},
   {value: '#1', label: 'Robotic security fleet in the US', accent: true},
 ];
