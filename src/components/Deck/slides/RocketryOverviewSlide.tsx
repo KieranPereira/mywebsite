@@ -32,8 +32,7 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
               src="/rocketry/rocketry-hero.jpg"
             />
             <figcaption className="px-2 py-1 text-center text-[11px] leading-snug text-deck-muted">
-              Built entirely from scratch: we founded the team, then designed, built and flew this rocket in under a
-              year.
+              We started the team from nothing, then designed, built and flew this rocket in under a year.
             </figcaption>
           </figure>
 
@@ -43,7 +42,7 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
               <span className="text-deck-accent">2nd place</span> at the Mach22 national competition.
             </p>
             <p className="mt-0.5 text-[11px] leading-snug text-deck-muted sm:text-xs">
-              Our inaugural entry, beating teams who&apos;d been building their rockets for up to 3 years.
+              It was our first entry. Some of the teams we beat had spent up to 3 years on their rockets.
             </p>
           </div>
         </div>
@@ -66,18 +65,18 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
                   Build a <Em>CanSat</Em> that records <Em>360° footage</Em> of our rocket&apos;s flight.
                 </Bullet>
                 <Bullet>
-                  Collect <Em>pollutant and atmospheric data</Em>: a rapid, recoverable alternative to{' '}
+                  Collect <Em>pollutant and atmospheric data</Em> as a quicker, recoverable alternative to{' '}
                   <Em>weather balloons</Em>.
                 </Bullet>
               </ul>
-              <p className="mt-2 text-sm font-bold leading-snug text-deck-text sm:text-base">Key contributions:</p>
+              <p className="mt-2 text-sm font-bold leading-snug text-deck-text sm:text-base">What I did</p>
               <ul className="mt-1 space-y-1">
                 <Bullet>
-                  Led a team of <Em>5 engineers</Em> to build a CanSat, launched to <Em>1.5 km</Em> and safely
-                  recovered.
+                  Led a team of <Em>5 engineers</Em> building the CanSat. It flew to <Em>1.5 km</Em> and came back
+                  intact.
                 </Bullet>
                 <Bullet>
-                  Owned the <Em>CAD designs</Em> and the mechanisms for <Em>parachute &amp; 360° camera deployment</Em>.
+                  Did the <Em>CAD</Em> and designed the <Em>parachute and 360° camera deployment</Em> mechanisms.
                 </Bullet>
               </ul>
             </div>
@@ -97,8 +96,7 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
                 />
               </div>
               <figcaption className="mt-1.5 text-center text-[11px] leading-snug text-deck-muted sm:text-xs">
-                From CAD to flight hardware: the 360° GoPro, avionics stack and recovery gear packed into a 3D-printed
-                shell.
+                The CAD, the packed avionics bay, and the 360° GoPro deploying, all inside a 3D-printed shell.
               </figcaption>
             </figure>
           </div>
@@ -116,8 +114,8 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
               {/* Problem & how it works */}
               <div className="flex min-h-0 flex-col justify-center md:col-span-4">
                 <p className="text-xs leading-snug text-deck-text sm:text-sm">
-                  Lab testing showed the camera would <Em>shake too violently</Em> for viable footage. We designed a{' '}
-                  <Em>spring-catch mechanism</Em> that locks the GoPro steady once the payload deploys.
+                  Lab tests showed the <Em>shaking would ruin the footage</Em>. Our <Em>spring-catch</Em> locks the
+                  GoPro in place once the payload deploys.
                 </p>
                 <ul className="mt-1.5 space-y-1">
                   <Bullet tight>
@@ -127,8 +125,7 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
                     …driving a <Em>stopper</Em> that catches and fixes the camera at <Em>45°</Em>.
                   </Bullet>
                   <Bullet tight>
-                    <Em>Vibration-absorbing felt</Em> on the stopper soaks up the shake, giving a stable, usable 360°
-                    shot.
+                    <Em>Felt</Em> on the stopper absorbs the vibration, so the 360° footage stays steady.
                   </Bullet>
                 </ul>
               </div>
@@ -137,18 +134,18 @@ const RocketryOverviewSlide: FC<RocketryOverviewSlideProps> = memo(
               <div className="grid min-h-0 grid-cols-2 gap-2 md:col-span-8 lg:gap-3">
                 <MechFigure
                   alt="CAD section of the spring-catch: a stopper and an outer tube that displaces the spring"
-                  caption="The catch: a stopper and an outer tube that displaces the spring."
+                  caption="The catch mechanism, with the stopper and outer tube labelled."
                   src="/rocketry/mechanism-labeled.png"
                 />
                 <div className="grid min-h-0 grid-rows-2 gap-2">
                   <MechFigure
                     alt="Spring-catch undeployed: the GoPro rests against the inner tube surface"
-                    caption="Undeployed: GoPro resting on the inner tube surface."
+                    caption="Before deployment, the GoPro rests on the inner tube."
                     src="/rocketry/mechanism-closeup.png"
                   />
                   <MechFigure
                     alt="Spring-catch deployed and mounted under the payload"
-                    caption="Deployed: stoppers extended, camera fixed and stabilised at 45°."
+                    caption="After deployment, the stoppers hold the camera at 45°."
                     src="/rocketry/mechanism-mounted.png"
                   />
                 </div>

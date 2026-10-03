@@ -28,7 +28,7 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
       <header>
         <SectionLabel className="text-xs">CaptAIn · Field testing</SectionLabel>
         <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">
-          Field Testing &amp; Sensor Improvement
+          Field testing and cleaner sensor data
         </h2>
       </header>
 
@@ -42,47 +42,47 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
             src="/capstone/simulation-gui.png"
           />
           <figcaption className="mt-1 text-center text-[11px] text-deck-muted">
-            Replay-driven boat simulator: rudder &amp; sail
+            The replay simulator, showing rudder and sail commands
           </figcaption>
         </figure>
 
         {/* Top-center: virtual testing copy */}
         <div className="flex min-h-0 flex-col md:col-span-5 md:row-start-1">
           <p className="text-sm font-bold leading-snug text-deck-accent">
-            Our testing process was expensive and time-consuming.
+            Testing on the water was slow and expensive.
           </p>
           <ul className="mt-2 space-y-1.5">
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                We were heavily dependent on <strong>tidal windows</strong> and the marina&apos;s opening hours.
+                Every test depended on the <strong>tide</strong> and on the marina being open.
               </span>
             </li>
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                Although <strong>field testing</strong> was the best way to learn how the boat really behaved, we needed
-                a way to <strong>rapidly test new algorithm features</strong>.
+                <strong>Sea trials</strong> told us the most about how the boat behaved, but we needed a{' '}
+                <strong>faster way to try new features</strong>.
               </span>
             </li>
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                I used our pre-existing data from prior tests to create a <strong>virtual testing environment</strong>{' '}
-                which simulated exactly how new iterations on the control algorithm would react to real-world data.
+                So I built a <strong>simulator</strong> that replays logged sensor data from earlier sea trials through
+                new versions of the controller.
               </span>
             </li>
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                This let me and the team conduct <strong>hardware-in-the-loop testing</strong> in the lab, catching
-                actuation bugs before any on-water run.
+                We could then run <strong>hardware-in-the-loop tests</strong> in the lab and catch actuation bugs
+                before going out on the water.
               </span>
             </li>
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                This reduced the iteration time from <strong className="text-deck-accent">days to hours</strong>.
+                Iteration time dropped from <strong className="text-deck-accent">days to hours</strong>.
               </span>
             </li>
           </ul>
@@ -100,27 +100,26 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
         {/* Bottom-left: Kalman copy — vertically centred against the plot panel */}
         <div className="flex min-h-0 flex-col justify-center md:col-span-4 md:row-start-2">
           <p className="text-sm font-bold leading-snug text-deck-accent">
-            Our sensor measurements were too noisy to control the boat.
+            Our sensor data was too noisy to steer the boat with.
           </p>
           <ul className="mt-2 space-y-1.5">
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                The cheap IMUs we used, combined with the boat rocking in every wave, left the raw motion data noisy and
-                hard to trust.
+                Cheap IMUs on a boat rocking in every wave gave us motion data we couldn&apos;t trust.
               </span>
             </li>
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                I implemented a <strong>1-D Kalman filter</strong> to fuse the readings and sharpen sensor confidence.
+                I wrote a <strong>1-D Kalman filter</strong> to combine the readings and smooth out the noise.
               </span>
             </li>
             <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
               <span>
-                Field testing showed an <strong className="text-deck-accent">85% drop</strong> in steady-state sensor
-                noise (RMS).
+                In field tests, steady-state sensor noise (RMS) dropped by{' '}
+                <strong className="text-deck-accent">85%</strong>.
               </span>
             </li>
           </ul>
@@ -130,7 +129,7 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
         <div className="grid min-h-0 grid-cols-1 gap-3 rounded-xl border-2 border-deck-accent/30 bg-deck-surface p-3 sm:grid-cols-2 md:col-span-8 md:row-start-2">
           <figure className="flex min-h-0 flex-col">
             <figcaption className="text-[11px] font-medium leading-snug text-deck-text lg:text-xs">
-              Real field data: the Kalman filter pulling wave noise out of a steady-state signal
+              Field data: the filter removing wave noise from a steady signal
             </figcaption>
             <DownArrow />
             <img
@@ -141,7 +140,7 @@ const FieldTestingSlide: FC<FieldTestingSlideProps> = memo(({slide, isLastSlide 
           </figure>
           <figure className="flex min-h-0 flex-col">
             <figcaption className="text-[11px] font-medium leading-snug text-deck-text lg:text-xs">
-              How the Kalman filter responds to a sudden, spontaneous disturbance
+              The filter&apos;s response to a sudden disturbance
             </figcaption>
             <DownArrow />
             <img

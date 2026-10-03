@@ -30,7 +30,8 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
             src="/UCLCapstone/narration-demo.mp4"
           />
           <p className="text-center text-[10px] leading-snug text-deck-muted lg:text-[11px]">
-            Real-time narration: <Em>80% confidence gate</Em>, highest-priority sign first, no repeats within 10s.
+            It only reads out signs it&apos;s <Em>80%+ sure of</Em>, says the most important one first, and won&apos;t
+            repeat a sign within 10 s.
           </p>
 
           <div className="shrink-0 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 px-3 py-2">
@@ -38,7 +39,8 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
               <span className="text-deck-accent">84.4% mAP</span> · <span className="text-deck-accent">0.81 F1</span>
             </p>
             <p className="mt-0.5 text-[11px] leading-snug text-deck-muted">
-              Beat Meta&apos;s benchmark on a harder <Em>global, 63-class</Em> dataset, 4.0 GPA capstone.
+              Beat Meta&apos;s benchmark on a harder <Em>global, 63-class</Em> dataset. Graded at the equivalent of a
+              4.0 GPA.
             </p>
           </div>
 
@@ -63,17 +65,16 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
               </p>
               <ul className="mt-1.5 space-y-1">
                 <Bullet tight>
-                  Young drivers are <Em>32%</Em> of those killed or seriously injured; risk climbs again past 70.
+                  Young drivers are <Em>32%</Em> of those killed or seriously injured. Risk rises again after 70.
                 </Bullet>
                 <Bullet tight>
-                  <Em>44%</Em> forget common sign meanings; inattention drives <Em>56%</Em> of road deaths.
+                  <Em>44%</Em> forget what common signs mean. Inattention is behind <Em>56%</Em> of road deaths.
                 </Bullet>
                 <Bullet tight>
-                  Driver-assist tech exists, but is priced out of the used cars these groups actually buy.
+                  Driver-assist rarely comes in the cheap used cars these drivers buy.
                 </Bullet>
                 <Bullet prominent>
-                  I delivered a <Accent>low-cost</Accent> notification system, providing <Accent>audio alerts</Accent>{' '}
-                  of oncoming traffic signs, to <Accent>improve road safety</Accent>.
+                  I built a <Accent>low-cost</Accent> system that <Accent>reads road signs out loud</Accent>.
                 </Bullet>
               </ul>
             </div>
@@ -98,12 +99,12 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
               <div className="flex min-h-0 flex-col md:col-span-3">
                 <PhaseTag color="method">Methodology</PhaseTag>
                 <p className="mt-1 text-sm font-bold leading-snug text-deck-text sm:text-base">
-                  10-stage custom CNN using <Em>YOLOv5</Em> in <Em>PyTorch</Em>:
+                  A custom <Em>YOLOv5</Em> pipeline in <Em>PyTorch</Em>
                 </p>
                 <ul className="mt-1.5 space-y-1">
-                  <Bullet tight>Dataset cleaning &amp; manipulation</Bullet>
-                  <Bullet tight>Model architecture tuning and hyperparameter optimization</Bullet>
-                  <Bullet tight>Live testing, robustness testing</Bullet>
+                  <Bullet tight>Cleaned and restructured the dataset</Bullet>
+                  <Bullet tight>Tuned the architecture and hyperparameters</Bullet>
+                  <Bullet tight>Tested it live and in poor conditions</Bullet>
                 </ul>
               </div>
 
@@ -123,7 +124,7 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
           {/* Band 3 — Training proof + robustness */}
           <div className="grid min-h-0 flex-[6] grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
             <div className="flex min-h-0 flex-col md:col-span-7">
-              <PhaseTag color="results">Trained to state-of-the-art</PhaseTag>
+              <PhaseTag color="results">Training results</PhaseTag>
               <figure className="mt-1 flex min-h-0 flex-1 flex-col rounded-xl border-2 border-deck-accent/30 bg-white p-2">
                 <img
                   alt="Line chart of maximum F1 score versus epoch for each pipeline stage, with the final model crossing the state-of-the-art threshold"
@@ -131,14 +132,14 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
                   src="/UCLCapstone/training-f1-curve.png"
                 />
                 <figcaption className="mt-1 text-[10px] leading-snug text-deck-muted sm:text-[11px]">
-                  Each preprocessing stage lifted F1 (<Em>0.32 → 0.41 → 0.75</Em>); genetic-algorithm hyperparameter
-                  tuning pushed the final model past the SOTA threshold to <Em>0.81 F1</Em>.
+                  Each data-prep stage raised F1 (<Em>0.32 → 0.41 → 0.75</Em>). Tuning the hyperparameters with a
+                  genetic algorithm took the final model to <Em>0.81 F1</Em>, past the state of the art.
                 </figcaption>
               </figure>
             </div>
 
             <div className="flex min-h-0 flex-col md:col-span-5">
-              <PhaseTag color="results">Robust to the real world</PhaseTag>
+              <PhaseTag color="results">Real-world testing</PhaseTag>
               <div className="mt-1 flex min-h-0 flex-1 flex-col gap-2">
                 <figure className="flex min-h-0 flex-1 flex-col rounded-xl border border-deck-border bg-white p-1.5">
                   <img
@@ -147,15 +148,17 @@ const CapstoneOverviewSlide: FC<CapstoneOverviewSlideProps> = memo(
                     src="/UCLCapstone/obstruction-test.png"
                   />
                   <figcaption className="mt-1 text-center text-[10px] leading-snug text-deck-muted">
-                    Occlusion test: detected up to <Em>50%</Em> obstruction
+                    Occlusion test on a stop sign
                   </figcaption>
                 </figure>
 
                 <ul className="shrink-0 space-y-0.5">
-                  <Bullet tight>Reads signs with up to 50% obstruction from foliage, dirt or vehicles.</Bullet>
-                  <Bullet tight>Holds up in fog, rain and snow, sharper in low light.</Bullet>
                   <Bullet tight>
-                    <Em>0.711 F1</Em> on <Em>7,783</Em> unseen images, barely below training.
+                    Reads signs that are up to <Em>half hidden</Em> by leaves, dirt or other vehicles.
+                  </Bullet>
+                  <Bullet tight>Still works in fog, rain, snow and low light.</Bullet>
+                  <Bullet tight>
+                    Scored <Em>0.711 F1</Em> on <Em>7,783</Em> images it had never seen.
                   </Bullet>
                 </ul>
               </div>
@@ -258,13 +261,13 @@ const MethodologyFlowchart: FC = () => (
         <FlowDownArrow />
       </div>
       <div className="flex flex-[33] items-center justify-end pr-0.5">
-        <FlowPhaseLabel phase="model">Model Development</FlowPhaseLabel>
+        <FlowPhaseLabel phase="model">Model development</FlowPhaseLabel>
       </div>
       <div className="flex flex-none items-center justify-end pr-1.5">
         <FlowDownArrow />
       </div>
       <div className="flex flex-[33] items-center justify-end pr-0.5">
-        <FlowPhaseLabel phase="test">Testing &amp; Narration Integration</FlowPhaseLabel>
+        <FlowPhaseLabel phase="test">Testing and narration</FlowPhaseLabel>
       </div>
     </div>
 

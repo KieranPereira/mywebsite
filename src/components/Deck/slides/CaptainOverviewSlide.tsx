@@ -26,9 +26,9 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
       <div className="flex h-full min-h-0 flex-1 flex-col gap-2 lg:gap-3">
         {/* Title */}
         <header>
-          <SectionLabel>Berkeley Capstone Project · Project overview</SectionLabel>
+          <SectionLabel>UC Berkeley · Capstone project</SectionLabel>
           <h2 className="text-3xl font-bold text-deck-text sm:text-4xl">
-            CaptAIn: Building a network of autonomous ocean drones
+            CaptAIn: A network of autonomous ocean drones
           </h2>
         </header>
 
@@ -44,7 +44,8 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
             <figcaption className="mt-1 flex items-start gap-1.5">
               <UpArrow />
               <span className="text-xs leading-snug text-deck-muted sm:text-sm">
-                Roads wind uphill to save energy. Ships should steer around the waves, not straight through them.
+                Mountain roads zig-zag to keep the climb gentle. Ships can do the same with waves: a slightly longer
+                route that burns less fuel.
               </span>
             </figcaption>
           </figure>
@@ -52,14 +53,14 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
           {/* Centre: motivation headline + bullets */}
           <div className="flex min-h-0 flex-col justify-center md:col-span-4">
             <p className="text-base font-bold leading-snug text-deck-text sm:text-lg">
-              Cargo ships waste ~30% of fuel fighting waves. We built{' '}
-              <span className="text-deck-accent">Google Maps for the ocean</span> to help them save fuel.
+              Cargo ships burn up to 30% of their fuel pushing through waves. We&apos;re building{' '}
+              <span className="text-deck-accent">Google Maps for the ocean</span> so they can route around them.
             </p>
             <ul className="mt-2.5 space-y-1.5">
               {[
-                'Wave resistance wastes up to ~30% of a cargo ship’s fuel, about 1% of all global emissions.',
-                'Forecasting waves lets ships steer smarter, cutting fuel use by ~20% (≈ $9B a year).',
-                'Our network of autonomous sailboats maps ocean currents in real time, steering cargo ships clear of high-wave waters.',
+                'That wasted fuel adds up to about 1% of all global emissions.',
+                'Steering around high waves can cut fuel use by about 20%, worth around $6.5B a year.',
+                'Our autonomous sailboats measure the waves in real time, so ships know where the rough water is.',
               ].map(item => (
                 <li className="flex gap-2 text-xs leading-snug text-deck-text sm:text-sm" key={item}>
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
@@ -101,7 +102,7 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
             <figure className="flex min-h-0 flex-col rounded-xl border-2 border-deck-accent/30 bg-white p-2 md:col-span-7">
               <Ros2NodeGraph />
               <figcaption className="mt-1 text-center text-xs leading-snug text-deck-muted">
-                The ROS2 node graph I built: waypoints and live sensor data flow through path planning out to the rudder
+                My ROS2 node graph. Waypoints and live sensor data go through path planning, then out to the rudder
                 and sail servos.
               </figcaption>
             </figure>
@@ -110,30 +111,29 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
             <div className="flex min-h-0 flex-col justify-between md:col-span-5">
               <div>
                 <p className="text-sm leading-snug text-deck-muted sm:text-base">
-                  These boats run on <strong className="font-semibold text-deck-text">wind</strong>, not a propeller,
-                  and you can&apos;t sail straight upwind, so my{' '}
-                  <strong className="font-semibold text-deck-text">ROS2 planner</strong> has to{' '}
-                  <strong className="font-semibold text-deck-text">tack</strong> (zig-zag) to reach any target:
+                  The boats run on <strong className="font-semibold text-deck-text">wind</strong>, and no sailboat can
+                  sail straight into it. My <strong className="font-semibold text-deck-text">ROS2 planner</strong> works
+                  out a route anyway.
                 </p>
                 <ul className="mt-1 space-y-0.5">
                   <li className="flex gap-2 text-sm leading-snug text-deck-muted">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
                     <span>
-                      <strong className="font-semibold text-deck-text">Beating upwind</strong> by{' '}
-                      <strong className="font-semibold text-deck-text">tacking</strong> across the wind
+                      <strong className="font-semibold text-deck-text">Tacks</strong> (zig-zags) automatically when the
+                      target is upwind
                     </span>
                   </li>
                   <li className="flex gap-2 text-sm leading-snug text-deck-muted">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
                     <span>
-                      <strong className="font-semibold text-deck-text">Dynamic waypoint tracking</strong>
+                      Takes <strong className="font-semibold text-deck-text">new waypoints</strong> mid-route
                     </span>
                   </li>
                   <li className="flex gap-2 text-sm leading-snug text-deck-muted">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
                     <span>
-                      <strong className="font-semibold text-deck-text">Real-time</strong> wind and{' '}
-                      <strong className="font-semibold text-deck-text">heading</strong> adjustments
+                      Adjusts <strong className="font-semibold text-deck-text">heading</strong> and sail trim as the{' '}
+                      <strong className="font-semibold text-deck-text">wind shifts</strong>
                     </span>
                   </li>
                 </ul>
@@ -150,11 +150,10 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
                 </figure>
                 <div className="min-w-0 self-center">
                   <p className="text-sm font-bold leading-snug text-deck-text sm:text-base">
-                    The result: my planner sailed the boat anywhere we pointed it.
+                    It sailed itself <span className="text-deck-accent">2.3 km</span> up SF Bay and back.
                   </p>
                   <p className="mt-0.5 text-xs leading-snug text-deck-muted sm:text-sm">
-                    Proven on a <strong className="text-deck-accent">2.3 km</strong> autonomous round trip up SF Bay,
-                    both upwind and downwind. 50 built and tested.
+                    Fully autonomous, upwind and downwind. We built and tested 50 boats.
                   </p>
                 </div>
               </div>

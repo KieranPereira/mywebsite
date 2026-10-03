@@ -24,35 +24,6 @@ import {Project} from './dataDef';
  */
 export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
-  /* Undaunted Rover: Autonomous Security Rover Build Iterations             */
-  /* (Bespoke deck slide: RoverSlide.tsx, branched by slug in Deck.tsx)       */
-  /* ----------------------------------------------------------------------- */
-  {
-    slug: 'rover',
-    title: 'Undaunted: Building the largest security rover fleet in the Southeast.',
-    caption: 'Our quadrupeds ran out of battery in two hours, so we built a rover that patrols all day.',
-    tldr: 'Across three build iterations in five months, including one instructive failure, I helped take an autonomous security rover from a repurposed off-the-shelf toy to a reliable, teleoperated platform deployed across Atlanta.',
-    heroStat: {value: '5 months', label: 'from off-the-shelf toy to a deployed security-rover fleet'},
-    deckSectionLabel: 'Autonomous Security Rover · Build Iterations',
-    highlights: [
-      'Repurposed an off-the-shelf ATV buggy into a field-ready, teleoperated test bed in one month',
-      'Brought the chassis in-house, then diagnosed why our custom tank-drive geometry failed under load',
-      'Pivoted to a proven go-kart architecture with Ackerman steering and suspension for reliable units',
-      'Scaled to a security-rover fleet deployed across Atlanta at 96% uptime',
-    ],
-    techTags: ['LiveKit', 'LTE Teleop', 'Dual H-Bridge', 'VESC', 'LiFePO₄', 'Ackerman Steering', 'CAD'],
-    media: {
-      type: 'image',
-      src: '/rover/iter2-chassis.jpg',
-      label: 'In-house chassis',
-    },
-    gallery: [
-      {type: 'video', src: '/rover/iter3-ackerman.MOV', poster: '/rover/iter3-ackerman-poster.jpg'},
-      {type: 'image', src: '/rover/iter1-buggy.png'},
-    ],
-    featured: true,
-  },
-  /* ----------------------------------------------------------------------- */
   /* Undaunted Charging Hub & Payload: Mechanical & Embedded Design           */
   /* (Bespoke deck slide: ChargingHubSlide.tsx, branched by slug in Deck.tsx) */
   /* ----------------------------------------------------------------------- */
@@ -86,16 +57,45 @@ export const projects: Project[] = [
     ],
     featured: true,
   },
+  /* ----------------------------------------------------------------------- */
+  /* Undaunted Rover: Autonomous Security Rover Build Iterations             */
+  /* (Bespoke deck slide: RoverSlide.tsx, branched by slug in Deck.tsx)       */
+  /* ----------------------------------------------------------------------- */
+  {
+    slug: 'rover',
+    title: 'Undaunted: Building the largest robotic security fleet in the country.',
+    caption: 'Our quadrupeds ran out of battery in two hours, so we built a rover that patrols all day.',
+    tldr: 'Across three build iterations in five months, including one instructive failure, I helped take an autonomous security rover from a repurposed off-the-shelf toy to a reliable, teleoperated platform deployed across Atlanta.',
+    heroStat: {value: '5 months', label: 'from off-the-shelf toy to a deployed security-rover fleet'},
+    deckSectionLabel: 'Autonomous Security Rover · Build Iterations',
+    highlights: [
+      'Repurposed an off-the-shelf ATV buggy into a field-ready, teleoperated test bed in one month',
+      'Brought the chassis in-house, then diagnosed why our custom tank-drive geometry failed under load',
+      'Pivoted to a proven go-kart architecture with Ackerman steering and suspension for reliable units',
+      'Scaled to a security-rover fleet deployed across Atlanta at 96% uptime',
+    ],
+    techTags: ['LiveKit', 'LTE Teleop', 'Dual H-Bridge', 'VESC', 'LiFePO₄', 'Ackerman Steering', 'CAD'],
+    media: {
+      type: 'image',
+      src: '/rover/iter2-chassis.jpg',
+      label: 'In-house chassis',
+    },
+    gallery: [
+      {type: 'video', src: '/rover/iter3-drive.mp4', poster: '/rover/iter3-drive-poster.jpg'},
+      {type: 'image', src: '/rover/iter1-buggy.png'},
+    ],
+    featured: true,
+  },
 
   /* ----------------------------------------------------------------------- */
   /* 1. Berkeley CAPTAIN — Overview & ROS2 Autonomy Stack                     */
   /* ----------------------------------------------------------------------- */
   {
     slug: 'taflab',
-    title: 'Berkeley CAPTAIN: Autonomous Ocean-Sensor Swarm',
+    title: 'CaptAIn: Autonomous Ocean-Sensor Swarm',
     caption: 'Ships burn $65B a year fighting waves nobody measures. We built a sensor swarm that measures them.',
     tldr: 'My Berkeley capstone (with the TAFLAB lab): a swarm of self-powered autonomous sailboats that map wave conditions for fuel-saving ship routing. I owned the guidance, navigation and control, built on a modular ROS2 stack.',
-    heroStat: {value: '~30%', label: 'of shipping fuel saved through wave-aware routing'},
+    heroStat: {value: '~20%', label: 'less shipping fuel with wave-aware routing'},
     highlights: [
       'Owned the guidance, navigation & control for each autonomous sailboat',
       'Designed a modular, real-time ROS2 node architecture for waypoint handling, path planning and actuation',
@@ -246,7 +246,7 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'captain-field-testing',
-    title: 'Berkeley CAPTAIN: Virtual Testing & Kalman Filtering',
+    title: 'CaptAIn: Virtual Testing & Kalman Filtering',
     caption:
       'We could only sail a few hours a week between tides. So I rebuilt those hours in software, and filtered the ocean out of our sensors.',
     tldr: 'Marina time was scarce, so I built a virtual test bed that replayed real run data through new algorithms, cutting iteration from weeks to days, then a 1-D Kalman filter to clean the boat’s noisy IMU and wind-vane signals.',
@@ -576,10 +576,10 @@ export const projects: Project[] = [
     slug: 'bladerunner',
     deckSectionLabel: 'Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot',
     title: 'BladeRunner: Training a quadruped to run on spring blades',
-    subtitle: 'Creating an energy efficient running quadruped for search and rescue.',
+    subtitle: 'An energy-efficient running quadruped for search and rescue.',
     caption: "An efficient running quadruped that outpaces Boston Dynamics' Spot.",
     tldr: "Designed and trained a running quadruped in simulation, combining genetic algorithms with reinforcement learning to beat Spot's top speed.",
-    heroStat: {value: '23% faster', label: "than Boston Dynamics' Spot"},
+    heroStat: {value: '44% faster', label: "than Boston Dynamics' Spot"},
     highlights: [
       'Simulation-first design in MATLAB Simscape Multibody',
       'J-shaped running blades and a passive knee for an energy-efficient gait',

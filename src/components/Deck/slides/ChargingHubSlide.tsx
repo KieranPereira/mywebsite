@@ -30,12 +30,12 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
           </SectionLabel>
           <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
           <p className="mt-1.5 text-sm font-bold leading-snug text-deck-accent sm:text-base">
-            Plywood hubs that cooked the robots inside. A Ring doorbell strapped on for teleop. Prospects said
-            &lsquo;prototype,&rsquo; and deals stalled.
+            Our robot dogs patrol apartment complexes and charge in a hub on site. The first hubs were plywood boxes
+            that overheated, and the payload was a Ring doorbell strapped to the robot&rsquo;s back.
           </p>
-          <p className="mt-1 max-w-4xl text-xs leading-snug text-deck-text sm:text-sm">
-            I helped design their replacements: a production hub, <Accent>140 in the field</Accent>, and an in-house
-            payload that unlocked <Accent>$600k+ in dealflow</Accent>.
+          <p className="mt-1 max-w-6xl text-xs leading-snug text-deck-text sm:text-sm">
+            Prospects saw a prototype and deals stalled. I helped design the production hub, now{' '}
+            <Accent>140 in the field</Accent>, and our own payload, which unlocked <Accent>$600k+ in deals</Accent>.
           </p>
         </header>
 
@@ -55,7 +55,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             <div className="shrink-0 p-2.5">
               <CardHeading status={{label: '✗ Where we started', tone: 'amber'}} title="A plywood box" />
               <p className="mt-1 text-[11px] leading-snug text-deck-muted">
-                Weather got in, heat built up, wires trailed everywhere.
+                Rain got in, heat built up inside, and cables ran everywhere.
               </p>
             </div>
           </article>
@@ -72,7 +72,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             <div className="shrink-0 p-2.5">
               <CardHeading status={{label: '✓ 140 in the field', tone: 'green'}} title="The production hub" />
               <p className="mt-1 text-[11px] leading-snug text-deck-muted">
-                Weatherproof, AC-cooled, and the door opens itself for patrols.
+                Weatherproof and air-conditioned, with a door that opens itself when a patrol starts.
               </p>
             </div>
           </article>
@@ -82,15 +82,14 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             <h3 className="shrink-0 text-sm font-bold text-deck-text lg:text-[15px]">How it shipped</h3>
             <ul className="mt-1.5 flex flex-col gap-1.5">
               <Bullet>
-                Worked with <Em>local manufacturers and contractors</Em> to hold a cadence of{' '}
-                <Em>10 hubs built a week</Em>
+                Worked with <Em>local manufacturers and contractors</Em> to build <Em>10 hubs a week</Em>
               </Bullet>
               <Bullet>
-                Architected a <Em>Raspberry Pi</Em> system using <Em>MQTT</Em> for remotely operated door controls
+                Built a <Em>Raspberry Pi</Em> and <Em>MQTT</Em> system so we can open the doors remotely
               </Bullet>
               <Bullet>
-                <Em>Front-loaded feedback</Em> from early customers, manufacturers, field technicians and the sales team
-                to lock design choices early
+                Got <Em>feedback</Em> from customers, manufacturers, field techs and sales before we locked the design,
+                so we didn&rsquo;t have to rework it later
               </Bullet>
             </ul>
             <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-2">
@@ -116,7 +115,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             <div className="shrink-0 p-2.5">
               <CardHeading status={{label: '✗ Read as a prototype', tone: 'amber'}} title="Off-the-shelf parts" />
               <p className="mt-1 text-[11px] leading-snug text-deck-muted">
-                A Ring doorbell handled teleop; prospects saw a prototype.
+                We drove the robot through a Ring doorbell camera, so prospects assumed we were still prototyping.
               </p>
             </div>
           </article>
@@ -147,7 +146,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             <div className="shrink-0 p-2.5">
               <CardHeading status={{label: '✓ $600k+ unlocked', tone: 'green'}} title="The in-house payload" />
               <p className="mt-1 text-[11px] leading-snug text-deck-muted">
-                Driven from our own dashboard, and sleek enough to sell.
+                Runs through our own dashboard and looks like a finished product.
               </p>
             </div>
           </article>
@@ -157,20 +156,18 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
             <h3 className="shrink-0 text-sm font-bold text-deck-text lg:text-[15px]">What I built</h3>
             <ul className="mt-1.5 flex flex-col gap-1.5">
               <Bullet>
-                <Em>Wiring loom</Em> for routing 33.3V, 12V and 5V to connect and power different components within
-                the payload
+                A <Em>wiring loom</Em> that carries 34V, 12V and 5V to everything in the payload
               </Bullet>
               <Bullet>
-                Custom teleop on a <Em>Raspberry Pi</Em>: IMX cameras, microphone and amplified 12V speaker streaming{' '}
-                <Em>live video and two-way audio</Em> to our dashboard
+                Teleop on a <Em>Raspberry Pi</Em> that streams <Em>live video and two-way audio</Em> to our dashboard,
+                using IMX cameras, a microphone and an amplified 12V speaker
               </Bullet>
               <Bullet>
-                Designed a <Em>custom PCB</Em> to improve wire management, connect and drive MOSFETs for white and
-                blue light controls
+                A <Em>custom PCB</Em> that tidied up the wiring and drives MOSFETs for the white and blue lights
               </Bullet>
               <Bullet>
-                A sleek design, created after workshopping designs with customers and the sales team. Unlocked{' '}
-                <Em>$600k in dealflow</Em> with Atlanta&rsquo;s largest multifamily business
+                Reworked the look with customers and sales until it read as a product. That helped unlock{' '}
+                <Em>$600k+ in deals</Em> with Atlanta&rsquo;s largest multifamily company
               </Bullet>
             </ul>
           </article>

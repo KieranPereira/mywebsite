@@ -39,16 +39,16 @@ export const deckData: DeckData = {
   name: 'Kieran Pereira',
   coverBio: (
     <p className="text-base leading-relaxed text-deck-muted sm:text-lg">
-      I build robots end to end: mechanical design, embedded hardware, control software, and the AI on top. MEng at{' '}
+      I build whole robots, from the mechanical design and electronics to the control software and AI. MEng at{' '}
       <strong className="text-deck-text">UC Berkeley</strong>, BEng at <strong className="text-deck-text">UCL</strong>,
       with time at <strong className="text-deck-text">Lockheed Martin</strong>,{' '}
       <strong className="text-deck-text">Airbus</strong>, and <strong className="text-deck-text">HSBC</strong>.
     </p>
   ),
   aboutIntro: [
-    "I'm a Master's graduate from UC Berkeley who thrives on using engineering to solve real problems.",
-    'Everything I build starts after identifying a real problem: from the largest robotic security fleet in the US, deployed to keep communities safe, to a swarm of ocean sensors that optimize global shipping routes.',
-    'Working across the entire stack alongside sharp people, on some of the hardest problems out there, is the part I enjoy most.',
+    "I'm a robotics engineer with a Master's from UC Berkeley.",
+    'Most recently I helped build the largest robotic security fleet in the US. Before that, I wrote the path planning for a fleet of autonomous sailboats that map waves so cargo ships can steer around them.',
+    'I like working on the whole robot, from the chassis to the code, in a small team that moves quickly.',
   ],
   experienceLogos: [
     {name: 'Lockheed Martin', src: '/experience/Lockheed Martin.png'},

@@ -30,12 +30,13 @@ const RoverSlide: FC<RoverSlideProps> = memo(
           </SectionLabel>
           <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
           <p className="mt-2 text-sm font-bold leading-snug text-deck-accent sm:text-base">
-            Our quadrupeds ran out of battery in two hours: too short to cover large estates, depots and warehouses.
+            Our robot dogs only lasted two hours on a charge, which isn&rsquo;t long enough to patrol large estates,
+            depots or warehouses.
           </p>
           <p className="mt-1.5 max-w-3xl text-xs leading-snug text-deck-text sm:text-sm">
-            Three builds in five months: a <Em>converted toy</Em> proved the idea, <Em>our own chassis</Em> broke in the
-            field, and a <Em>go-kart platform</Em> became the{' '}
-            <Accent>largest security-rover fleet in the Southeast.</Accent>
+            We went through three builds in five months. A <Em>converted toy</Em> proved the idea,{' '}
+            <Em>our own chassis</Em> broke in the field, and the third, built on a <Em>go-kart platform</Em>, is the one
+            we <Accent>deployed across Atlanta.</Accent>
           </p>
         </header>
 
@@ -150,21 +151,21 @@ const ITERATIONS: Iteration[] = [
     number: '03',
     media: {
       kind: 'video',
-      src: '/rover/iter3-ackerman.MOV',
-      poster: '/rover/iter3-ackerman-poster.jpg',
+      src: '/rover/iter3-drive.mp4',
+      poster: '/rover/iter3-drive-poster.jpg',
       alt: 'The go-kart-style rover with suspension and Ackerman steering, out on patrol',
-      playLabel: 'Watch it drive · 0:12',
+      playLabel: 'Watch it drive · 0:07',
     },
     title: 'Go-kart architecture',
-    month: 'Month 4–6',
+    month: 'Month 4–5',
     status: {label: '✓ The fix', tone: 'green'},
     bullets: [
       <>
-        Rebuilt on a proven go-kart platform: real <Em>suspension</Em> and <Em>Ackerman steering</Em>
+        Rebuilt it on a go-kart platform with proper <Em>suspension</Em> and <Em>Ackerman steering</Em>
       </>,
       <>Moved fabrication to a manufacturer, cutting per-unit cost by about 60%</>,
       <>
-        Repairs mostly stopped: <Em>96% uptime</Em> across 18 properties, 56+ intruders deterred
+        Repairs mostly stopped. We hit <Em>96% uptime</Em> and deterred 56+ intruders
       </>,
     ],
     tags: [
@@ -179,7 +180,7 @@ const RESULTS: {value: string; label: string; accent?: boolean}[] = [
   {value: '5 mo', label: 'From toy to deployed product'},
   {value: '10+', label: 'Deployed across Atlanta'},
   {value: '96%', label: 'Fleet uptime'},
-  {value: '#1', label: 'Security-rover fleet in the Southeast', accent: true},
+  {value: '#1', label: 'Robotic security fleet in the US', accent: true},
 ];
 
 /* ── Pieces ─────────────────────────────────────────────────────────────── */

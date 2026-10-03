@@ -26,7 +26,7 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
       <div className="flex h-full min-h-0 flex-1 flex-col gap-2 lg:gap-3">
         {/* Title */}
         <header>
-          <SectionLabel>Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot</SectionLabel>
+          <SectionLabel>Berkeley Robotics and Human Engineering Laboratory · Quadruped running robot</SectionLabel>
           <h2 className="text-3xl font-bold text-deck-text sm:text-4xl">{project.title}</h2>
           {project.subtitle ? <p className="mt-1 text-sm text-deck-muted sm:text-base">{project.subtitle}</p> : null}
         </header>
@@ -43,8 +43,8 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
             <figcaption className="mt-1 flex items-start gap-1.5">
               <UpArrow />
               <span className="text-xs leading-snug text-deck-muted sm:text-sm">
-                At higher speeds, quadrupeds shift from diagonal sync to a front-and-back leaping gait, the motion we
-                optimized for.
+                At speed, quadrupeds switch from a diagonal trot to a bound, leaping off the front and back legs.
+                That&apos;s the gait we trained for.
               </span>
             </figcaption>
           </figure>
@@ -52,7 +52,7 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
           {/* Centre: what we built */}
           <div className="flex min-h-0 flex-col justify-center md:col-span-4">
             <p className="text-base font-bold leading-snug text-deck-text sm:text-lg">
-              From blade physics to a trained running policy:
+              What we did
             </p>
             <ul className="mt-2.5 space-y-1.5">
               <Bullet>
@@ -67,9 +67,8 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
               </Bullet>
               <Bullet>
                 We trained a <strong className="font-semibold text-deck-text">DDPG actor-critic agent</strong> to run as
-                efficiently as possible on those blades, tuning the reward function to encourage{' '}
-                <strong className="font-semibold text-deck-text">cheetah-like gait cycles</strong> from our biomechanics
-                research.
+                efficiently as possible on those blades, with a reward shaped around the{' '}
+                <strong className="font-semibold text-deck-text">cheetah gait</strong> from our biomechanics research.
               </Bullet>
             </ul>
           </div>
@@ -82,8 +81,7 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
               src="/bladerunner/Simscape_Model.png"
             />
             <figcaption className="mt-1 text-xs leading-snug text-deck-muted sm:text-sm">
-              The Simscape Multibody environment I used to train the RL policy, with spring-blade compression, joint
-              dynamics, and ground contact fully modelled.
+              The Simscape model I trained the policy in.
             </figcaption>
           </figure>
         </div>
@@ -105,8 +103,8 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
                 src="/bladerunner/rl-montage.mp4"
               />
               <figcaption className="mt-1 text-center text-xs leading-snug text-deck-muted">
-                A DDPG actor-critic agent learns optimal joint torques through continuous interaction with the Simscape
-                simulation, rather than following a predefined gait.
+                Training runs. The agent learns its joint torques by trial and error in the simulation, with no scripted
+                gait.
               </figcaption>
             </figure>
 
@@ -114,21 +112,24 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
             <div className="flex min-h-0 flex-col justify-between md:col-span-5">
               <div className="flex min-h-0 flex-col justify-center">
                 <p className="text-sm font-bold leading-snug text-deck-accent sm:text-base">
-                  Engineering principles: Not just setting velocity reward high!
+                  The reward wasn&apos;t just &ldquo;go fast&rdquo;
                 </p>
                 <ul className="mt-2 space-y-1.5">
-                  <PrincipleBullet title="Biomimicry for Stability">
-                    Animals maintain stable body posture during running.
+                  <PrincipleBullet>
+                    Rewarded a <strong className="font-semibold text-deck-text">level body</strong>, the way running animals
+                    hold their posture.
                   </PrincipleBullet>
-                  <PrincipleBullet title="Efficient Torque Management">
-                    Penalized abrupt joint direction changes to enhance{' '}
-                    <strong className="font-semibold text-deck-text">torque efficiency</strong>.
+                  <PrincipleBullet>
+                    Penalised <strong className="font-semibold text-deck-text">sudden changes in joint direction</strong> to
+                    save torque.
                   </PrincipleBullet>
-                  <PrincipleBullet title="Dynamic Ground Contact Control">
-                    Minimized ground contact time by penalizing prolonged contact.
+                  <PrincipleBullet>
+                    Penalised <strong className="font-semibold text-deck-text">long ground contact</strong> to keep each stride
+                    quick.
                   </PrincipleBullet>
-                  <PrincipleBullet title="Animal Gait Synchronization">
-                    Constrained front and back legs to move in phase.
+                  <PrincipleBullet>
+                    Kept the <strong className="font-semibold text-deck-text">front legs in phase</strong> with each other, and
+                    the back legs too.
                   </PrincipleBullet>
                 </ul>
               </div>
@@ -136,12 +137,11 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
               {/* Headline result */}
               <div className="mt-1.5 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 p-2.5">
                 <p className="text-sm font-bold leading-snug text-deck-text sm:text-base">
-                  The result: a gait <strong className="text-deck-accent">23% faster</strong> than Boston Dynamics&apos;
-                  Spot.
+                  A gait <strong className="text-deck-accent">44% faster</strong> than Boston Dynamics&apos; Spot.
                 </p>
                 <p className="mt-0.5 text-xs leading-snug text-deck-muted sm:text-sm">
-                  Covered <strong className="font-semibold text-deck-text">23 m in 10 s</strong> in simulation with
-                  strong stability and energy efficiency.
+                  It covered <strong className="font-semibold text-deck-text">23 m in 10 s</strong> in simulation and
+                  stayed stable the whole way.
                 </p>
               </div>
             </div>
@@ -152,12 +152,10 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
   ),
 );
 
-const PrincipleBullet: FC<{title: string; children: ReactNode}> = ({title, children}) => (
+const PrincipleBullet: FC<{children: ReactNode}> = ({children}) => (
   <li className="flex gap-2 text-xs leading-snug text-deck-text lg:text-sm">
     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deck-accent" />
-    <span>
-      <strong className="font-semibold text-deck-accent">{title}:</strong> {children}
-    </span>
+    <span>{children}</span>
   </li>
 );
 

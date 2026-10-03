@@ -30,11 +30,11 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
           </SectionLabel>
           <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
           <p className="mt-1 text-sm font-bold leading-snug text-deck-accent sm:text-base">
-            Bad form causes most training injuries, and you only find out once it hurts.
+            Bad form is a common cause of training injuries, and most people only notice once something hurts.
           </p>
           <p className="mt-1 max-w-4xl text-xs leading-snug text-deck-text sm:text-sm">
-            We built <Em>two products</Em> on one embedded platform: a <Em>swimming coach</Em> and a{' '}
-            <Em>weightlifting coach</Em> that buzz you back on form <Em>mid-exercise</Em>.
+            We built a <Em>swimming coach</Em> and a <Em>weightlifting coach</Em> on the same embedded hardware. Both
+            vibrate to correct your form <Em>mid-exercise</Em>.
           </p>
         </header>
 
@@ -42,7 +42,7 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
         <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
           <PhotoCard
             alt="Hand-soldered protoboard with an ESP32 Feather, MPU6050 IMU and two motor driver breakouts"
-            caption="The swimming build&rsquo;s body unit, hand-soldered: ESP32 Feather, the body IMU and two motor drivers."
+            caption="The hand-soldered body unit from the swimming build, with an ESP32 Feather, the body IMU and two motor drivers."
             spanClass="md:col-span-3"
             src="/obsidian/body-board.jpg"
           />
@@ -50,29 +50,29 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
           {/* Centre: the two prototypes + how they were built */}
           <div className="flex min-h-0 flex-col justify-center gap-1 overflow-hidden md:col-span-5">
             <p className="shrink-0 text-sm font-bold leading-snug text-deck-text sm:text-base">
-              One embedded platform, two coaches:
+              Two prototypes
             </p>
             <ProductCard number="01" title="Swimming">
               <Bullet>
-                IMUs on the <Em>head</Em> and <Em>body</Em>: keep the head <Em>streamlined</Em>, and buzz the moment
-                body roll drifts from a swimmer&rsquo;s gait: correction <Em>mid-stroke</Em>.
+                IMUs on the <Em>head</Em> and <Em>body</Em>. It buzzes when your head lifts out of line or your body
+                roll drifts, so you can correct it <Em>mid-stroke</Em>.
               </Bullet>
             </ProductCard>
             <ProductCard number="02" title="Weightlifting">
               <Bullet>
-                A sensor pod on the <Em>arm</Em> tracks lift angle through <Em>every rep</Em>, streamed live into our{' '}
-                <Em>Python</Em> visualiser. Watch it on the right.
+                A sensor pod on the <Em>arm</Em> tracks the lift angle on <Em>every rep</Em> and streams it live to
+                our <Em>Python</Em> visualiser (demo on the right).
               </Bullet>
             </ProductCard>
             <div className="mt-4 min-h-0">
-              <p className="shrink-0 text-sm font-bold leading-snug text-deck-text sm:text-base">How we built it:</p>
+              <p className="shrink-0 text-sm font-bold leading-snug text-deck-text sm:text-base">How it works</p>
               <ul className="mt-0.5 space-y-1">
                 <Bullet>
                   An <Em>ESP32</Em> reads two <Em>MPU6050 IMUs</Em> and drives four <Em>vibration motors</Em>.
                 </Bullet>
                 <Bullet>
-                  <Em>FreeRTOS</Em> with four concurrent tasks: <Em>mutexes</Em>, <Em>queues</Em> and{' '}
-                  <Em>task notifications</Em> keep sensing, feedback and telemetry in sync.
+                  The firmware runs four <Em>FreeRTOS</Em> tasks, using <Em>mutexes</Em>, <Em>queues</Em> and{' '}
+                  <Em>task notifications</Em> to keep sensing, feedback and telemetry in sync.
                 </Bullet>
               </ul>
             </div>
@@ -81,8 +81,8 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
           <VideoCard
             caption={
               <>
-                The weightlifting prototype live: our Python GUI tracking the arm through a lateral raise, streamed from
-                the wearable.
+                The weightlifting prototype running live, with our Python GUI tracking the arm through a lateral
+                raise.
               </>
             }
             label="Watch the live demo · 1:07"
@@ -101,7 +101,7 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
         <div className="grid shrink-0 grid-cols-1 gap-2 md:grid-cols-12 md:gap-3">
           <div className="flex min-h-0 flex-col justify-center md:col-span-7">
             <p className="text-sm font-bold leading-snug text-deck-text">
-              Then we tested the <span className="text-deck-accent">business</span> as hard as the hardware:
+              We also tested the <span className="text-deck-accent">business</span>
             </p>
             <div className="mt-1.5 grid grid-cols-3 gap-1.5">
               <StatCell label="Customer interviews · NSF I-Corps" value="156" />
@@ -109,7 +109,8 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
               <StatCell label="Draper University accelerator offer" value="1" />
             </div>
             <p className="mt-1.5 text-[11px] leading-snug text-deck-muted sm:text-xs">
-              Five Berkeley MEng founders: ex-SpaceX, Tesla, Lockheed Martin and Samsung R&amp;D.{' '}
+              We were five Berkeley MEng founders who&rsquo;d worked at SpaceX, Tesla, Lockheed Martin and Samsung
+              R&amp;D.{' '}
               <a
                 className="font-semibold text-deck-accent hover:underline"
                 href="/obsidian/pitch-deck.pdf"
@@ -122,11 +123,11 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
 
           <div className="flex flex-col justify-center rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 px-3 py-2 md:col-span-5">
             <p className="text-sm font-bold leading-snug text-deck-text">
-              <span className="text-deck-accent">And then we walked away.</span>
+              <span className="text-deck-accent">Why we stopped</span>
             </p>
             <p className="mt-0.5 text-[11px] leading-snug text-deck-text sm:text-xs">
-              Customer discovery is meant to change your mind, and ours did: the evidence didn&rsquo;t support the
-              business, so we called it before sunk cost could argue otherwise.
+              The tech worked, but we&rsquo;d built it around an idea that wasn&rsquo;t worth pursuing. The
+              interviews made that clear, so we shut it down rather than keep building.
             </p>
           </div>
         </div>
