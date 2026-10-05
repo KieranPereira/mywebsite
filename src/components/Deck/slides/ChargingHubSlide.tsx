@@ -35,8 +35,8 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
           </p>
           <p className="mt-1 max-w-6xl text-xs leading-snug text-deck-text sm:text-sm">
             Prospects saw a prototype and deals stalled. I designed the production hub, now{' '}
-            <Accent>140 in the field</Accent>, and built our own payload, which unlocked{' '}
-            <Accent>$600k+ in deals</Accent>.
+            <Accent>160 in the field</Accent>, which together with our own payload helped unblock about{' '}
+            <Accent>$620K in stalled deals</Accent>.
           </p>
         </header>
 
@@ -71,7 +71,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
               src="/hub/hub-door-open.mp4"
             />
             <div className="shrink-0 p-2.5">
-              <CardHeading status={{label: '✓ 140 in the field', tone: 'green'}} title="The production hub" />
+              <CardHeading status={{label: '✓ 160 in the field · ~$620K unblocked', tone: 'green'}} title="The production hub" />
               <p className="mt-1 text-[11px] leading-snug text-deck-muted">
                 Weatherproof and air-conditioned, with a door that opens itself when a patrol starts.
               </p>
@@ -145,7 +145,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
               <BlurBackdrop src="/hub/payload-field.jpg" />
             </MediaFrame>
             <div className="shrink-0 p-2.5">
-              <CardHeading status={{label: '✓ $600k+ unlocked', tone: 'green'}} title="The in-house payload" />
+              <CardHeading status={{label: '✓ Helped close deals', tone: 'green'}} title="The in-house payload" />
               <p className="mt-1 text-[11px] leading-snug text-deck-muted">
                 Runs through our own dashboard and looks like a finished product.
               </p>
@@ -167,8 +167,8 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
                 A <Em>custom PCB</Em> that tidied up the wiring and drives MOSFETs for the white and blue lights
               </Bullet>
               <Bullet>
-                Reworked the look with customers and sales until it read as a product. That helped unlock{' '}
-                <Em>$600k+ in deals</Em> with Atlanta&rsquo;s largest multifamily company
+                Reworked the look with customers and sales until it read as a product. That helped close deals
+                with Atlanta&rsquo;s largest multifamily company
               </Bullet>
             </ul>
           </article>

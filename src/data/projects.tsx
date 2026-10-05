@@ -31,15 +31,15 @@ export const projects: Project[] = [
     slug: 'charging-hub',
     title: 'Undaunted: Building the largest robotic security fleet in the country.',
     caption:
-      'From a plywood box and a strapped-on Ring doorbell to 140 hubs in the field and $600k+ in unlocked deals.',
-    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I designed the weatherproof, air-conditioned hub that replaced them (140 in the field, manufactured at ten a week) and built the in-house Raspberry Pi teleop payload that unlocked $600k+ in dealflow.',
-    heroStat: {value: '140', label: 'charging hubs in the field, manufactured at 10 a week'},
+      'From a plywood box and a strapped-on Ring doorbell to 160 hubs in the field and about $620K in unblocked deals.',
+    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I designed the weatherproof, air-conditioned hub that replaced them (160 in the field, manufactured at ten a week) and built the in-house Raspberry Pi teleop payload; together they helped unblock about $620K in stalled deals.',
+    heroStat: {value: '160', label: 'charging hubs in the field, manufactured at 10 a week'},
     deckSectionLabel: 'Undaunted · Head of Robotics',
     highlights: [
-      'Took the hub from a plywood prototype to 140 weatherproof, air-conditioned units in the field',
+      'Took the hub from a plywood prototype to 160 weatherproof, air-conditioned units in the field',
       'Held a cadence of 10 hubs a week working with local manufacturers and contractors',
       'Built the in-house payload: Raspberry Pi teleop with IMX cameras, microphone and amplified speaker',
-      'Designed a custom PCB driving MOSFETs for spotlight and patrol-light controls, unlocking $600k+ in dealflow',
+      'Designed a custom PCB driving MOSFETs for spotlight and patrol-light controls, helping unblock about $620K in dealflow',
     ],
     techTags: ['CAD', 'Design for Manufacture', 'Raspberry Pi', 'MQTT', 'PCB Design', 'Teleoperation'],
     media: {
