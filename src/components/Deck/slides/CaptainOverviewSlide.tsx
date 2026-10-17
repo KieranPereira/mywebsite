@@ -153,7 +153,7 @@ const CaptainOverviewSlide: FC<CaptainOverviewSlideProps> = memo(
                     It sailed itself <span className="text-deck-accent">2.3 km</span> up SF Bay and back.
                   </p>
                   <p className="mt-0.5 text-xs leading-snug text-deck-muted sm:text-sm">
-                    Fully autonomous, upwind and downwind. We built and tested 50 boats.
+                    Fully autonomous, upwind and downwind. We built 50 boats and field-tested 18.
                   </p>
                 </div>
               </div>
