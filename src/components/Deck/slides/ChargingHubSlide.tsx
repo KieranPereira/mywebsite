@@ -164,7 +164,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
                 using IMX cameras, a microphone and an amplified 12V speaker
               </Bullet>
               <Bullet>
-                A <Em>custom PCB</Em> that tidied up the wiring and drives MOSFETs for the white and blue lights
+                Integrated a <Em>custom PCB</Em> that drives MOSFETs for the white and blue lights
               </Bullet>
               <Bullet>
                 Reworked the look with customers and sales until it read as a product. That helped close deals
