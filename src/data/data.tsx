@@ -41,8 +41,8 @@ export const deckData: DeckData = {
     <p className="text-base leading-relaxed text-deck-muted sm:text-lg">
       I build whole robots, from the mechanical design and electronics to the control software and AI. MEng at{' '}
       <strong className="text-deck-text">UC Berkeley</strong>, BEng at <strong className="text-deck-text">UCL</strong>,
-      with time at <strong className="text-deck-text">Lockheed Martin</strong>,{' '}
-      <strong className="text-deck-text">Airbus</strong>, and <strong className="text-deck-text">HSBC</strong>.
+      with time at <strong className="text-deck-text">Lockheed Martin</strong> and{' '}
+      <strong className="text-deck-text">HSBC</strong>.
     </p>
   ),
   aboutIntro: [
@@ -52,7 +52,6 @@ export const deckData: DeckData = {
   ],
   experienceLogos: [
     {name: 'Lockheed Martin', src: '/experience/Lockheed Martin.png'},
-    {name: 'Airbus', src: '/experience/Airbus.png'},
     {name: 'UC Berkeley', src: '/experience/Berkeley.png'},
     {name: 'Undaunted', src: '/experience/Undaunted.png'},
   ],
@@ -242,25 +241,6 @@ export const experience: TimelineItem[] = [
       </ul>
     ),
   },
-  {
-    date: '2019',
-    location: 'Airbus',
-    title: 'Engineering Intern, Wing Aerodynamics',
-    imageSrc: '/experience/Airbus.png',
-    caption: 'First taste of aerospace engineering.',
-    tldr: (
-      <>
-        Modeled new wing tech and led the <Key>1st-place team</Key> in an innovation competition.
-      </>
-    ),
-    content: (
-      <ul>
-        <li>Analyzed performance of new wing technology using data analytics and mathematical modeling.</li>
-        <li>Led a team that placed 1st in an innovation competition among 15 teams.</li>
-        <li>Presented findings on aerodynamic optimizations to senior engineers.</li>
-      </ul>
-    ),
-  },
 ];
 
 /**
@@ -272,8 +252,8 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.LinkedIn,
-      text: 'linkedin.com/in/kieranpereira1001',
-      href: 'https://www.linkedin.com/in/kieranpereira1001',
+      text: 'linkedin.com/in/kieranpereira1',
+      href: 'https://www.linkedin.com/in/kieranpereira1',
     },
     {type: ContactType.Email, text: 'Personal: kieranpereira@hotmail.com', href: 'mailto:kieranpereira@hotmail.com'},
     {type: ContactType.Email, text: 'University: kieran_p@berkeley.edu', href: 'mailto:kieran_p@berkeley.edu'},
@@ -286,5 +266,5 @@ export const contact: ContactSection = {
  */
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/kieranpereira'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1001/'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/kieranpereira1/'},
 ];

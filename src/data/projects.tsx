@@ -31,17 +31,16 @@ export const projects: Project[] = [
     slug: 'charging-hub',
     title: 'Undaunted: Building the largest robotic security fleet in the country.',
     caption:
-      'From a plywood box and a strapped-on Ring doorbell to 160 hubs in the field and about $620K in unblocked deals.',
-    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I designed the weatherproof, air-conditioned hub that replaced them (160 in the field, manufactured at ten a week) and built the in-house Raspberry Pi teleop payload; together they helped unblock about $620K in stalled deals.',
-    heroStat: {value: '160', label: 'charging hubs in the field, manufactured at 10 a week'},
+      'From a plywood box and a strapped-on Ring doorbell to 140 hubs in the field and about $620K in unblocked deals.',
+    tldr: 'Our plywood hubs cooked the robots inside, and prospects called our Ring-doorbell payloads prototypes. I designed the weatherproof, air-conditioned hub that replaced them (140 in the field, manufactured at ten a week) and built the in-house Raspberry Pi teleop payload; together they helped unblock about $620K in stalled deals.',
+    heroStat: {value: '140', label: 'charging hubs in the field, manufactured at 10 a week'},
     deckSectionLabel: 'Undaunted · Head of Robotics',
     highlights: [
-      'Took the hub from a plywood prototype to 160 weatherproof, air-conditioned units in the field',
+      'Took the hub from a plywood prototype to 140 weatherproof, air-conditioned units in the field',
       'Held a cadence of 10 hubs a week working with local manufacturers and contractors',
       'Built the in-house payload: Raspberry Pi teleop with IMX cameras, microphone and amplified speaker',
-      'Designed a custom PCB driving MOSFETs for spotlight and patrol-light controls, helping unblock about $620K in dealflow',
     ],
-    techTags: ['CAD', 'Design for Manufacture', 'Raspberry Pi', 'MQTT', 'PCB Design', 'Teleoperation'],
+    techTags: ['CAD', 'Design for Manufacture', 'Raspberry Pi', 'MQTT', 'Teleoperation'],
     media: {
       type: 'video',
       src: '/hub/hub-door-open.mp4',
@@ -577,9 +576,9 @@ export const projects: Project[] = [
     deckSectionLabel: 'Berkeley Robotics and Human Engineering Laboratory - Quadrupedal running robot',
     title: 'BladeRunner: Training a quadruped to run on spring blades',
     subtitle: 'An energy-efficient running quadruped for search and rescue.',
-    caption: "An efficient running quadruped that outpaces Boston Dynamics' Spot.",
+    caption: "An efficient running quadruped that outpaces Boston Dynamics' Spot in simulation.",
     tldr: "Designed and trained a running quadruped in simulation, combining genetic algorithms with reinforcement learning to beat Spot's top speed.",
-    heroStat: {value: '44% faster', label: "than Boston Dynamics' Spot"},
+    heroStat: {value: '44% faster', label: "than Boston Dynamics' Spot in simulation"},
     highlights: [
       'Simulation-first design in MATLAB Simscape Multibody',
       'J-shaped running blades and a passive knee for an energy-efficient gait',
@@ -759,10 +758,10 @@ export const projects: Project[] = [
   /* ----------------------------------------------------------------------- */
   {
     slug: 'opg',
-    deckSectionLabel: 'UC Berkeley · Co-founder & CTO',
+    deckSectionLabel: 'UC Berkeley · Co-founder',
     title: 'Obsidian Performance Gear',
     caption: 'Bad form causes most training injuries. We built a wearable that corrects it mid-rep.',
-    tldr: 'Co-founded a wearables startup as CTO: ESP32 nodes with dual IMUs and vibration motors that correct swimming and lifting form in real time, validated through 156 NSF I-Corps interviews — then shut down when the evidence said stop.',
+    tldr: 'Co-founded a wearables startup: ESP32 nodes with dual IMUs and vibration motors that correct swimming and lifting form in real time, validated through 156 NSF I-Corps interviews — then shut down when the evidence said stop.',
     heroStat: {value: '156', label: 'customer interviews through NSF I-Corps'},
     highlights: [
       'Real-time posture correction: IMU sensing to haptic feedback on-device',

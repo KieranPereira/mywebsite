@@ -35,7 +35,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
           </p>
           <p className="mt-1 max-w-6xl text-xs leading-snug text-deck-text sm:text-sm">
             Prospects saw a prototype and deals stalled. I designed the production hub, now{' '}
-            <Accent>160 in the field</Accent>, which together with our own payload helped unblock about{' '}
+            <Accent>140 in the field</Accent>, which together with our own payload helped unblock about{' '}
             <Accent>$620K in stalled deals</Accent>.
           </p>
         </header>
@@ -71,7 +71,7 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
               src="/hub/hub-door-open.mp4"
             />
             <div className="shrink-0 p-2.5">
-              <CardHeading status={{label: '✓ 160 in the field · ~$620K unblocked', tone: 'green'}} title="The production hub" />
+              <CardHeading status={{label: '✓ 140 in the field · ~$620K unblocked', tone: 'green'}} title="The production hub" />
               <p className="mt-1 text-[11px] leading-snug text-deck-muted">
                 Weatherproof and air-conditioned, with a door that opens itself when a patrol starts.
               </p>
@@ -162,9 +162,6 @@ const ChargingHubSlide: FC<ChargingHubSlideProps> = memo(
               <Bullet>
                 Teleop on a <Em>Raspberry Pi</Em> that streams <Em>live video and two-way audio</Em> to our dashboard,
                 using IMX cameras, a microphone and an amplified 12V speaker
-              </Bullet>
-              <Bullet>
-                Integrated a <Em>custom PCB</Em> that drives MOSFETs for the white and blue lights
               </Bullet>
               <Bullet>
                 Reworked the look with customers and sales until it read as a product. That helped close deals

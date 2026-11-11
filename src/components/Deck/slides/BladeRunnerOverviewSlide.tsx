@@ -137,7 +137,7 @@ const BladeRunnerOverviewSlide: FC<BladeRunnerOverviewSlideProps> = memo(
               {/* Headline result */}
               <div className="mt-1.5 rounded-xl border border-deck-accent/40 bg-deck-accent-muted/40 p-2.5">
                 <p className="text-sm font-bold leading-snug text-deck-text sm:text-base">
-                  A gait <strong className="text-deck-accent">44% faster</strong> than Boston Dynamics&apos; Spot.
+                  A gait <strong className="text-deck-accent">44% faster</strong> than Boston Dynamics&apos; Spot in simulation.
                 </p>
                 <p className="mt-0.5 text-xs leading-snug text-deck-muted sm:text-sm">
                   It covered <strong className="font-semibold text-deck-text">23 m in 10 s</strong> in simulation and

@@ -165,20 +165,20 @@ const ITERATIONS: Iteration[] = [
       </>,
       <>Moved fabrication to a US manufacturer, cutting per-unit cost by about 60%</>,
       <>
-        Repairs mostly stopped. The rovers hit <Em>96% uptime</Em> and deterred 56+ intruders
+        Repairs mostly stopped. The rovers hit <Em>96% uptime</Em> and responded to 130 incidents
       </>,
     ],
     tags: [
       {label: '≈60% cheaper per unit', variant: 'metric'},
       {label: '96% uptime', variant: 'metric'},
-      {label: '56+ deterred', variant: 'metric'},
+      {label: '130 incidents responded to', variant: 'metric'},
     ],
   },
 ];
 
 const RESULTS: {value: string; label: string; accent?: boolean}[] = [
   {value: '5 mo', label: 'From toy to deployed product'},
-  {value: '150', label: 'Robots in the fleet, ~15 of them rovers'},
+  {value: '150', label: 'Robots in the fleet, 20 of them rovers'},
   {value: '96%', label: 'Fleet uptime'},
   {value: '#1', label: 'Robotic security fleet in the US', accent: true},
 ];

@@ -26,7 +26,7 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
       <div className="flex h-full min-h-0 flex-1 flex-col gap-2 lg:gap-2.5">
         <header className="shrink-0">
           <SectionLabel className="text-xs">
-            {project.deckSectionLabel ?? 'UC Berkeley · Co-founder & CTO'}
+            {project.deckSectionLabel ?? 'UC Berkeley · Co-founder'}
           </SectionLabel>
           <h2 className="text-2xl font-bold leading-tight text-deck-text sm:text-3xl">{project.title}</h2>
           <p className="mt-1 text-sm font-bold leading-snug text-deck-accent sm:text-base">
@@ -71,7 +71,7 @@ const ObsidianOverviewSlide: FC<ObsidianOverviewSlideProps> = memo(
                   An <Em>ESP32</Em> reads two <Em>MPU6050 IMUs</Em> and drives four <Em>vibration motors</Em>.
                 </Bullet>
                 <Bullet>
-                  The firmware runs four <Em>FreeRTOS</Em> tasks, using <Em>mutexes</Em>, <Em>queues</Em> and{' '}
+                  The firmware runs three <Em>FreeRTOS</Em> tasks, using <Em>mutexes</Em>, <Em>queues</Em> and{' '}
                   <Em>task notifications</Em> to keep sensing, feedback and telemetry in sync.
                 </Bullet>
               </ul>
@@ -221,7 +221,7 @@ const ArchitectureStrip: FC = () => (
       <div className="flex min-w-[44rem] items-stretch gap-1 px-3 py-1">
         <FlowNode sub="head pitch + body roll" title="2× MPU6050 IMUs" />
         <FlowArrow label="shared I²C · mutex-guarded" />
-        <FlowNode accent sub="4 tasks: sense ×2 · telemetry · command" title="ESP32 · FreeRTOS" />
+        <FlowNode accent sub="3 tasks: sense · telemetry · command" title="ESP32 · FreeRTOS" />
         {/* Fork: haptics out (the product) and telemetry out (the demo) */}
         <div className="flex flex-[2] flex-col justify-center gap-0.5">
           <div className="flex items-stretch gap-1">
